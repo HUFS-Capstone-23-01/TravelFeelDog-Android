@@ -16,9 +16,7 @@ import com.example.travelfeeldog.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-
     }
 }
