@@ -1,7 +1,8 @@
-package com.example.travelfeeldog
+package com.example.travelfeeldog.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.travelfeeldog.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
