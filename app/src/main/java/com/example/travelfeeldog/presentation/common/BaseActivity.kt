@@ -5,8 +5,9 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.databinding.ViewDataBindingKtx
 
-class BaseActivity<T: ViewDataBinding>(@LayoutRes private val layoutRes: Int) : AppCompatActivity() {
+abstract class BaseActivity<T: ViewDataBinding>(@LayoutRes private val layoutRes: Int) : AppCompatActivity() {
 
     lateinit var binding: T
 
