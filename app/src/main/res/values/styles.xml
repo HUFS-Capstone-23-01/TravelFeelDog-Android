@@ -68,6 +68,13 @@
         <item name="android:textColor">@color/primary_color</item>
     </style>
 
+    <!-- 바텀 네비게이션 텍스트 -->
+    <style name="Widget.BottomNavigationViewInActive" parent="Widget.Design.BottomNavigationView">
+        <item name="android:fontFamily">@font/scdream_regular</item>
+    </style>
 
+    <style name="Widget.BottomNavigationViewActive" parent="Widget.Design.BottomNavigationView">
+        <item name="android:fontFamily">@font/scdream_medium</item>
+    </style>
 
 </resources>

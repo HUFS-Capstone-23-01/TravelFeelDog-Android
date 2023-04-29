@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.travelfeeldog.presentation.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/nav_search" />
+        <action
+            android:id="@+id/action_homeFragment_to_myPageFragment"
+            app:destination="@id/nav_my_page" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_my_page"
+        android:name="com.example.travelfeeldog.presentation.mypage.MyPageFragment"
+        android:label="fragment_my_page"
+        tools:layout="@layout/fragment_my_page" />
+
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.example.travelfeeldog.presentation.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+
+</navigation>

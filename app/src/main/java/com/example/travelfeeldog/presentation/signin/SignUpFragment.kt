@@ -6,15 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.travelfeeldog.R
+import com.example.travelfeeldog.databinding.FragmentSignUpBinding
+import com.example.travelfeeldog.presentation.common.BaseFragment
+import com.example.travelfeeldog.presentation.common.NavigationUtil.navigate
 
-class SignUpFragment : Fragment() {
+class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sign_up) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+        binding.btnSingUpDone.setOnClickListener {
+            navigate(R.id.action_signUpFragment_to_mainActivity)
+            requireActivity().finish()
+        }
     }
-
 }

@@ -10,7 +10,6 @@ import androidx.databinding.ViewDataBindingKtx
 abstract class BaseActivity<T: ViewDataBinding>(@LayoutRes private val layoutRes: Int) : AppCompatActivity() {
 
     lateinit var binding: T
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
