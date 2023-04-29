@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TravelFeelDog</string>
+    <!--  로그인 화면  -->
+    <string name="request_btn_sign_in">구글 로그인</string>
+    <string name="sign_in_title_first_line">반려동물과 함께</string>
+    <string name="sign_in_title_second_line">여행지 선택은</string>
+    <string name="sign_in_title_third_line">여행필독서</string>
 </resources>

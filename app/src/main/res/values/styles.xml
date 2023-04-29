@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- 폰트 적용 + 굵기에 따라 정의 -->
+    <style name="FontWeight_1_Thin"><item name="fontFamily">@font/scdream_thin</item></style>
+    <style name="FontWeight_2_ExtraLight"><item name="fontFamily">@font/scdream_extra_light</item></style>
+    <style name="FontWeight_3_Light"><item name="fontFamily">@font/scdream_light</item></style>
+    <style name="FontWeight_4_Regular"><item name="fontFamily">@font/scdream_regular</item></style>
+    <style name="FontWeight_5_Medium"><item name="fontFamily">@font/scdream_medium</item></style>
+    <style name="FontWeight_6_Bold"><item name="fontFamily">@font/scdream_bold</item></style>
+    <style name="FontWeight_7_ExtraBold"><item name="fontFamily">@font/scdream_extra_bold</item></style>
+    <style name="FontWeight_8_Heavy"><item name="fontFamily">@font/scdream_heavy</item></style>
+    <style name="FontWeight_9_Black"><item name="fontFamily">@font/scdream_black</item></style>
+
+    <!-- 화면 상단 제목 큰 텍스트 -->
+    <style name="TextTitle" parent="FontWeight_7_ExtraBold">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="TextTitle.Black" parent="TextTitle">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextTitle.Green" parent="TextTitle">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+
+    <!-- 요청 버튼 텍스트-->
+    <style name="TextRequestButton" parent="FontWeight_4_Regular">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextRequestButton.White" parent="TextRequestButton">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>
