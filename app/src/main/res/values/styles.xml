@@ -11,7 +11,7 @@
     <style name="FontWeight_8_Heavy"><item name="fontFamily">@font/scdream_heavy</item></style>
     <style name="FontWeight_9_Black"><item name="fontFamily">@font/scdream_black</item></style>
 
-    <!-- 화면 상단 제목 큰 텍스트 -->
+    <!-- Bold 텍스트 -->
     <style name="TextTitle" parent="FontWeight_7_ExtraBold">
         <item name="android:textSize">32sp</item>
     </style>
@@ -24,7 +24,16 @@
         <item name="android:textColor">@color/primary_color</item>
     </style>
 
-    <!-- 요청 버튼 텍스트-->
+    <!-- Regular 텍스트 -->
+    <style name="TextSubTitle" parent="FontWeight_4_Regular">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextSubTitle.Black" parent="TextSubTitle">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
     <style name="TextRequestButton" parent="FontWeight_4_Regular">
         <item name="android:textSize">18sp</item>
     </style>
@@ -32,5 +41,33 @@
     <style name="TextRequestButton.White" parent="TextRequestButton">
         <item name="android:textColor">@color/white</item>
     </style>
+
+
+    <style name="TextInBox" parent="FontWeight_4_Regular">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextInBox.Green" parent="TextInBox">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+
+
+    <style name="TextSubInfo" parent="FontWeight_4_Regular">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextSubInfo.Black" parent="TextSubInfo">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextSubInfo.Red" parent="TextSubInfo">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="TextSubInfo.Green" parent="TextSubInfo">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+
+
 
 </resources>

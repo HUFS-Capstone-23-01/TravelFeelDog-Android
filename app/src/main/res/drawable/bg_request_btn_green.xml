@@ -7,7 +7,6 @@
         android:endColor="@color/secondary_color"
         android:angle="45"
         android:type="linear"/>
-<!--    <solid android:color="@color/primary_color" />-->
     <corners android:radius="10dp" />
 
 </shape>
