@@ -6,12 +6,13 @@
     android:layout_height="140dp"
     tools:background="@drawable/bg_gradient_red_pinkpurple">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/siv_ad_image_container"
         android:layout_width="84dp"
         android:layout_height="84dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/custom_shadow"
+        android:background="@color/white"
+        android:elevation="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,7 +22,7 @@
         android:id="@+id/iv_ad_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="30dp"
+        android:elevation="100dp"
         app:layout_constraintBottom_toBottomOf="@id/siv_ad_image_container"
         app:layout_constraintEnd_toEndOf="@id/siv_ad_image_container"
         app:layout_constraintStart_toStartOf="@id/siv_ad_image_container"
