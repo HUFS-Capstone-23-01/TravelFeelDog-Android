@@ -6,6 +6,8 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
+    <color name="transparent">#00FFFFFF</color>
+
     <!--Main color-->
     <color name="primary_color">#94E0AC</color>
     <!--Sub color-->
@@ -16,7 +18,10 @@
     <color name="red">#FF6565</color>
     <color name="red_wine">#DD6287</color>
     <color name="purple_pink">#D362DD</color>
+    <color name="sky_blue">#62A9DD</color>
+    <color name="weak_purple">#9862DD</color>
 
+    <color name="black_gray_transparent">#80545454</color>
     <color name="gray0">#717171</color>
     <color name="gray1">#A5A5A5</color>
     <color name="gray2">#CCCCCC</color>
