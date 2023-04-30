@@ -35,7 +35,7 @@
 
 
     <style name="TextRequestButton" parent="FontWeight_4_Regular">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="TextRequestButton.White" parent="TextRequestButton">
@@ -44,7 +44,7 @@
 
 
     <style name="TextInBox" parent="FontWeight_4_Regular">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="TextInBox.Green" parent="TextInBox">
@@ -69,11 +69,15 @@
     </style>
 
     <!-- 바텀 네비게이션 텍스트 -->
-    <style name="Widget.BottomNavigationViewInActive" parent="Widget.Design.BottomNavigationView">
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Widget.BottomNavigationView.InActive" parent="Widget.BottomNavigationView">
         <item name="android:fontFamily">@font/scdream_regular</item>
     </style>
 
-    <style name="Widget.BottomNavigationViewActive" parent="Widget.Design.BottomNavigationView">
+    <style name="Widget.BottomNavigationView.Active" parent="Widget.BottomNavigationView">
         <item name="android:fontFamily">@font/scdream_medium</item>
     </style>
 

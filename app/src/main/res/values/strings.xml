@@ -16,7 +16,7 @@
     <string name="sign_up_error_none">닉네임 설정을 완료해주세요!</string>
     <string name="sign_up_btn_done">완료</string>
     <string name="sign_up_notification_correct_input">사용 가능한 닉네임입니다.</string>
-    <string name="sign_up_title_second_line">닉네임을 설정해주세요.</string>
+    <string name="sign_up_title_second_line">닉네임을 설정해 주세요.</string>
 
     <!-- 바텀 네비게이션 -->
     <string name="navigation_home">홈</string>
