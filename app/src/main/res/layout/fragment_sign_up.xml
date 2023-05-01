@@ -21,7 +21,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_sign_up_title_first_line"
-            style="@style/TextTitle.Black"
+            style="@style/Text_32_ExtraBold.Black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -35,7 +35,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_sign_up_title_second_line"
-            style="@style/TextSubTitle.Black"
+            style="@style/Text_20_Regular.Black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -48,7 +48,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_info_nickname"
-            style="@style/TextSubInfo.Black"
+            style="@style/Text_12_Regular.Black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -59,7 +59,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_essential"
-            style="@style/TextSubInfo.Red"
+            style="@style/Text_12_Regular.Red"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sign_up_essential"
@@ -69,7 +69,7 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etv_input_box"
-            style="@style/TextInBox"
+            style="@style/Text_14_Regular"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -85,7 +85,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_duplicate_verification"
-            style="@style/TextInBox.Green"
+            style="@style/Text_14_Regular.Green"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
@@ -99,7 +99,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_error_duplication"
-            style="@style/TextSubInfo.Red"
+            style="@style/Text_12_Regular.Red"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
@@ -113,7 +113,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_notification_correct_input"
-            style="@style/TextSubInfo.Green"
+            style="@style/Text_12_Regular.Green"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
@@ -127,7 +127,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_error_none"
-            style="@style/TextSubInfo.Red"
+            style="@style/Text_12_Regular.Red"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -142,7 +142,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_sing_up_done"
-            style="@style/TextRequestButton.White"
+            style="@style/Text_14_Regular.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"

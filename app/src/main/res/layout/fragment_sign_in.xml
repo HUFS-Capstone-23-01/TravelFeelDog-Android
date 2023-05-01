@@ -10,7 +10,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title_first_line"
-            style="@style/TextTitle.Black"
+            style="@style/Text_32_ExtraBold.Black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -22,7 +22,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title_second_line"
-            style="@style/TextTitle.Black"
+            style="@style/Text_32_ExtraBold.Black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -34,7 +34,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_third_line"
-            style="@style/TextTitle.Green"
+            style="@style/Text_32_ExtraBold.Green"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -60,7 +60,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_sign_in"
-            style="@style/TextRequestButton.White"
+            style="@style/Text_14_Regular.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"

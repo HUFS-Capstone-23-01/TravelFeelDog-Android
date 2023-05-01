@@ -1,65 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
     <!-- 폰트 적용 + 굵기에 따라 정의 -->
-    <style name="FontWeight_1_Thin">
-        <item name="android:fontFamily">@font/scdream_thin</item>
-    </style>
-
-    <style name="FontWeight_2_ExtraLight">
-        <item name="android:fontFamily">@font/scdream_extra_light</item>
-    </style>
-
-    <style name="FontWeight_3_Light">
-        <item name="android:fontFamily">@font/scdream_light</item>
-    </style>
-
-    <style name="FontWeight_4_Regular">
-        <item name="android:fontFamily">@font/scdream_regular</item>
-    </style>
-
-    <style name="FontWeight_5_Medium">
-        <item name="android:fontFamily">@font/scdream_medium</item>
-    </style>
-
-    <style name="FontWeight_6_Bold">
-        <item name="android:fontFamily">@font/scdream_bold</item>
-    </style>
-
-    <style name="FontWeight_7_ExtraBold">
-        <item name="android:fontFamily">@font/scdream_extra_bold</item>
-    </style>
-
-    <style name="FontWeight_8_Heavy">
-        <item name="android:fontFamily">@font/scdream_heavy</item>
-    </style>
-
-    <style name="FontWeight_9_Black">
-        <item name="android:fontFamily">@font/scdream_black</item>
-    </style>
+    <style name="FontWeight_1_Thin"><item name="android:fontFamily">@font/scdream_thin</item></style>
+    <style name="FontWeight_2_ExtraLight"><item name="android:fontFamily">@font/scdream_extra_light</item></style>
+    <style name="FontWeight_3_Light"><item name="android:fontFamily">@font/scdream_light</item></style>
+    <style name="FontWeight_4_Regular"><item name="android:fontFamily">@font/scdream_regular</item></style>
+    <style name="FontWeight_5_Medium"><item name="android:fontFamily">@font/scdream_medium</item></style>
+    <style name="FontWeight_6_Bold"><item name="android:fontFamily">@font/scdream_bold</item></style>
+    <style name="FontWeight_7_ExtraBold"><item name="android:fontFamily">@font/scdream_extra_bold</item></style>
+    <style name="FontWeight_8_Heavy"><item name="android:fontFamily">@font/scdream_heavy</item></style>
+    <style name="FontWeight_9_Black"><item name="android:fontFamily">@font/scdream_black</item></style>
 
     <!-- Extra Bold 텍스트 -->
-    <style name="TextTitle" parent="FontWeight_7_ExtraBold"><item name="android:textSize">32sp</item></style>
-    <style name="Text_30_Bold" parent="FontWeight_7_ExtraBold"><item name="android:textSize">30sp</item></style>
-    <style name="Text_22_Bold" parent="FontWeight_7_ExtraBold"><item name="android:textSize">22sp</item></style>
+    <style name="Text_32_ExtraBold" parent="FontWeight_7_ExtraBold"><item name="android:textSize">32sp</item></style>
+    <style name="Text_30_ExtraBold" parent="FontWeight_7_ExtraBold"><item name="android:textSize">30sp</item></style>
+    <style name="Text_22_ExtraBold" parent="FontWeight_7_ExtraBold"><item name="android:textSize">22sp</item></style>
 
-    <style name="TextTitle.Black" parent="TextTitle">
+    <style name="Text_32_ExtraBold.Black" parent="Text_32_ExtraBold">
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Text_22_Bold.Black" parent="Text_22_Bold">
-        <item name="android:textColor">@color/black</item>
-    </style>
-
-    <style name="TextTitle.Green" parent="TextTitle">
+    <style name="Text_32_ExtraBold.Green" parent="Text_32_ExtraBold">
         <item name="android:textColor">@color/primary_color</item>
     </style>
 
-    <style name="TextTitle.White" parent="TextTitle">
+    <style name="Text_32_ExtraBold.White" parent="Text_32_ExtraBold">
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Text_30_Bold.White" parent="Text_30_Bold">
+    <style name="Text_30_Bold.White" parent="Text_30_ExtraBold">
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Text_22_Bold.Black" parent="Text_22_ExtraBold">
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Bold 텍스트 -->
@@ -104,53 +78,36 @@
 
 
     <!-- Regular 텍스트 -->
-    <style name="TextSubTitle" parent="FontWeight_4_Regular">
-        <item name="android:textSize">20sp</item>
-    </style>
+    <style name="Text_20_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">20sp</item></style>
+    <style name="Text_14_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">14sp</item></style>
+    <style name="Text_12_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">12sp</item></style>
+    <style name="Text_10_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">10sp</item></style>
 
-    <style name="TextSubTitle.Black" parent="TextSubTitle">
+    <style name="Text_20_Regular.Black" parent="Text_20_Regular">
         <item name="android:textColor">@color/black</item>
     </style>
 
-
-    <style name="TextRequestButton" parent="FontWeight_4_Regular">
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="TextRequestButton.White" parent="TextRequestButton">
+    <style name="Text_14_Regular.White" parent="Text_14_Regular">
         <item name="android:textColor">@color/white</item>
     </style>
 
-
-    <style name="TextInBox" parent="FontWeight_4_Regular">
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="TextInBox.Green" parent="TextInBox">
+    <style name="Text_14_Regular.Green" parent="Text_14_Regular">
         <item name="android:textColor">@color/primary_color</item>
     </style>
 
-    <style name="TextInBox.Gray" parent="TextInBox">
+    <style name="Text_14_Regular.Gray" parent="Text_14_Regular">
         <item name="android:textColor">@color/gray1</item>
     </style>
 
-    <style name="TextInBox.White" parent="TextInBox">
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-
-    <style name="TextSubInfo" parent="FontWeight_4_Regular"><item name="android:textSize">12sp</item></style>
-    <style name="Text_10_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">10sp</item></style>
-
-    <style name="TextSubInfo.Black" parent="TextSubInfo">
+    <style name="Text_12_Regular.Black" parent="Text_12_Regular">
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="TextSubInfo.Red" parent="TextSubInfo">
+    <style name="Text_12_Regular.Red" parent="Text_12_Regular">
         <item name="android:textColor">@color/red</item>
     </style>
 
-    <style name="TextSubInfo.Green" parent="TextSubInfo">
+    <style name="Text_12_Regular.Green" parent="Text_12_Regular">
         <item name="android:textColor">@color/primary_color</item>
     </style>
 
@@ -184,11 +141,11 @@
         <item name="chipBackgroundColor">@color/selector_chip_color</item>
         <item name="checkedIconTint">@color/white</item>
         <item name="android:textColor">@color/selector_chip_text_color</item>
-        <item name="android:textAppearance">@style/TextSubInfo</item>
+        <item name="android:textAppearance">@style/Text_12_Regular</item>
         <item name="rippleColor">@color/transparent</item>
     </style>
 
-    <!-- 이미지 둥글게 설정 -->
+    <!-- 이미지 모서리 설정 -->
     <style name="CircleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
