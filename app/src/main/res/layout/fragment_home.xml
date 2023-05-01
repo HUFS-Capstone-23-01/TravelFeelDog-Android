@@ -196,12 +196,14 @@
                 android:id="@+id/rv_favorite_location_container"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="14dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title_favorite_location" />
+                app:layout_constraintTop_toBottomOf="@id/tv_title_favorite_location"
+                tools:listitem="@layout/item_home_best_location" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title_review_sorted"
@@ -220,12 +222,16 @@
                 android:id="@+id/rv_review_sorted_container"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title_review_sorted" />
+                app:layout_constraintTop_toBottomOf="@id/tv_title_review_sorted"
+                tools:listitem="@layout/item_home_review_location" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

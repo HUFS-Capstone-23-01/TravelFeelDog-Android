@@ -14,6 +14,7 @@
     <color name="secondary_color">#7DEFCD</color>
 
     <color name="white">#FFFFFFFF</color>
+    <color name="white_transparent">#B3FFFFFF</color>
     <color name="black">#2C2C2C</color>
     <color name="red">#FF6565</color>
     <color name="red_wine">#DD6287</color>
@@ -22,9 +23,11 @@
     <color name="weak_purple">#9862DD</color>
 
     <color name="black_gray_transparent">#80545454</color>
+    <color name="black_gray_weak_transparent">#33545454</color>
     <color name="gray0">#717171</color>
     <color name="gray1">#A5A5A5</color>
     <color name="gray2">#CCCCCC</color>
+    <color name="gray2.5">#ECECEC</color>
     <color name="gray3">#EEEEEE</color>
     <color name="gray4">#F6F6F6</color>
 </resources>
