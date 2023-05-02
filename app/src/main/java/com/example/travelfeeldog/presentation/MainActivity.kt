@@ -17,11 +17,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         setContentView(binding.root)
 
         binding.bnvMain.setupWithNavController(findNavController())
+        setNavigationBarVisibility()
     }
     private fun findNavController(): NavController {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
 
         return navHostFragment.navController
+    }
+
+    private fun setNavigationBarVisibility() {
+        findNavController().addOnDestinationChangedListener { _, destination, _ ->
+            binding.bnvMain.visibility =
+                when (destination.id) {
+                    R.id.nav_home, R.id.nav_search, R.id.nav_my_page, -> View.VISIBLE
+                    else -> View.GONE
+                }
+        }
     }
 }

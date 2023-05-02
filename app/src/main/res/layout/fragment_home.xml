@@ -181,7 +181,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title_favorite_location"
-                style="@style/Text_22_Bold.Black"
+                style="@style/Text_18_ExtraBold.Black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
@@ -207,7 +207,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title_review_sorted"
-                style="@style/Text_22_Bold.Black"
+                style="@style/Text_18_ExtraBold.Black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"

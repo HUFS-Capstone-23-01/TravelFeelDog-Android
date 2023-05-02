@@ -13,6 +13,12 @@
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
+
+        <!-- Popup menu custom -->
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.App.BodyLarge</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.App.BodyLarge</item>
+        <item name="popupMenuBackground">@drawable/custom_popup_background</item>
+        <item name="popupMenuStyle">@style/Widget.App.PopupMenu</item>
     </style>
 
     <!-- Splash Screen -->
@@ -23,5 +29,16 @@
         <item name="postSplashScreenTheme">@style/Theme.TravelFeelDog</item>
     </style>
 
+    <!-- Popup menu custom -->
+    <style name="TextAppearance.App.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/scdream_regular</item>
+        <item name="android:fontFamily">@font/scdream_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Widget.App.PopupMenu" parent="Widget.Material3.PopupMenu">
+        <item name="android:popupBackground">@drawable/custom_popup_background</item>
+    </style>
 
 </resources>

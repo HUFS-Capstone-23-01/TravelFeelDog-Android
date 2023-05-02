@@ -22,12 +22,33 @@
         android:id="@+id/nav_my_page"
         android:name="com.example.travelfeeldog.presentation.mypage.MyPageFragment"
         android:label="fragment_my_page"
-        tools:layout="@layout/fragment_my_page" />
+        tools:layout="@layout/fragment_my_page" >
+        <action
+            android:id="@+id/action_nav_my_page_to_myReviewFragment"
+            app:destination="@id/myReviewFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_nav_my_page_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_search"
         android:name="com.example.travelfeeldog.presentation.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/myReviewFragment"
+        android:name="com.example.travelfeeldog.presentation.mypage.MyReviewFragment"
+        android:label="fragment_my_review"
+        tools:layout="@layout/fragment_my_review" />
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.example.travelfeeldog.presentation.review.ReviewFragment"
+        android:label="fragment_review"
+        tools:layout="@layout/fragment_review" />
 
 </navigation>

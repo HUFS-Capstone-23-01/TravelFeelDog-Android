@@ -18,7 +18,7 @@
             <View
                 android:id="@+id/v_profile_container"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:layout_height="150dp"
                 android:background="@drawable/bg_gradient_green_purple"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_my_info"
-                style="@style/Text_22_Bold.White"
+                style="@style/Text_18_Bold.White"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -49,7 +49,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_user_nickname"
-                style="@style/Text_18_Bold.White"
+                style="@style/Text_16_Bold.White"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -58,11 +58,12 @@
                 app:layout_constraintEnd_toEndOf="@id/v_profile_container"
                 app:layout_constraintStart_toEndOf="@id/iv_user_profile_photo"
                 app:layout_constraintTop_toTopOf="@id/iv_user_profile_photo"
+                android:text="시계는와치"
                 tools:text="시계는와치" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_stamp_level_notice"
-                style="@style/Text_14_Regular.White"
+                style="@style/Text_12_Regular.White"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -73,12 +74,13 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_user_stamp_level"
-                style="@style/Text_14_Bold.White"
+                style="@style/Text_12_Bold.White"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@id/tv_stamp_level_notice"
                 app:layout_constraintStart_toEndOf="@id/tv_stamp_level_notice"
                 app:layout_constraintTop_toTopOf="@id/tv_stamp_level_notice"
+                android:text="Lv5"
                 tools:text="Lv5" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -95,7 +97,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_stamp_title"
-                    style="@style/Text_22_Bold.Black"
+                    style="@style/Text_18_Bold.Black"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -115,7 +117,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_stamp_area_in_title"
-                    style="@style/Text_18_Medium.Black"
+                    style="@style/Text_16_Medium.Black"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -126,7 +128,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_stamp_area_in_subtitle"
-                    style="@style/Text_14_Regular.Gray"
+                    style="@style/Text_12_Regular.Gray"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -138,7 +140,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_stamp_level"
-                    style="@style/Text_18_Medium.Green"
+                    style="@style/Text_16_Medium.Green"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -146,16 +148,18 @@
                     app:layout_constraintEnd_toStartOf="@id/tv_stamp_integer"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_stamp_area_in_subtitle"
+                    android:text="Lv5"
                     tools:text="Lv5" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_stamp_integer"
-                    style="@style/Text_16_Regular.Green"
+                    style="@style/Text_14_Regular.Green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="@id/tv_stamp_level"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_stamp_level"
+                    android:text="4 / 40"
                     tools:text="4 / 40" />
 
                 <androidx.core.widget.ContentLoadingProgressBar
@@ -189,7 +193,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_review_title"
-                    style="@style/Text_22_Bold.Black"
+                    style="@style/Text_18_Bold.Black"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -209,7 +213,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_review_area_in_title"
-                    style="@style/Text_18_Medium.Black"
+                    style="@style/Text_16_Medium.Black"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -220,7 +224,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_review_area_in_subtitle"
-                    style="@style/Text_14_Regular.Gray"
+                    style="@style/Text_12_Regular.Gray"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -240,6 +244,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_logout"
                 style="@style/Text_14_Regular.Red"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
