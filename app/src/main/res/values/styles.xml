@@ -76,6 +76,10 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="Text_16_Bold.Black" parent="Text_16_Bold">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="Text_18_Bold.White" parent="Text_18_Bold">
         <item name="android:textColor">@color/white</item>
     </style>

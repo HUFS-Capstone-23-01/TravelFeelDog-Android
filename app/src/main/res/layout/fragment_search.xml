@@ -10,7 +10,7 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/tv_search_bar"
-            style="@style/Text_14_Regular.Gray"
+            style="@style/Text_14_Regular.Black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
@@ -21,7 +21,8 @@
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
             android:padding="12dp"
-            android:text="@string/home_search_bar"
+            android:hint="@string/home_search_bar"
+            android:textColorHint="@color/gray1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
