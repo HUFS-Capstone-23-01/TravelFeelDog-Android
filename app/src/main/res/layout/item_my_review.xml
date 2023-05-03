@@ -144,8 +144,8 @@
                         android:id="@+id/siv_third"
                         android:layout_width="130dp"
                         android:layout_height="100dp"
-                        android:scaleType="centerCrop"
                         android:layout_marginEnd="10dp"
+                        android:scaleType="centerCrop"
                         app:shapeAppearanceOverlay="@style/RoundingImageView"
                         tools:src="@drawable/img_test_location" />
 

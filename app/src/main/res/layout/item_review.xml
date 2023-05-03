@@ -6,9 +6,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="18dp"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:paddingStart="18dp">
+        android:paddingBottom="20dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_review_user_profile_photo"
@@ -118,6 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="18dp"
+            android:lineSpacingExtra="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_like_tag"
@@ -127,9 +128,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:visibility="visible"
             app:layout_constraintTop_toBottomOf="@id/tv_review_user_comment">
 
             <LinearLayout
