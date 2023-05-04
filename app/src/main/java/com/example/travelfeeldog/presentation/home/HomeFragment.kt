@@ -21,7 +21,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         // TODO(고정된 정보 - 나중에 고정된 정보끼리 데이터 셋 만들 것)
         val eventBannerInfo = mutableListOf<EventBanner>().apply {
             add(
@@ -42,6 +41,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             )
         }
 
+        setHomeEventBanner(eventBannerInfo, 2)
     }
 
     private fun mainViewChangeEvent(maxEvent: Int) {

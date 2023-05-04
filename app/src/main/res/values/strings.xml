@@ -34,4 +34,6 @@
     <string name="first_main_title">슬기로운 반려생활</string>
     <string name="second_sub_title">리뷰 작성하고 쿠폰 받자!</string>
     <string name="second_main_title">슬기로운 리뷰생활</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
