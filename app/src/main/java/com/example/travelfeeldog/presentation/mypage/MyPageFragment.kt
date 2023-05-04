@@ -16,8 +16,7 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         super.onViewCreated(view, savedInstanceState)
 
         binding.clReviewArea.setOnClickListener{
-//            navigate(R.id.action_nav_my_page_to_myReviewFragment)
-            navigate(R.id.action_nav_my_page_to_placeReviewFragment)
+            navigate(R.id.action_nav_my_page_to_myReviewFragment)
         }
     }
 }

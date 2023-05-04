@@ -28,6 +28,10 @@
 
     <!-- 더미 텍스트 -->
     <string name="dummy_text_multi_line">미안하다. 이거 보여주려고 어그로 끌었다. 강원 석수펜션 여행지 레알 실화냐? 가슴이 웅장해진다. 내가 알던 그 찐따같던 강원 석수펜션 맞냐? 강원 석수펜션은 ㄹㅇ 전설이다. 나루토 사스케 싸움 수준 ㄹㅇ실화냐? 가슴이 웅장해진다. 내가 알던 그 찐따같던 나루토 맞냐? 진짜 나루토는 전설이다...</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 홈 이벤트 배너 텍스트 -->
+    <string name="first_sub_title">여행필독서 제대로 사용하기</string>
+    <string name="first_main_title">슬기로운 반려생활</string>
+    <string name="second_sub_title">리뷰 작성하고 쿠폰 받자!</string>
+    <string name="second_main_title">슬기로운 리뷰생활</string>
 </resources>

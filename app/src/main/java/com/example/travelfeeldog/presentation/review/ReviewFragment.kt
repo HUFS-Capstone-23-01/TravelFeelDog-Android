@@ -11,6 +11,8 @@ import com.example.travelfeeldog.presentation.common.BaseFragment
 
 class ReviewFragment : BaseFragment<FragmentReviewBinding>(R.layout.fragment_review), PopupMenu.OnMenuItemClickListener {
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

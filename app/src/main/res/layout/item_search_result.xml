@@ -93,10 +93,11 @@
                 tools:text="서울특별시 동일로60길 10" />
 
             <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cg_hashtag_container"
+                style="@style/HashTagChipStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                style="@style/HashTagChipStyle"
                 android:orientation="horizontal"
                 app:chipSpacingHorizontal="3dp"
                 app:chipSpacingVertical="3dp"
