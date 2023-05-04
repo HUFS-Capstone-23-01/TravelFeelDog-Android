@@ -208,6 +208,10 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="Text_14_Regular.Blue" parent="Text_14_Regular">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
     <style name="Text_14_Regular.White" parent="Text_14_Regular">
         <item name="android:textColor">@color/white</item>
     </style>
@@ -286,12 +290,18 @@
     </style>
 
     <!-- 칩 버튼 커스텀 -->
+
+
     <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
         <item name="chipBackgroundColor">@color/selector_chip_color</item>
         <item name="checkedIconTint">@color/white</item>
         <item name="android:textColor">@color/selector_chip_text_color</item>
         <item name="android:textAppearance">@style/Text_12_Regular</item>
         <item name="rippleColor">@color/transparent</item>
+    </style>
+
+    <style name="NegativeKeywordChipStyle" parent="CustomChipStyle">
+        <item name="chipBackgroundColor">@color/selector_chip_color_negative</item>
     </style>
 
     <!-- 이미지 모서리 설정 -->
@@ -317,6 +327,17 @@
         <item name="cornerFamilyBottomRight">rounded</item>
         <item name="cornerSizeBottomLeft">20%</item>
         <item name="cornerSizeBottomRight">20%</item>
+    </style>
+
+    <!-- Number Picker Custom -->
+    <style name="DatePickerCustomSize">
+        <!-- Divider color -->
+        <item name="colorControlNormal">@color/primary_color</item>
+        <!--Display textSize-->
+        <item name="android:textSize">14sp</item>
+        <!--Display textColor-->
+        <item name="android:editTextColor">@color/primary_color</item>
+        <item name="android:fontFamily">@font/scdream_medium</item>
     </style>
 
 </resources>

@@ -37,6 +37,9 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_nav_my_page_to_placeReviewFragment"
+            app:destination="@id/placeReviewFragment" />
     </fragment>
 
     <fragment
@@ -71,6 +74,15 @@
         android:id="@+id/locationDetailFragment"
         android:name="com.example.travelfeeldog.presentation.location.LocationDetailFragment"
         android:label="fragment_location_detail"
-        tools:layout="@layout/fragment_location_detail" />
+        tools:layout="@layout/fragment_location_detail" >
+        <action
+            android:id="@+id/action_locationDetailFragment_to_placeReviewFragment"
+            app:destination="@id/placeReviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeReviewFragment"
+        android:name="com.example.travelfeeldog.presentation.review.PlaceReviewFragment"
+        android:label="fragment_place_review"
+        tools:layout="@layout/fragment_place_review" />
 
 </navigation>
