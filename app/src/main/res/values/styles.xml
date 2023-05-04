@@ -191,6 +191,7 @@
     <style name="Text_14_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">14sp</item></style>
     <style name="Text_12_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">12sp</item></style>
     <style name="Text_10_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">10sp</item></style>
+    <style name="Text_8_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">8sp</item></style>
 
     <style name="Text_20_Regular.Black" parent="Text_20_Regular">
         <item name="android:textColor">@color/black</item>
@@ -276,6 +277,10 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="Text_8_Regular.Green" parent="Text_8_Regular">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+
     <!-- 바텀 네비게이션 텍스트 -->
     <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
         <item name="android:textSize">10sp</item>
@@ -290,8 +295,6 @@
     </style>
 
     <!-- 칩 버튼 커스텀 -->
-
-
     <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
         <item name="chipBackgroundColor">@color/selector_chip_color</item>
         <item name="checkedIconTint">@color/white</item>
@@ -302,6 +305,17 @@
 
     <style name="NegativeKeywordChipStyle" parent="CustomChipStyle">
         <item name="chipBackgroundColor">@color/selector_chip_color_negative</item>
+    </style>
+
+    <style name="HashTagChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipBackgroundColor">@color/gray4</item>
+        <item name="chipMinHeight">18dp</item>
+        <item name="chipMinTouchTargetSize">18dp</item>
+        <item name="chipEndPadding">1dp</item>
+        <item name="chipStartPadding">1dp</item>
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="checkedTextViewStyle">@color/primary_color</item>
+        <item name="android:textAppearance">@style/Text_8_Regular.Green</item>
     </style>
 
     <!-- 이미지 모서리 설정 -->
