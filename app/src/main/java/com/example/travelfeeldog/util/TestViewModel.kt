@@ -11,7 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class TestViewModel(private val testApi: TestApi) : ViewModel() {
-
+    // TODO 서버에서 제공하는 테스트API 실험을 위해 임시적으로 생성한 ViewModel (추후 삭제 예정)
     fun testConnectServer() {
         viewModelScope.launch {
             testApi.testConnectServer(1).enqueue(object : Callback<TestResponse> {
