@@ -19,6 +19,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.bnvMain.setupWithNavController(findNavController())
         setNavigationBarVisibility()
     }
+
     private fun findNavController(): NavController {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
@@ -30,7 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         findNavController().addOnDestinationChangedListener { _, destination, _ ->
             binding.bnvMain.visibility =
                 when (destination.id) {
-                    R.id.nav_home, R.id.nav_search, R.id.nav_my_page, -> View.VISIBLE
+                    R.id.nav_home, R.id.nav_search, R.id.nav_my_page -> View.VISIBLE
                     else -> View.GONE
                 }
         }

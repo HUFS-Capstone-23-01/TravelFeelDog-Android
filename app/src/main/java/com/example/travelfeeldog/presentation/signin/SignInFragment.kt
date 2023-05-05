@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentSignInBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
@@ -20,4 +21,5 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sig
             navigate(R.id.action_signInFragment_to_signUpFragment)
         }
     }
+
 }

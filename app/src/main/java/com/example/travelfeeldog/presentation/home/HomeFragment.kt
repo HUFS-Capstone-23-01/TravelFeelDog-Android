@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentHomeBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
+import com.example.travelfeeldog.presentation.common.NavigationUtil.navigate
 import com.example.travelfeeldog.presentation.home.adapter.EventBannerAdapter
 import com.example.travelfeeldog.presentation.home.item.EventBanner
 
