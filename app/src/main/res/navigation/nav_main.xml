@@ -37,6 +37,9 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_nav_my_page_to_signInActivity"
+            app:destination="@id/signInActivity" />
     </fragment>
 
     <fragment
@@ -121,5 +124,9 @@
         android:name="com.example.travelfeeldog.presentation.location.NegativeEvaluationFragment"
         android:label="fragment_negative_evaluation"
         tools:layout="@layout/fragment_negative_evaluation" />
+    <activity
+        android:id="@+id/signInActivity"
+        android:name="com.example.travelfeeldog.presentation.signin.SignInActivity"
+        android:label="SignInActivity" />
 
 </navigation>

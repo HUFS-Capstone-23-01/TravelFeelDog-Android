@@ -10,8 +10,12 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.ActivityMainBinding
 import com.example.travelfeeldog.presentation.common.BaseActivity
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
