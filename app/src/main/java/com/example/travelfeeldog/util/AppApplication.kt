@@ -14,5 +14,9 @@ class AppApplication: Application() {
         startKoin {
             modules(networkModule, viewModelModule)
         }
+
+        FirebaseApp.initializeApp(this);
     }
+
+
 }
