@@ -3,16 +3,11 @@ package com.example.travelfeeldog.presentation.signin
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.fragment.NavHostFragment
-import com.example.travelfeeldog.BuildConfig
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.ActivitySignInBinding
 import com.example.travelfeeldog.presentation.MainActivity
 import com.example.travelfeeldog.presentation.common.BaseActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
