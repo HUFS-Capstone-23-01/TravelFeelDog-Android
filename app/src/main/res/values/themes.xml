@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.TravelFeelDog" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.TravelFeelDog" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryVariant">@color/secondary_color</item>
@@ -19,6 +19,9 @@
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.App.BodyLarge</item>
         <item name="popupMenuBackground">@drawable/custom_popup_background</item>
         <item name="popupMenuStyle">@style/Widget.App.PopupMenu</item>
+
+        <!-- Dialog -->
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
     </style>
 
     <!-- Splash Screen -->
@@ -41,4 +44,20 @@
         <item name="android:popupBackground">@drawable/custom_popup_background</item>
     </style>
 
+    <!-- Dialog -->
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorSecondary">@color/red_wine</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/gray4 </item>
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.App.Body.Text</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
+    </style>
+
+
 </resources>
+
+<!--heme.MaterialComponents.DayNight.NoActionBar-->
