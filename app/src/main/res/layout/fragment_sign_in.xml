@@ -10,36 +10,44 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title_first_line"
-            style="@style/Text_32_ExtraBold.Black"
-            android:layout_width="wrap_content"
+            style="@style/Text_28_Regular.Black"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/sign_in_title_first_line"
+            app:layout_constraintBottom_toTopOf="@id/tv_title_second_line"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="반려동물과 함께" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title_second_line"
-            style="@style/Text_32_ExtraBold.Black"
-            android:layout_width="wrap_content"
+            style="@style/Text_28_Regular.Black"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/sign_in_title_second_line"
+            app:layout_constraintBottom_toTopOf="@id/tv_third_line"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title_first_line"
             tools:text="여행지 선택은" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_third_line"
-            style="@style/Text_32_ExtraBold.Green"
-            android:layout_width="wrap_content"
+            style="@style/Text_28_Bold.Black"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="40dp"
             android:text="@string/sign_in_title_third_line"
+            app:layout_constraintBottom_toTopOf="@id/iv_representative_image"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title_second_line"
             tools:text="여행필독서" />
@@ -50,7 +58,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="40dp"
             android:src="@drawable/img_login_background"
             app:layout_constraintBottom_toTopOf="@id/btn_sign_in"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +68,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_sign_in"
-            style="@style/Text_14_Regular.White"
+            style="@style/Text_14_Medium.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -73,22 +81,31 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_representative_image" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lav_loading"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@color/transparent"
-            app:lottie_fileName="circular_loading.json"
-            app:lottie_autoPlay="false"
-            app:lottie_loop="true"
             android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="circular_loading.json"
+            app:lottie_loop="true" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_google_white"
+            app:layout_constraintBottom_toBottomOf="@id/btn_sign_in"
+            app:layout_constraintStart_toStartOf="@id/btn_sign_in"
+            app:layout_constraintTop_toTopOf="@id/btn_sign_in" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

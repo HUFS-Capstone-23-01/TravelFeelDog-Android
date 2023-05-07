@@ -51,6 +51,8 @@
     <style name="Text_16_Bold" parent="FontWeight_6_Bold"><item name="android:textSize">16sp</item></style>
     <style name="Text_18_Bold" parent="FontWeight_6_Bold"><item name="android:textSize">18sp</item></style>
     <style name="Text_20_Bold" parent="FontWeight_6_Bold"><item name="android:textSize">20sp</item></style>
+    <style name="Text_32_Bold" parent="FontWeight_6_Bold"><item name="android:textSize">32sp</item></style>
+    <style name="Text_28_Bold" parent="FontWeight_6_Bold"><item name="android:textSize">28sp</item></style>
 
     <style name="Text_12_Bold.Green" parent="Text_12_Bold">
         <item name="android:textColor">@color/primary_color</item>
@@ -132,6 +134,14 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="Text_32_Bold.Black" parent="Text_32_Bold">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text_28_Bold.Black" parent="Text_28_Bold">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 
 
     <!-- Medium 텍스트   -->
@@ -139,6 +149,8 @@
     <style name="Text_14_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">14sp</item></style>
     <style name="Text_16_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">16sp</item></style>
     <style name="Text_18_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">18sp</item></style>
+    <style name="Text_32_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">32sp</item></style>
+    <style name="Text_28_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">28sp</item></style>
 
     <style name="Text_12_Medium.Black" parent="Text_12_Medium">
         <item name="android:textColor">@color/black</item>
@@ -196,14 +208,32 @@
         <item name="android:textColor">@color/primary_color</item>
     </style>
 
+    <style name="Text_32_Medium.Black" parent="Text_32_Medium">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text_28_Medium.Black" parent="Text_28_Medium">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 
     <!-- Regular 텍스트 -->
+    <style name="Text_32_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">32sp</item></style>
+    <style name="Text_28_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">28sp</item></style>
     <style name="Text_20_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">20sp</item></style>
     <style name="Text_16_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">16sp</item></style>
     <style name="Text_14_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">14sp</item></style>
     <style name="Text_12_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">12sp</item></style>
     <style name="Text_10_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">10sp</item></style>
     <style name="Text_8_Regular" parent="FontWeight_4_Regular"><item name="android:textSize">8sp</item></style>
+
+    <style name="Text_32_Regular.Black" parent="Text_32_Regular">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text_28_Regular.Black" parent="Text_28_Regular">
+        <item name="android:textColor">@color/black</item>
+    </style>
 
     <style name="Text_20_Regular.Black" parent="Text_20_Regular">
         <item name="android:textColor">@color/black</item>
