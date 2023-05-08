@@ -9,6 +9,7 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.marginRight
 import androidx.core.view.setPadding
+import com.bumptech.glide.Glide
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentPlaceReviewBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
@@ -87,7 +88,10 @@ class PlaceReviewFragment :
                             false
                         ) as ImageView
                         binding.llPhotoContainer.addView(iv.apply {
-                            setImageURI(uri)
+                            Glide
+                                .with(this@PlaceReviewFragment)
+                                .load(uri)
+                                .into(this)
                         })
                     }
                 } else {
