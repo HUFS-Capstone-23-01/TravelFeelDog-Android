@@ -1,8 +1,8 @@
 package com.example.travelfeeldog.di
 
+import com.example.travelfeeldog.BuildConfig.BASE_URL
 import com.example.travelfeeldog.data.network.NetworkInterceptor
 import com.example.travelfeeldog.data.network.api.TestApi
-import com.example.travelfeeldog.util.Constants.BASE_URL
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

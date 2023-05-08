@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface TestApi {
 
-    @GET("v1/test/{testnumber}")
+    @GET("test/{testnumber}")
     suspend fun testConnectServer(
         @Path("testnumber") testNumber: Int
     ) : Call<TestResponse>
