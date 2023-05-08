@@ -12,7 +12,7 @@ import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentSignInBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
 import com.example.travelfeeldog.presentation.common.LoadingUtil
-import com.example.travelfeeldog.presentation.common.NavigationUtil.navigate
+import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
 import com.example.travelfeeldog.util.TestViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -62,7 +62,8 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sig
             }
 
         binding.btnSignIn.setOnClickListener {
-            googleLogInRequest.launch(googleSignInClient.signInIntent)
+            navigate(R.id.action_signInFragment_to_mainActivity)
+//            googleLogInRequest.launch(googleSignInClient.signInIntent)
         }
     }
 

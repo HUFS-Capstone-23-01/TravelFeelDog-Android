@@ -1,11 +1,14 @@
-package com.example.travelfeeldog.presentation.common
+package com.example.travelfeeldog.presentation.common.navigation
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.example.travelfeeldog.R
 
 object NavigationUtil {
     fun View.navigate(action: Int) {

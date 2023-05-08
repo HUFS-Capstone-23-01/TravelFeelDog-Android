@@ -1,23 +1,26 @@
 package com.example.travelfeeldog.presentation.home
 
-import android.media.metrics.Event
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentHomeBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
-import com.example.travelfeeldog.presentation.common.NavigationUtil.navigate
+import com.example.travelfeeldog.presentation.common.navigation.OnRequestNavigateNotBottomViewListener
 import com.example.travelfeeldog.presentation.home.adapter.EventBannerAdapter
 import com.example.travelfeeldog.presentation.home.item.EventBanner
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+
+    private var navigateListener: OnRequestNavigateNotBottomViewListener? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is OnRequestNavigateNotBottomViewListener) {
+            navigateListener = context
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,6 +45,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             )
         }
 
+        binding.tvHomeSearchBarHint.setOnClickListener {
+            navigateListener?.onRequestNavigate(R.id.nav_search)
+        }
+
         setHomeEventBanner(eventBannerInfo, 2)
     }
 
@@ -62,5 +69,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             adapter = EventBannerAdapter(requireActivity(), itemList)
         }
         mainViewChangeEvent(maxEvent)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        navigateListener = null
     }
 }

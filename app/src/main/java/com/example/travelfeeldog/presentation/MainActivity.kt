@@ -1,20 +1,17 @@
 package com.example.travelfeeldog.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.ActivityMainBinding
 import com.example.travelfeeldog.presentation.common.BaseActivity
-import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.example.travelfeeldog.presentation.common.navigation.OnRequestNavigateNotBottomViewListener
 
-class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main),
+    OnRequestNavigateNotBottomViewListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +19,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         binding.bnvMain.setupWithNavController(findNavController())
         setNavigationBarVisibility()
+
     }
 
     private fun findNavController(): NavController {
@@ -39,5 +37,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                     else -> View.GONE
                 }
         }
+    }
+
+    override fun onRequestNavigate(itemId: Int) {
+        binding.bnvMain.selectedItemId = itemId
     }
 }

@@ -5,7 +5,7 @@ import android.view.View
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentMyPageBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
-import com.example.travelfeeldog.presentation.common.NavigationUtil.navigate
+import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions

@@ -21,7 +21,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_sign_up_title_first_line"
-            style="@style/Text_32_ExtraBold.Black"
+            style="@style/Text_28_Bold.Black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -35,7 +35,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_sign_up_title_second_line"
-            style="@style/Text_20_Regular.Gray"
+            style="@style/Text_20_Regular.Black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -74,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="6dp"
+            android:maxLines="1"
             android:layout_marginEnd="8dp"
             android:background="@drawable/bg_box_gray"
             android:hint="@string/sign_up_input_box_hint"
