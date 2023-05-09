@@ -13,6 +13,7 @@ import com.example.travelfeeldog.databinding.FragmentSignInBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
 import com.example.travelfeeldog.presentation.common.LoadingUtil
 import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
+import com.example.travelfeeldog.presentation.signin.viewmodel.AuthViewModel
 import com.example.travelfeeldog.util.TestViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -26,60 +27,46 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sign_in) {
 
-    private val viewModel: TestViewModel by viewModel()
-    private lateinit var auth: FirebaseAuth
+    private val viewModel: AuthViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        auth = Firebase.auth
+        viewModel.userLiveData.observe(viewLifecycleOwner) { userInfo ->
+            viewModel.getTokenValid(userInfo.uid)
+        }
 
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(BuildConfig.GOOGLE_CLIENT_ID)
-            .requestEmail()
-            .build()
+        viewModel.isVerifiedUser.observe(viewLifecycleOwner) { isVerified ->
+            if(isVerified) {
+                navigate(R.id.action_signInFragment_to_mainActivity)
+            } else {
+                navigate(R.id.action_signInFragment_to_signUpFragment)
+            }
+        }
 
-        val googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
+        binding.btnSignIn.setOnClickListener {
+            // TODO(멤버 API 완성되면 코드 수정)
+            navigate(R.id.action_signInFragment_to_mainActivity)
+//            googleLogInRequest.launch(googleSignInClient.signInIntent)
+        }
 
         val googleLogInRequest =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 if (it.resultCode == Activity.RESULT_OK) {
                     val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
-                    val googleIdToken: String? = getGoogleAccount(task).idToken
                     try {
-                        lifecycleScope.launch {
-                            signInWithFireBase(googleIdToken)
-                        }
-                        LoadingUtil.playAnimation(binding.lavLoading)
+                        val account = task.getResult(ApiException::class.java)!!
+                        viewModel.getAuthTokenFromFirebase(account.idToken!!)
+                        LoadingUtil.showTaskProgressAnimation(binding.lavLoading)
                     } catch (e: ApiException) {
-                        Log.d("googleLogIn:failure", e.toString())
+                        Timber.d(e)
                     }
-                }
-            }
-
-        binding.btnSignIn.setOnClickListener {
-            navigate(R.id.action_signInFragment_to_mainActivity)
-//            googleLogInRequest.launch(googleSignInClient.signInIntent)
-        }
-    }
-
-    private fun getGoogleAccount(completedTask: Task<GoogleSignInAccount>): GoogleSignInAccount {
-        return completedTask.getResult(ApiException::class.java)
-    }
-
-    private suspend fun signInWithFireBase(googleIdToken: String?) = withContext(Dispatchers.IO) {
-        auth.signInWithCredential(GoogleAuthProvider.getCredential(googleIdToken, null))
-            .addOnCompleteListener(requireActivity()) { task ->
-                if (task.isSuccessful) {
-                    LoadingUtil.cancelAnimation(binding.lavLoading)
-                    Log.d("signInWithCredential:success", auth.uid.toString())
-                    navigate(R.id.action_signInFragment_to_mainActivity)
-                } else {
-                    Log.d(TAG, "signInWithCredential:failure", task.exception)
                 }
             }
     }
