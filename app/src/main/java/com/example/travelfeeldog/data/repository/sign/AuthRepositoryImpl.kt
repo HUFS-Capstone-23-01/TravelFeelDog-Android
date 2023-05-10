@@ -1,6 +1,7 @@
 package com.example.travelfeeldog.data.repository.sign
 
 import com.example.travelfeeldog.data.model.signin.GetTokenValidResponse
+import com.example.travelfeeldog.data.model.signin.SignInResponse
 import com.example.travelfeeldog.data.model.signup.NicknameValidationRequest
 import com.example.travelfeeldog.data.model.signup.NicknameValidationResponse
 import com.example.travelfeeldog.data.model.signup.PostMemberRequest
@@ -25,6 +26,10 @@ class AuthRepositoryImpl(private val authDataSource: AuthDataSource) : AuthRepos
 
     override suspend fun checkNicknameValidation(nickname: String): NicknameValidationResponse {
         return authDataSource.checkNicknameValidation(nickname)
+    }
+
+    override suspend fun tryToSignInByAuth(authToken: String): SignInResponse {
+        return authDataSource.tryToSignInByAuth(authToken)
     }
 
     override suspend fun getAuthTokenFromFirebase(googleIdToken: String): FirebaseUser? {

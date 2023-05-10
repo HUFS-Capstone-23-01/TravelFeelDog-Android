@@ -1,11 +1,12 @@
-package com.example.travelfeeldog.data.model.signup
+package com.example.travelfeeldog.data.model.signin
+
 import com.example.travelfeeldog.data.model.common.Header
 import com.example.travelfeeldog.data.model.common.MemberInfoBody
 import com.google.gson.annotations.SerializedName
 
-data class PostMemberResponse(
-    @SerializedName("body")
-    val body: MemberInfoBody,
+data class SignInResponse(
     @SerializedName("header")
-    val header: Header
+    val header: Header,
+    @SerializedName("body")
+    val body: MemberInfoBody?
 )

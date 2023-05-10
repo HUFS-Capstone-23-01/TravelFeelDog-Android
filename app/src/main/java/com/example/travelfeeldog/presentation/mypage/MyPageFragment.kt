@@ -2,6 +2,7 @@ package com.example.travelfeeldog.presentation.mypage
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.PopupMenu
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentMyPageBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
@@ -53,4 +54,5 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
             }
         }
     }
+
 }
