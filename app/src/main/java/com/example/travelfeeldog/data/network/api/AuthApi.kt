@@ -1,13 +1,11 @@
 package com.example.travelfeeldog.data.network.api
 
 import com.example.travelfeeldog.data.model.signin.GetTokenValidResponse
-import com.example.travelfeeldog.data.model.signin.PostMemberRequest
-import com.example.travelfeeldog.data.model.signin.PostMemberResponse
-import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import com.example.travelfeeldog.data.model.signup.NicknameValidationRequest
+import com.example.travelfeeldog.data.model.signup.NicknameValidationResponse
+import com.example.travelfeeldog.data.model.signup.PostMemberRequest
+import com.example.travelfeeldog.data.model.signup.PostMemberResponse
+import retrofit2.http.*
 
 interface AuthApi {
 
@@ -20,4 +18,10 @@ interface AuthApi {
     suspend fun getTokenValid(
         @Header("Authorization") authToken: String
     ) : GetTokenValidResponse
+
+
+    @GET("member/profile/nick/valid")
+    suspend fun checkNicknameValidation(
+        @Query("nickName") nickname: String
+    ) : NicknameValidationResponse
 }

@@ -1,4 +1,4 @@
-package com.example.travelfeeldog.data.model.signin
+package com.example.travelfeeldog.data.model.signup
 import com.example.travelfeeldog.data.model.Header
 import com.google.gson.annotations.SerializedName
 
