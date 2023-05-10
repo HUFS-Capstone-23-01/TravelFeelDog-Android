@@ -4,9 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.signIn.SignUpFragment">
 
+    <data>
+
+        <variable
+            name="isNicknameDuplicated"
+            type="Boolean" />
+
+        <variable
+            name="viewModel"
+            type="com.example.travelfeeldog.presentation.signin.viewmodel.AuthViewModel" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ib_sign_up_close"
@@ -74,10 +87,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="6dp"
-            android:maxLines="1"
             android:layout_marginEnd="8dp"
             android:background="@drawable/bg_box_gray"
             android:hint="@string/sign_up_input_box_hint"
+            android:maxLines="2"
             android:padding="16dp"
             android:textColorHint="@color/gray2"
             app:layout_constraintEnd_toStartOf="@id/tv_duplicate_verification"
@@ -86,11 +99,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_duplicate_verification"
-            style="@style/Text_14_Regular.Green"
+            style="@style/Text_14_Regular.Gray"
+            setEnabled="@{viewModel.isValidNickname}"
+            setStrokeTextViewStateUi="@{viewModel.isValidNickname}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/bg_box_green"
+            android:background="@drawable/bg_box_gray"
             android:padding="16dp"
             android:text="@string/sign_up_duplicate_verification"
             app:layout_constraintBottom_toBottomOf="@id/etv_input_box"
@@ -101,13 +116,14 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_error_duplication"
             style="@style/Text_12_Regular.Red"
+            setVisibility="@{isNicknameDuplicated}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="20dp"
             android:text="@string/sign_up_error_duplication"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_duplicate_verification" />
@@ -115,47 +131,72 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_notification_correct_input"
             style="@style/Text_12_Regular.Green"
+            setVisibility="@{!isNicknameDuplicated}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="20dp"
             android:text="@string/sign_up_notification_correct_input"
-            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etv_input_box" />
 
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/div_curtain"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:dividerColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/tv_error_not_valid_input"
+            app:layout_constraintEnd_toEndOf="@id/tv_error_not_valid_input"
+            app:layout_constraintStart_toStartOf="@id/tv_error_not_valid_input"
+            app:layout_constraintTop_toTopOf="@id/tv_error_not_valid_input" />
+
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_error_none"
+            android:id="@+id/tv_error_not_valid_input"
             style="@style/Text_12_Regular.Red"
+            setVisibility="@{!viewModel.isValidNickname}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="6dp"
-            android:text="@string/sign_up_error_none"
-            android:textAlignment="center"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@id/btn_sing_up_done"
+            android:text="2~16글자 사이로 공백이 없는 닉네임만 가능합니다."
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etv_input_box" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_sing_up_done"
             style="@style/Text_14_Regular.White"
+            setEnabled="@{viewModel.isValidSignUp}"
+            setSolidButtonStateUi="@{viewModel.isValidSignUp}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_request_btn_green"
             android:padding="16dp"
             android:stateListAnimator="@null"
             android:text="@string/sign_up_btn_done"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lav_loading"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@color/transparent"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="circular_loading.json"
+            app:lottie_loop="true" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

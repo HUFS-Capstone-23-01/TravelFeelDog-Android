@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -63,9 +64,6 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-    // Material Design
-    implementation 'com.google.android.material:material:1.8.0'
-
     // Dependency Injection
     implementation 'io.insert-koin:koin-android:3.1.5'
 
@@ -87,5 +85,17 @@ dependencies {
     // Glide - Image
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // LiveData, ViewModel
+//    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+//    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+
+    // DataBinding
+//    implementation "com.android.databinding:adapters:8.0.1"
+//    implementation "com.android.databinding:baseLibrary:8.0.1"
+//    implementation 'androidx.databinding:viewbinding:8.0.1'
 
 }

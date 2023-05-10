@@ -5,12 +5,12 @@ import com.airbnb.lottie.LottieAnimationView
 
 object LoadingUtil {
 
-    fun playAnimation(loadingView: LottieAnimationView) {
+    fun showTaskProgressAnimation(loadingView: LottieAnimationView) {
         loadingView.visibility = View.VISIBLE
         loadingView.playAnimation()
     }
 
-    fun cancelAnimation(loadingView: LottieAnimationView) {
+    fun cancelTaskProgressAnimation(loadingView: LottieAnimationView) {
         loadingView.cancelAnimation()
         loadingView.visibility = View.INVISIBLE
     }
