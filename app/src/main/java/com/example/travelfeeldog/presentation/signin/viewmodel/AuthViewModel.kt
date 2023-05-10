@@ -4,11 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.travelfeeldog.data.model.signin.SignInResponse
 import com.example.travelfeeldog.data.model.signup.NicknameValidationRequest
 import com.example.travelfeeldog.data.model.signup.PostMemberRequest
 import com.example.travelfeeldog.data.repository.sign.AuthRepository
 import com.example.travelfeeldog.util.Constants
 import com.example.travelfeeldog.util.Event
+import com.example.travelfeeldog.util.UserInfo
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -80,13 +82,17 @@ class AuthViewModel(private val repository: AuthRepository): ViewModel() {
     }
 
     // -------------------- 로그인 인증 과정 --------------------
-    fun getTokenValid(authToken: String) {
+    fun tryToSignInByAuth(authToken: String) {
         viewModelScope.launch {
             try {
-                val response = repository.getTokenValid(authToken)
+                val response = repository.tryToSignInByAuth(authToken)
+                Timber.d("Auth Token을 가지고 서버를 통한 로그인 시도 : ${response.header.status}")
                 if (response.header.status == 200) {
-                    _isVerifiedUser.value = Event(response.body)
-                    Timber.d("서버에 해당 Auth Token이 존재하는가? : ${response.body}")
+                    _isVerifiedUser.value = Event(true)
+                    UserInfo.setUserInfo(response.body!!)
+                    Timber.d("저장된 유저 정보 : ${UserInfo.getUserInfo()}")
+                } else{
+                    _isVerifiedUser.value = Event(false)
                 }
             } catch (e: Throwable) {
                 Timber.d(e)

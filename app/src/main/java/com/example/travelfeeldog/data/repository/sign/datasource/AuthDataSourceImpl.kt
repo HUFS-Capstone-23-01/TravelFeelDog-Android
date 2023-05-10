@@ -1,6 +1,7 @@
 package com.example.travelfeeldog.data.repository.sign.datasource
 
 import com.example.travelfeeldog.data.model.signin.GetTokenValidResponse
+import com.example.travelfeeldog.data.model.signin.SignInResponse
 import com.example.travelfeeldog.data.model.signup.NicknameValidationRequest
 import com.example.travelfeeldog.data.model.signup.NicknameValidationResponse
 import com.example.travelfeeldog.data.model.signup.PostMemberRequest
@@ -19,5 +20,9 @@ class AuthDataSourceImpl(private val authApi: AuthApi) : AuthDataSource {
     }
     override suspend fun checkNicknameValidation(nickname: String): NicknameValidationResponse {
         return authApi.checkNicknameValidation(nickname)
+    }
+
+    override suspend fun tryToSignInByAuth(authToken: String): SignInResponse {
+        return authApi.tryToSignInByAuth(authToken)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.travelfeeldog.data.model
+package com.example.travelfeeldog.data.model.common
 
 import com.google.gson.annotations.SerializedName
 

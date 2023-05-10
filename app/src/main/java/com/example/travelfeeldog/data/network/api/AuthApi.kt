@@ -1,6 +1,7 @@
 package com.example.travelfeeldog.data.network.api
 
 import com.example.travelfeeldog.data.model.signin.GetTokenValidResponse
+import com.example.travelfeeldog.data.model.signin.SignInResponse
 import com.example.travelfeeldog.data.model.signup.NicknameValidationRequest
 import com.example.travelfeeldog.data.model.signup.NicknameValidationResponse
 import com.example.travelfeeldog.data.model.signup.PostMemberRequest
@@ -24,4 +25,9 @@ interface AuthApi {
     suspend fun checkNicknameValidation(
         @Query("nickName") nickname: String
     ) : NicknameValidationResponse
+
+    @GET("member")
+    suspend fun tryToSignInByAuth(
+        @Header("Authorization") authToken: String
+    ) : SignInResponse
 }

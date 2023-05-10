@@ -55,10 +55,10 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="20dp"
                 android:maxLines="2"
+                android:text="시계는와치"
                 app:layout_constraintEnd_toEndOf="@id/v_profile_container"
                 app:layout_constraintStart_toEndOf="@id/iv_user_profile_photo"
                 app:layout_constraintTop_toTopOf="@id/iv_user_profile_photo"
-                android:text="시계는와치"
                 tools:text="시계는와치" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -77,10 +77,10 @@
                 style="@style/Text_12_Bold.White"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="Lv5"
                 app:layout_constraintBottom_toBottomOf="@id/tv_stamp_level_notice"
                 app:layout_constraintStart_toEndOf="@id/tv_stamp_level_notice"
                 app:layout_constraintTop_toTopOf="@id/tv_stamp_level_notice"
-                android:text="Lv5"
                 tools:text="Lv5" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -108,10 +108,10 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_stamp_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
                     android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_cylinder"
+                    android:src="@drawable/img_review_power"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_stamp_title" />
 
@@ -145,10 +145,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
+                    android:text="Lv5"
                     app:layout_constraintEnd_toStartOf="@id/tv_stamp_integer"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_stamp_area_in_subtitle"
-                    android:text="Lv5"
                     tools:text="Lv5" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -156,23 +156,23 @@
                     style="@style/Text_14_Regular.Green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="4 / 40"
                     app:layout_constraintBottom_toBottomOf="@id/tv_stamp_level"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_stamp_level"
-                    android:text="4 / 40"
                     tools:text="4 / 40" />
 
                 <androidx.core.widget.ContentLoadingProgressBar
-                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:id="@+id/pgb_review_power"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:layout_width="0dp"
                     android:layout_height="20dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:progress="100"
                     android:progressDrawable="@drawable/progress_custom"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_stamp_level" />
 
@@ -204,10 +204,10 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_review_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_chat_bubble"
+                    android:src="@drawable/img_my_review"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_review_title" />
 

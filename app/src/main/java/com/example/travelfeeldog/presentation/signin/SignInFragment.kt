@@ -44,7 +44,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sig
         auth = Firebase.auth
 
         viewModel.userLiveData.observe(viewLifecycleOwner, EventObserver { userInfo ->
-            viewModel.getTokenValid(userInfo.uid)
+            viewModel.tryToSignInByAuth(userInfo.uid)
         })
 
         viewModel.isVerifiedUser.observe(viewLifecycleOwner, EventObserver { isVerified ->
