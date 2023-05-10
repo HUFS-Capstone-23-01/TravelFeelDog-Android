@@ -49,7 +49,7 @@
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorSecondary">@color/red_wine</item>
         <item name="colorSurface">@color/white</item>
-        <item name="colorOnSurface">@color/gray4 </item>
+        <item name="colorOnSurface">@color/white </item>
         <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
         <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>
         <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.App.Body.Text</item>
