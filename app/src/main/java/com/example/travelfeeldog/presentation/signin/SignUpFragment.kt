@@ -48,6 +48,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
         viewModel.isSignedUp.observe(viewLifecycleOwner) { isSignedUp ->
             if(isSignedUp) {
                 navigate(R.id.action_signUpFragment_to_mainActivity)
+                requireActivity().finish()
             } else {
                 Toast.makeText(requireActivity(), "다시 시도해 주세요.", Toast.LENGTH_SHORT).show()
             }
