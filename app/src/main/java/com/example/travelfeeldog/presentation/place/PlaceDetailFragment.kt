@@ -19,7 +19,7 @@ class PlaceDetailFragment : BaseFragment<FragmentLocationDetailBinding>(R.layout
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        placeViewModel.getPlaceInfo(UserInfo.getUserInfo()!!.token, 1)
+        placeViewModel.getPlaceInfo(UserInfo.getUserInfo()!!.token, 2)
 
         placeViewModel.placeInfo.observe(viewLifecycleOwner) { placeInfo ->
             binding.placeInfo = placeInfo

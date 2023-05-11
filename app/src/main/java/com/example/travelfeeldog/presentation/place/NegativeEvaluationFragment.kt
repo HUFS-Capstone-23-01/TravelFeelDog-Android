@@ -4,6 +4,6 @@ import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentNegativeEvaluationBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
 
-class NegativeEvaluationFragment : BaseFragment<FragmentNegativeEvaluationBinding>(R.layout.fragment_positive_evaluation) {
+class NegativeEvaluationFragment : BaseFragment<FragmentNegativeEvaluationBinding>(R.layout.fragment_negative_evaluation) {
 
 }

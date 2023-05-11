@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="reviewInfo"
+            type="com.example.travelfeeldog.data.model.review.PlaceReview" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,6 +34,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="18dp"
+            android:text="@{reviewInfo.memberNickname}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_review_user_profile_photo"
             app:layout_constraintTop_toTopOf="@id/iv_review_user_profile_photo"
@@ -34,6 +43,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_review_user_level"
             style="@style/Text_12_Regular.Gray"
+            setTextUserLevel="@{reviewInfo.memberLevel}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -46,11 +56,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_like_tag"
-            style="@style/Text_12_Medium.Green"
+            style="@style/Text_10_Medium.Green"
+            setEmotionTextView="@{reviewInfo.recommendStatus}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="14dp"
             android:background="@drawable/bg_box_solid_gray_small"
+            android:contentDescription="GOOD"
             android:drawableStart="@drawable/ic_like"
             android:drawablePadding="3dp"
             android:paddingStart="12dp"
@@ -64,11 +76,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_normal_tag"
-            style="@style/Text_12_Medium.Purple"
+            style="@style/Text_10_Medium.Purple"
+            setEmotionTextView="@{reviewInfo.recommendStatus}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="14dp"
             android:background="@drawable/bg_box_solid_gray_small"
+            android:contentDescription="IDK"
             android:drawableStart="@drawable/ic_normal"
             android:drawablePadding="3dp"
             android:paddingStart="12dp"
@@ -82,11 +96,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_emotion_dislike"
-            style="@style/Text_12_Medium.Red"
+            style="@style/Text_10_Medium.Red"
+            setEmotionTextView="@{reviewInfo.recommendStatus}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:background="@drawable/bg_box_solid_gray_small"
+            android:contentDescription="BAD"
             android:drawableStart="@drawable/ic_dislike"
             android:drawablePadding="3dp"
             android:paddingStart="12dp"
@@ -101,6 +117,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_review_date"
             style="@style/Text_12_Regular.Gray"
+            setDate="@{reviewInfo.createdDateTime}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -116,9 +133,10 @@
             style="@style/Text_14_Regular.Black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="18dp"
             android:lineSpacingExtra="6dp"
+            android:text="@{reviewInfo.additionalScript}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_like_tag"
@@ -127,7 +145,7 @@
         <HorizontalScrollView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="18dp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -140,6 +158,8 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/siv_first"
+                    order="@{0}"
+                    setManyImageUrl="@{reviewInfo.imageUrls}"
                     android:layout_width="130dp"
                     android:layout_height="100dp"
                     android:layout_marginEnd="10dp"
@@ -149,6 +169,8 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/siv_second"
+                    order="@{1}"
+                    setManyImageUrl="@{reviewInfo.imageUrls}"
                     android:layout_width="130dp"
                     android:layout_height="100dp"
                     android:layout_marginEnd="10dp"
@@ -158,6 +180,8 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/siv_third"
+                    order="@{2}"
+                    setManyImageUrl="@{reviewInfo.imageUrls}"
                     android:layout_width="130dp"
                     android:layout_height="100dp"
                     android:layout_marginEnd="10dp"
