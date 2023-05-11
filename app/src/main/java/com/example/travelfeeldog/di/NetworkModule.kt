@@ -4,6 +4,7 @@ import com.example.travelfeeldog.BuildConfig.BASE_URL
 import com.example.travelfeeldog.data.network.NetworkInterceptor
 import com.example.travelfeeldog.data.network.api.AuthApi
 import com.example.travelfeeldog.data.network.api.MyPageApi
+import com.example.travelfeeldog.data.network.api.PlaceApi
 import com.example.travelfeeldog.data.network.api.TestApi
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -44,5 +45,9 @@ val networkModule = module {
 
     single<MyPageApi> {
         get<Retrofit>().create(MyPageApi::class.java)
+    }
+
+    single<PlaceApi> {
+        get<Retrofit>().create(PlaceApi::class.java)
     }
 }

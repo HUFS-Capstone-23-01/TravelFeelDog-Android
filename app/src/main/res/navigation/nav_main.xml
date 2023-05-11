@@ -72,7 +72,7 @@
 
     <fragment
         android:id="@+id/locationDetailFragment"
-        android:name="com.example.travelfeeldog.presentation.location.LocationDetailFragment"
+        android:name="com.example.travelfeeldog.presentation.place.PlaceDetailFragment"
         android:label="fragment_location_detail"
         tools:layout="@layout/fragment_location_detail" >
         <action
@@ -116,12 +116,12 @@
         tools:layout="@layout/fragment_review" />
     <fragment
         android:id="@+id/positiveEvaluationFragment"
-        android:name="com.example.travelfeeldog.presentation.location.PositiveEvaluationFragment"
+        android:name="com.example.travelfeeldog.presentation.place.PositiveEvaluationFragment"
         android:label="fragment_positive_evaluation"
         tools:layout="@layout/fragment_positive_evaluation" />
     <fragment
         android:id="@+id/negativeEvaluationFragment"
-        android:name="com.example.travelfeeldog.presentation.location.NegativeEvaluationFragment"
+        android:name="com.example.travelfeeldog.presentation.place.NegativeEvaluationFragment"
         android:label="fragment_negative_evaluation"
         tools:layout="@layout/fragment_negative_evaluation" />
     <activity

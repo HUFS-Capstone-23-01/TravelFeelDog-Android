@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.travelfeeldog.data.model.signin.SignInResponse
-import com.example.travelfeeldog.data.model.signup.NicknameValidationRequest
 import com.example.travelfeeldog.data.model.signup.PostMemberRequest
 import com.example.travelfeeldog.data.repository.sign.AuthRepository
 import com.example.travelfeeldog.util.Constants

@@ -2,7 +2,15 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".presentation.location.LocationDetailFragment">
+    tools:context=".presentation.place.PlaceDetailFragment">
+
+    <data>
+
+        <variable
+            name="placeInfo"
+            type="com.example.travelfeeldog.data.model.place.PlaceInfo" />
+
+    </data>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -26,6 +34,7 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_location_image"
+                    setImageUrl="@{placeInfo.thumbNailImageUrl}"
                     android:layout_width="0dp"
                     android:layout_height="240dp"
                     android:scaleType="centerCrop"
@@ -48,6 +57,7 @@
                     android:paddingBottom="4dp"
                     app:layout_constraintBottom_toBottomOf="@id/iv_location_image"
                     app:layout_constraintEnd_toEndOf="@id/iv_location_image"
+                    android:text="1 / 1"
                     tools:text="1 / 1" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -61,6 +71,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_location_image"
+                    android:text="@{placeInfo.name}"
                     tools:text="제주석수펜션" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -80,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="18dp"
+                    android:text="@{placeInfo.address}"
                     app:layout_constraintBottom_toBottomOf="@id/iv_location_info_icon"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_location_info_icon"
@@ -99,9 +111,11 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_review_count"
                     style="@style/Text_12_Regular.Gray1"
+                    convertTextStringToInt="@{placeInfo.reviewCount}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
+                    android:text="0"
                     app:layout_constraintBottom_toBottomOf="@id/iv_review_icon"
                     app:layout_constraintStart_toEndOf="@id/iv_review_icon"
                     app:layout_constraintTop_toTopOf="@id/iv_review_icon"
@@ -118,7 +132,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_review_count"
                     app:layout_constraintTop_toTopOf="@id/tv_review_count"
-                    tools:text="리뷰보기>" />
+                    android:text="리뷰보기>" />
 
                 <HorizontalScrollView
                     android:id="@+id/hsv_location_category"
@@ -138,72 +152,93 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_cat_small_dog"
-                            style="@style/Text_10_Regular.Gray0"
+                            style="@style/Text_12_Regular.Gray0"
+                            setPlaceCategory="@{placeInfo.facilityNames}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="14dp"
                             android:drawableTop="@drawable/ic_loc_cat_dog_gray0"
                             android:drawablePadding="6dp"
+                            android:visibility="gone"
+                            android:text="소형견"
                             tools:text="소형견" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_cat_normal_dog"
-                            style="@style/Text_10_Regular.Gray0"
+                            style="@style/Text_12_Regular.Gray0"
+                            setPlaceCategory="@{placeInfo.facilityNames}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="14dp"
                             android:drawableTop="@drawable/ic_loc_cat_dog_gray0"
                             android:drawablePadding="6dp"
+                            android:visibility="gone"
+                            android:text="중형견"
                             tools:text="중형견" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_cat_big_dog"
-                            style="@style/Text_10_Regular.Gray0"
+                            style="@style/Text_12_Regular.Gray0"
+                            setPlaceCategory="@{placeInfo.facilityNames}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="14dp"
                             android:drawableTop="@drawable/ic_loc_cat_dog_gray0"
                             android:drawablePadding="6dp"
+                            android:visibility="invisible"
+                            android:text="대형견"
                             tools:text="대형견" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_cat_park"
-                            style="@style/Text_10_Regular.Gray0"
+                            style="@style/Text_12_Regular.Gray0"
+                            setPlaceCategory="@{placeInfo.facilityNames}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="14dp"
                             android:drawableTop="@drawable/ic_loc_cat_park"
                             android:drawablePadding="6dp"
+                            android:visibility="gone"
+                            android:text="주차장"
                             tools:text="주차장" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_cat_barbeque"
-                            style="@style/Text_10_Regular.Gray0"
+                            style="@style/Text_12_Regular.Gray0"
+                            setPlaceCategory="@{placeInfo.facilityNames}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="14dp"
                             android:drawableTop="@drawable/ic_loc_cat_barbeque"
                             android:drawablePadding="6dp"
+                            android:visibility="gone"
+                            android:text="바베큐"
                             tools:text="바베큐" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_cat_swimming_pool"
-                            style="@style/Text_10_Regular.Gray0"
+                            style="@style/Text_12_Regular.Gray0"
+                            setPlaceCategory="@{placeInfo.facilityNames}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="14dp"
                             android:drawableTop="@drawable/ic_loc_cat_walking_ground"
                             android:drawablePadding="6dp"
+                            android:visibility="gone"
+                            android:text="야외운동장"
                             tools:text="야외운동장" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_cat_walking_ground"
-                            style="@style/Text_10_Regular.Gray0"
+                            style="@style/Text_12_Regular.Gray0"
+                            setPlaceCategory="@{placeInfo.facilityNames}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="18dp"
                             android:drawableTop="@drawable/ic_loc_cat_swimming_pool"
                             android:drawablePadding="5dp"
+                            android:visibility="gone"
+                            android:text="애견수영"
                             tools:text="애견수영장" />
                     </LinearLayout>
 
@@ -215,7 +250,7 @@
                 android:id="@+id/cl_location_intro_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="12dp"
                 android:background="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -230,7 +265,7 @@
                     android:layout_marginTop="12dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="장소 소개" />
+                    android:text="장소 소개" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_location_intro_article"
@@ -243,10 +278,10 @@
                     android:ellipsize="end"
                     android:lineSpacingExtra="6dp"
                     android:maxLines="3"
+                    android:text="@{placeInfo.describe}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_sub_title_location_intro"
-
                     tools:text="@string/dummy_text_multi_line" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -317,9 +352,11 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_like_count"
                     style="@style/Text_14_Bold.Green"
+                    convertTextStringToInt="@{placeInfo.reviewCountGood}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:text="0"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_smile_face"
                     app:layout_constraintTop_toTopOf="@id/iv_smile_face"
@@ -349,9 +386,11 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_natural_count"
                     style="@style/Text_14_Bold.Purple"
+                    convertTextStringToInt="@{placeInfo.reviewCountIdk}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:text="0"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_natural_face"
                     app:layout_constraintTop_toTopOf="@id/iv_natural_face"
@@ -382,9 +421,11 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_bad_count"
                     style="@style/Text_14_Bold.Red"
+                    convertTextStringToInt="@{placeInfo.reviewCountBad}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:text="0"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_tired_face"
                     app:layout_constraintTop_toTopOf="@id/iv_tired_face"
@@ -573,6 +614,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_smaall_dog_like"
                     style="@style/Text_14_Medium.Green"
+                    convertTextStringToInt="@{placeInfo.smallDogGoodTotal}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -583,6 +625,7 @@
                     android:paddingTop="6dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="6dp"
+                    android:text="0"
                     app:layout_constraintBottom_toBottomOf="@id/iv_small_dog"
                     app:layout_constraintStart_toEndOf="@id/iv_small_dog"
                     app:layout_constraintTop_toTopOf="@id/iv_small_dog"
@@ -591,6 +634,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_smaall_dog_dislike"
                     style="@style/Text_14_Medium.Red"
+                    convertTextStringToInt="@{placeInfo.smallDogBadTotal}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -601,6 +645,7 @@
                     android:paddingTop="6dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="6dp"
+                    android:text="0"
                     app:layout_constraintBottom_toBottomOf="@id/iv_small_dog"
                     app:layout_constraintStart_toEndOf="@id/tv_smaall_dog_like"
                     app:layout_constraintTop_toTopOf="@id/iv_small_dog"
@@ -618,6 +663,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_normal_dog_like"
                     style="@style/Text_14_Medium.Green"
+                    convertTextStringToInt="@{placeInfo.mediumDogGoodTotal}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -628,6 +674,7 @@
                     android:paddingTop="6dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="6dp"
+                    android:text="0"
                     app:layout_constraintBottom_toBottomOf="@id/iv_normal_dog"
                     app:layout_constraintStart_toEndOf="@id/iv_normal_dog"
                     app:layout_constraintTop_toTopOf="@id/iv_normal_dog"
@@ -636,6 +683,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_normal_dog_dislike"
                     style="@style/Text_14_Medium.Red"
+                    convertTextStringToInt="@{placeInfo.mediumDogBadTotal}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -646,6 +694,7 @@
                     android:paddingTop="6dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="6dp"
+                    android:text="0"
                     app:layout_constraintBottom_toBottomOf="@id/iv_normal_dog"
                     app:layout_constraintStart_toEndOf="@id/tv_normal_dog_like"
                     app:layout_constraintTop_toTopOf="@id/iv_normal_dog"
@@ -663,6 +712,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_large_dog_like"
                     style="@style/Text_14_Medium.Green"
+                    convertTextStringToInt="@{placeInfo.largeDogGoodTotal}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -673,6 +723,7 @@
                     android:paddingTop="6dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="6dp"
+                    android:text="0"
                     app:layout_constraintBottom_toBottomOf="@id/iv_large_dog"
                     app:layout_constraintStart_toEndOf="@id/iv_large_dog"
                     app:layout_constraintTop_toTopOf="@id/iv_large_dog"
@@ -681,6 +732,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_large_dog_dislike"
                     style="@style/Text_14_Medium.Red"
+                    convertTextStringToInt="@{placeInfo.largeDogBadTotal}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -691,6 +743,7 @@
                     android:paddingTop="6dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="6dp"
+                    android:text="0"
                     app:layout_constraintBottom_toBottomOf="@id/iv_large_dog"
                     app:layout_constraintStart_toEndOf="@id/tv_large_dog_like"
                     app:layout_constraintTop_toTopOf="@id/iv_large_dog"
@@ -754,7 +807,7 @@
                 android:layout_height="40dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="18dp"
-                android:background="@color/black_gray_weak_transparent"
+                android:background="@color/black_gray_transparent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/CircleImageView" />

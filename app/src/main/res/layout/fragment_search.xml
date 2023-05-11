@@ -6,7 +6,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/tv_search_bar"
@@ -20,8 +21,8 @@
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
-            android:padding="12dp"
             android:hint="@string/home_search_bar"
+            android:padding="12dp"
             android:textColorHint="@color/gray1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,20 +31,20 @@
         <HorizontalScrollView
             android:id="@+id/hsv_search_option_container"
             android:layout_width="0dp"
-            android:layout_marginStart="18dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_search_bar">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:orientation="horizontal"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_option_location"
-                    style="@style/Text_12_Regular.Gray1"
+                    style="@style/Text_12_Medium.Green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
@@ -55,7 +56,7 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_option_category"
-                    style="@style/Text_12_Regular.Gray1"
+                    style="@style/Text_12_Medium.Green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
@@ -67,7 +68,7 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_option_keyword"
-                    style="@style/Text_12_Regular.Gray1"
+                    style="@style/Text_12_Medium.Green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
@@ -82,16 +83,16 @@
         </HorizontalScrollView>
 
         <androidx.recyclerview.widget.RecyclerView
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="vertical"
-            tools:listitem="@layout/item_search_result"
             android:id="@+id/rv_search_result_container"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hsv_search_option_container"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hsv_search_option_container"
+            tools:listitem="@layout/item_search_result" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
