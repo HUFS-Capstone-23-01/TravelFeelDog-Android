@@ -4,6 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.mypage.MyPageFragment">
 
+    <data>
+
+        <variable
+            name="userInfo"
+            type="com.example.travelfeeldog.data.model.common.MemberInfoBody" />
+
+    </data>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -55,7 +63,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="20dp"
                 android:maxLines="2"
-                android:text="시계는와치"
+                android:text="@{userInfo.nickName}"
                 app:layout_constraintEnd_toEndOf="@id/v_profile_container"
                 app:layout_constraintStart_toEndOf="@id/iv_user_profile_photo"
                 app:layout_constraintTop_toTopOf="@id/iv_user_profile_photo"
@@ -68,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="6dp"
-                android:text="스탬프 레벨 - "
+                android:text="리뷰력 - "
                 app:layout_constraintStart_toEndOf="@id/iv_user_profile_photo"
                 app:layout_constraintTop_toBottomOf="@id/tv_user_nickname" />
 
@@ -77,11 +85,10 @@
                 style="@style/Text_12_Bold.White"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Lv5"
+                setTextUserLevel="@{userInfo.level}"
                 app:layout_constraintBottom_toBottomOf="@id/tv_stamp_level_notice"
                 app:layout_constraintStart_toEndOf="@id/tv_stamp_level_notice"
-                app:layout_constraintTop_toTopOf="@id/tv_stamp_level_notice"
-                tools:text="Lv5" />
+                app:layout_constraintTop_toTopOf="@id/tv_stamp_level_notice" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_stamp_area"
@@ -145,22 +152,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
-                    android:text="Lv5"
+                    setTextUserLevel="@{userInfo.level}"
                     app:layout_constraintEnd_toStartOf="@id/tv_stamp_integer"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_stamp_area_in_subtitle"
-                    tools:text="Lv5" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_stamp_area_in_subtitle" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_stamp_integer"
                     style="@style/Text_14_Regular.Green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4 / 40"
+                    setTextUserExperience="@{userInfo.exp}"
                     app:layout_constraintBottom_toBottomOf="@id/tv_stamp_level"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/tv_stamp_level"
-                    tools:text="4 / 40" />
+                    app:layout_constraintStart_toEndOf="@id/tv_stamp_level" />
 
                 <androidx.core.widget.ContentLoadingProgressBar
                     android:id="@+id/pgb_review_power"
@@ -169,7 +174,7 @@
                     android:layout_height="20dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="20dp"
-                    android:progress="100"
+                    android:progress="@{userInfo.exp}"
                     android:progressDrawable="@drawable/progress_custom"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

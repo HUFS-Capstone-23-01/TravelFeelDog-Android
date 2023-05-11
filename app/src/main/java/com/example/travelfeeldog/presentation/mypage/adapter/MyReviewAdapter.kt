@@ -37,7 +37,7 @@ class MyReviewAdapter(private val viewModel: MyPageViewModel) :
             oldItem: MyReviewList,
             newItem: MyReviewList
         ): Boolean {
-            return oldItem.createdDateTime == newItem.createdDateTime
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(

@@ -11,6 +11,8 @@ data class MyReviewResponse(
 )
 
 data class MyReviewList(
+    @SerializedName("id")
+    val id: Int,
     @SerializedName("additionalScript")
     val additionalScript: String,
     @SerializedName("createdDateTime")

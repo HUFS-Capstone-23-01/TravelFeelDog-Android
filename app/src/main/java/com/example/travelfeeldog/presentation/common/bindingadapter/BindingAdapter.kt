@@ -1,5 +1,6 @@
 package com.example.travelfeeldog.presentation.common.bindingadapter
 
+import android.text.TextUtils.concat
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -86,5 +87,29 @@ object BindingAdapter {
         }
     }
 
+    @JvmStatic
+    @BindingAdapter("combineTextBehind")
+    fun combineTextBehind(view: TextView, value: Int) {
+        view.text = concat(view.text.toString(), value.toString())
+    }
 
+    @JvmStatic
+    @BindingAdapter("combineTextFront")
+    fun combineTextFront(view: TextView, value: Int) {
+        view.text = concat(value.toString(), view.text.toString())
+    }
+
+    // 유저 정보 관련
+
+    @JvmStatic
+    @BindingAdapter("setTextUserLevel")
+    fun setTextUserLevel(view: TextView, value: Int) {
+        view.text = concat("Lv ", value.toString())
+    }
+
+    @JvmStatic
+    @BindingAdapter("setTextUserExperience")
+    fun setTextUserExperience(view: TextView, value: Int) {
+        view.text = concat(value.toString(), " / 100")
+    }
 }

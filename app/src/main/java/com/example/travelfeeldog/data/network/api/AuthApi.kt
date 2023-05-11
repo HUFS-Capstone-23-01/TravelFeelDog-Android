@@ -30,4 +30,9 @@ interface AuthApi {
     suspend fun tryToSignInByAuth(
         @Header("Authorization") authToken: String
     ) : SignInResponse
+
+    @GET("member/findNick")
+    suspend fun getUserInfoByNickname(
+        @Query("nickName") nickname: String
+    ) : SignInResponse
 }
