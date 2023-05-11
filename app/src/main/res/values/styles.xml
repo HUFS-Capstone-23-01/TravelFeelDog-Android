@@ -145,12 +145,25 @@
 
 
     <!-- Medium 텍스트   -->
+    <style name="Text_10_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">10sp</item></style>
     <style name="Text_12_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">12sp</item></style>
     <style name="Text_14_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">14sp</item></style>
     <style name="Text_16_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">16sp</item></style>
     <style name="Text_18_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">18sp</item></style>
     <style name="Text_32_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">32sp</item></style>
     <style name="Text_28_Medium" parent="FontWeight_5_Medium"><item name="android:textSize">28sp</item></style>
+
+    <style name="Text_10_Medium.Green" parent="Text_10_Medium">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+
+    <style name="Text_10_Medium.Purple" parent="Text_10_Medium">
+        <item name="android:textColor">@color/emo_purple</item>
+    </style>
+
+    <style name="Text_10_Medium.Red" parent="Text_10_Medium">
+        <item name="android:textColor">@color/red</item>
+    </style>
 
     <style name="Text_12_Medium.Black" parent="Text_12_Medium">
         <item name="android:textColor">@color/black</item>

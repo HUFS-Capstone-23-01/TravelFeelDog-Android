@@ -1,9 +1,13 @@
 package com.example.travelfeeldog.presentation.common.bindingadapter
 
+import android.text.TextUtils.concat
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.util.Event
 
@@ -16,6 +20,30 @@ object BindingAdapter {
             view.visibility = View.VISIBLE
         } else {
             view.visibility = View.INVISIBLE
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("setImageUrl")
+    fun setImage(view: ImageView, url: String) {
+        Glide.with(view)
+            .load(url)
+            .into(view)
+    }
+
+    @JvmStatic
+    @BindingAdapter("setDate")
+    fun setDate(view: TextView, rawDate: String) {
+        view.text = rawDate.substring(0,10)
+    }
+
+    @JvmStatic
+    @BindingAdapter("setManyImageUrl", "order")
+    fun setManyImageUrl(view: ImageView, urls: List<String>, order: Int) {
+        if(order < urls.size) {
+            setImage(view, urls[order])
+        } else {
+            view.visibility = View.GONE
         }
     }
 
@@ -51,7 +79,37 @@ object BindingAdapter {
         }
     }
 
+    @JvmStatic
+    @BindingAdapter("setEmotionTextView")
+    fun setEmotionTextView(view: TextView, value: String) {
+        if(view.contentDescription == value) {
+            view.visibility = View.VISIBLE
+        }
+    }
 
+    @JvmStatic
+    @BindingAdapter("combineTextBehind")
+    fun combineTextBehind(view: TextView, value: Int) {
+        view.text = concat(view.text.toString(), value.toString())
+    }
 
+    @JvmStatic
+    @BindingAdapter("combineTextFront")
+    fun combineTextFront(view: TextView, value: Int) {
+        view.text = concat(value.toString(), view.text.toString())
+    }
 
+    // 유저 정보 관련
+
+    @JvmStatic
+    @BindingAdapter("setTextUserLevel")
+    fun setTextUserLevel(view: TextView, value: Int) {
+        view.text = concat("Lv ", value.toString())
+    }
+
+    @JvmStatic
+    @BindingAdapter("setTextUserExperience")
+    fun setTextUserExperience(view: TextView, value: Int) {
+        view.text = concat(value.toString(), " / 100")
+    }
 }

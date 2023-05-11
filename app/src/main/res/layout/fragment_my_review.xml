@@ -6,7 +6,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ib_my_page_review_close"
@@ -45,6 +46,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_my_review_top_title"
             tools:listitem="@layout/item_my_review" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lav_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/transparent"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rv_my_review_list"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="recycler_item_loading.json"
+            app:lottie_loop="true" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

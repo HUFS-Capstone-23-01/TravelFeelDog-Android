@@ -14,6 +14,7 @@ import com.example.travelfeeldog.databinding.FragmentSignInBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
 import com.example.travelfeeldog.presentation.common.LoadingUtil
 import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
+import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.popBackStack
 import com.example.travelfeeldog.presentation.signin.viewmodel.AuthViewModel
 import com.example.travelfeeldog.util.EventObserver
 import com.example.travelfeeldog.util.TestViewModel
@@ -51,6 +52,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sig
             LoadingUtil.cancelTaskProgressAnimation(binding.lavLoading)
             if(isVerified) {
                 navigate(R.id.action_signInFragment_to_mainActivity)
+                requireActivity().finish()
             } else {
                 navigate(R.id.action_signInFragment_to_signUpFragment)
             }
