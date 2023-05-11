@@ -10,8 +10,17 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.util.Event
+import timber.log.Timber
 
 object BindingAdapter {
+
+    @JvmStatic
+    @BindingAdapter("convertTextStringToInt")
+    fun convertStringToIntFromTextView(view: TextView, value: Int?) {
+        value?.let {
+            view.text = value.toString()
+        }
+    }
 
     @JvmStatic
     @BindingAdapter("setVisibility")
@@ -25,10 +34,12 @@ object BindingAdapter {
 
     @JvmStatic
     @BindingAdapter("setImageUrl")
-    fun setImage(view: ImageView, url: String) {
-        Glide.with(view)
-            .load(url)
-            .into(view)
+    fun setImage(view: ImageView, url: String?) {
+        url?.let{
+            Glide.with(view)
+                .load(url)
+                .into(view)
+        }
     }
 
     @JvmStatic
@@ -112,4 +123,19 @@ object BindingAdapter {
     fun setTextUserExperience(view: TextView, value: Int) {
         view.text = concat(value.toString(), " / 100")
     }
+
+    // 장소 페이지 관련
+
+    @JvmStatic
+    @BindingAdapter("setPlaceCategory")
+    fun setPlaceCategory(view: TextView, categoryList: List<String>?) {
+        categoryList?.let {
+            for(categoryName in categoryList) {
+                if(view.text.toString() == categoryName) {
+                    view.visibility = View.VISIBLE
+                }
+            }
+        }
+    }
+
 }

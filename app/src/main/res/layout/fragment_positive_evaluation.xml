@@ -2,38 +2,39 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".presentation.location.PositiveEvaluationFragment">
+    tools:context=".presentation.place.PositiveEvaluationFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_main_title"
             style="@style/Text_18_Bold.Green"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="방문자들이 뽑은 좋은점"
             android:layout_marginStart="18dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="18dp"
+            android:text="방문자들이 뽑은 좋은점"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ib_page_close" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_sub_title"
+            style="@style/Text_14_Regular.Gray"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="반려견에게 좋은 환경인지 확인해 보세요."
-            style="@style/Text_14_Regular.Gray"
-            app:layout_constraintStart_toStartOf="parent"
-            android:id="@+id/tv_sub_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_main_title"
             android:layout_marginStart="18dp"
+            android:layout_marginTop="3dp"
             android:layout_marginEnd="18dp"
-            android:layout_marginTop="3dp"/>
+            android:text="반려견에게 좋은 환경인지 확인해 보세요."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_main_title" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ib_page_close"

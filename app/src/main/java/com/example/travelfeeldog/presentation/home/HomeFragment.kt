@@ -7,6 +7,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentHomeBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
+import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
 import com.example.travelfeeldog.presentation.common.navigation.OnRequestNavigateNotBottomViewListener
 import com.example.travelfeeldog.presentation.home.adapter.EventBannerAdapter
 import com.example.travelfeeldog.presentation.home.item.EventBanner
@@ -47,6 +48,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         binding.tvHomeSearchBarHint.setOnClickListener {
             navigateListener?.onRequestNavigate(R.id.nav_search)
+        }
+
+        binding.ibHomeCategoryLodging.setOnClickListener {
+            navigate(R.id.action_nav_home_to_locationDetailFragment)
         }
 
         setHomeEventBanner(eventBannerInfo, 2)

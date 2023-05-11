@@ -173,6 +173,10 @@
         <item name="android:textColor">@color/primary_color</item>
     </style>
 
+    <style name="Text_12_Medium.Gray0" parent="Text_12_Medium">
+        <item name="android:textColor">@color/gray1</item>
+    </style>
+
     <style name="Text_12_Medium.Purple" parent="Text_12_Medium">
         <item name="android:textColor">@color/emo_purple</item>
     </style>
@@ -298,6 +302,10 @@
 
     <style name="Text_12_Regular.Gray" parent="Text_12_Regular">
         <item name="android:textColor">@color/gray2</item>
+    </style>
+
+    <style name="Text_12_Regular.Gray0" parent="Text_12_Regular">
+        <item name="android:textColor">@color/gray0</item>
     </style>
 
     <style name="Text_12_Regular.Gray1" parent="Text_12_Regular">
