@@ -111,11 +111,10 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_review_count"
                     style="@style/Text_12_Regular.Gray1"
-                    convertTextStringToInt="@{placeInfo.reviewCount}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="0"
+                    android:text="@{`(`+ String.valueOf(placeInfo.reviewCount) + `)`}"
                     app:layout_constraintBottom_toBottomOf="@id/iv_review_icon"
                     app:layout_constraintStart_toEndOf="@id/iv_review_icon"
                     app:layout_constraintTop_toTopOf="@id/iv_review_icon"
