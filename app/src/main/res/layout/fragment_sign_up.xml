@@ -168,7 +168,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_sing_up_done"
-            style="@style/Text_14_Regular.White"
+            style="@style/Text_14_Medium.White"
             setEnabled="@{viewModel.isValidSignUp}"
             setSolidButtonStateUi="@{viewModel.isValidSignUp}"
             android:layout_width="0dp"

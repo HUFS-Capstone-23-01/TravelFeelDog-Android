@@ -70,7 +70,7 @@ class PlaceReviewFragment : BaseFragment<FragmentPlaceReviewBinding>(R.layout.fr
                 binding.cgLikeKeywordGroup.addView(chip.apply {
                     id = keyword.goodKeyWordId
                     text = keyword.goodKeyWordName
-                    isCheckedIconVisible = false
+                    isCheckedIconVisible = true
                     isCheckable = true
                 })
             }
@@ -80,7 +80,7 @@ class PlaceReviewFragment : BaseFragment<FragmentPlaceReviewBinding>(R.layout.fr
                 binding.cgDislikeKeywordGroup.addView(chip.apply {
                     id = keyword.badKeyWordId
                     text = keyword.badKeyWordName
-                    isCheckedIconVisible = false
+                    isCheckedIconVisible = true
                     isCheckable = true
                 })
             }

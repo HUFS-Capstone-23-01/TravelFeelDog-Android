@@ -36,22 +36,69 @@
             app:layout_constraintStart_toEndOf="@id/ib_review_close"
             app:layout_constraintTop_toTopOf="@id/ib_review_close" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_review_search_option"
-            style="@style/Text_12_Regular.Blue"
+
+        <HorizontalScrollView
+            android:id="@+id/hsv_cg_option_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="18dp"
-            android:background="@color/white"
-            android:drawableEnd="@drawable/ic_search_option_blue"
-            android:paddingLeft="4dp"
-            android:paddingEnd="10dp"
-            android:stateListAnimator="@null"
-            android:text="검색 옵션"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ib_review_close" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ib_review_close">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cg_option_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ib_review_close"
+                app:selectionRequired="true"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_latest"
+                    style="@style/SearchOptionKeywordChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="최신 작성순"
+                    app:chipCornerRadius="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_like"
+                    style="@style/SearchOptionKeywordChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="좋아요순"
+                    app:chipCornerRadius="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_normal"
+                    style="@style/SearchOptionKeywordChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="보통순"
+                    app:chipCornerRadius="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_dislike"
+                    style="@style/SearchOptionKeywordChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="싫어요순"
+                    app:chipCornerRadius="8dp" />
+
+
+            </com.google.android.material.chip.ChipGroup>
+
+
+        </HorizontalScrollView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_review_container"
@@ -62,8 +109,26 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_review_search_option"
+            app:layout_constraintTop_toBottomOf="@id/hsv_cg_option_container"
             tools:listitem="@layout/item_review" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
+
+
+    <!--<androidx.appcompat.widget.AppCompatButton-->
+    <!--android:id="@+id/btn_review_search_option"-->
+    <!--style="@style/Text_12_Regular.Blue"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="18dp"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:layout_marginEnd="18dp"-->
+    <!--android:background="@color/white"-->
+    <!--android:drawableEnd="@drawable/ic_search_option_blue"-->
+    <!--android:paddingLeft="4dp"-->
+    <!--android:paddingEnd="10dp"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="검색 옵션"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/ib_review_close" />-->

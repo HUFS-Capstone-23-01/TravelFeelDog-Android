@@ -68,6 +68,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_first_qa__title"
                     app:singleLine="true"
+                    app:selectionRequired="true"
                     app:singleSelection="true">
 
                     <com.google.android.material.chip.Chip
@@ -77,6 +78,7 @@
                         android:layout_height="wrap_content"
                         android:contentDescription="GOOD"
                         android:text="추천"
+                        app:chipMinHeight="40dp"
                         app:chipCornerRadius="8dp"
                         app:chipStrokeColor="@color/gray2" />
 
@@ -88,6 +90,7 @@
                         android:checked="true"
                         android:contentDescription="IDK"
                         android:text="보통"
+                        app:chipMinHeight="40dp"
                         app:chipCornerRadius="8dp" />
 
                     <com.google.android.material.chip.Chip
@@ -97,6 +100,7 @@
                         android:layout_height="wrap_content"
                         android:contentDescription="BAD"
                         android:text="비추천"
+                        app:chipMinHeight="40dp"
                         app:chipCornerRadius="8dp" />
 
                 </com.google.android.material.chip.ChipGroup>
@@ -129,7 +133,7 @@
                     style="@style/Text_14_Regular.Gray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:text="소형견"
                     app:layout_constraintEnd_toStartOf="@id/tv_picker_description_normal"
                     app:layout_constraintStart_toStartOf="parent"
@@ -150,7 +154,7 @@
                     style="@style/Text_14_Regular.Gray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:text="중형견"
                     app:layout_constraintEnd_toStartOf="@id/tv_picker_description_large"
                     app:layout_constraintStart_toEndOf="@id/tv_picker_description_small"
@@ -170,7 +174,7 @@
                     style="@style/Text_14_Regular.Gray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:text="대형견"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_picker_description_normal"
@@ -279,9 +283,9 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etv_review_input_box"
-                    style="@style/Text_12_Regular.Black"
+                    style="@style/Text_14_Regular.Black"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_marginStart="18dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="18dp"
@@ -354,7 +358,7 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_evaluation_conplete"
-                    style="@style/Text_14_Regular.White"
+                    style="@style/Text_14_Medium.White"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"

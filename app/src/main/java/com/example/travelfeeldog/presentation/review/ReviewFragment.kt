@@ -15,9 +15,11 @@ import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
 import com.example.travelfeeldog.presentation.review.adapter.PlaceReviewAdapter
 import com.example.travelfeeldog.util.EventObserver
 import com.example.travelfeeldog.util.UserInfo
+import com.google.android.material.chip.Chip
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import timber.log.Timber
 
-class ReviewFragment : BaseFragment<FragmentReviewBinding>(R.layout.fragment_review), PopupMenu.OnMenuItemClickListener {
+class ReviewFragment : BaseFragment<FragmentReviewBinding>(R.layout.fragment_review) {
 
     private val placeViewModel: PlaceViewModel by sharedViewModel()
 
@@ -36,38 +38,11 @@ class ReviewFragment : BaseFragment<FragmentReviewBinding>(R.layout.fragment_rev
             navigateUp()
         }
 
-        binding.btnReviewSearchOption.setOnClickListener {
-            showPopup(it)
-        }
-    }
-
-    private fun showPopup(v: View) {
-        val popup = PopupMenu(requireActivity(), v, Gravity.END)
-        val inflater: MenuInflater = popup.menuInflater
-        inflater.inflate(R.menu.menu_review_search, popup.menu)
-        popup.setOnMenuItemClickListener(this)
-        popup.show()
-    }
-
-    override fun onMenuItemClick(item: MenuItem?): Boolean {
-        return when (item?.itemId) {
-            R.id.option_date-> {
-                Log.d("clickMenu", "date")
-                true
-            }
-            R.id.option_like -> {
-                Log.d("clickMenu", "like")
-                true
-            }
-            R.id.option_normal -> {
-                Log.d("clickMenu", "normal")
-                true
-            }
-            R.id.option_dislike -> {
-                Log.d("clickMenu", "dislike")
-                true
-            }
-            else -> false
+        binding.cgOptionContainer.setOnCheckedStateChangeListener { group, checkedIds ->
+            val checkedId = group.checkedChipId
+            val checkedChip = requireActivity().findViewById<Chip>(checkedId)
+            val checkedOption = checkedChip.text.toString()
+            Timber.d("선택된 검색 옵션 : $checkedOption")
         }
     }
 
