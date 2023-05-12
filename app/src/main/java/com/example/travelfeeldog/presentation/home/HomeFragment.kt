@@ -3,10 +3,12 @@ package com.example.travelfeeldog.presentation.home
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentHomeBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
+import com.example.travelfeeldog.presentation.common.CustomSnackBar
 import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
 import com.example.travelfeeldog.presentation.common.navigation.OnRequestNavigateNotBottomViewListener
 import com.example.travelfeeldog.presentation.home.adapter.EventBannerAdapter
