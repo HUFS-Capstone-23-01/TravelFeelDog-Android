@@ -86,26 +86,20 @@ class PlaceReviewFragment : BaseFragment<FragmentPlaceReviewBinding>(R.layout.fr
             }
         })
 
-        postReviewViewModel.reviewImageSet.observe(viewLifecycleOwner) { imageUrls ->
-            postReviewViewModel.postReview(
-                UserInfo.getUserInfo()!!.token,
-                PlaceUserEvaluationResultRequest(
-                    placeViewModel.placeId.value!!,
-                    getSelectedEvaluation(binding.cgEvaluationGroup.checkedChipId),
-                    binding.npSmallDog.value,
-                    binding.npNormal.value,
-                    binding.npLarge.value,
-                    binding.cgLikeKeywordGroup.checkedChipIds,
-                    binding.cgDislikeKeywordGroup.checkedChipIds,
-                    binding.etvReviewInputBox.text.toString(),
-                    imageUrls
-                    )
+        postReviewViewModel.reviewImageSet.observe(viewLifecycleOwner, EventObserver { imageUrls ->
+            val postingData = PlaceUserEvaluationResultRequest(
+                placeViewModel.placeId.value!!,
+                getSelectedEvaluation(binding.cgEvaluationGroup.checkedChipId),
+                binding.npSmallDog.value,
+                binding.npNormal.value,
+                binding.npLarge.value,
+                binding.cgLikeKeywordGroup.checkedChipIds,
+                binding.cgDislikeKeywordGroup.checkedChipIds,
+                binding.etvReviewInputBox.text.toString(),
+                imageUrls
             )
-
-            Timber.d("리뷰 이미지 URL을 성공적으로 불러왔습니다 : $imageUrls")
-            Timber.d("선택된 긍정 키워드 아이디 리스트 : ${binding.cgLikeKeywordGroup.checkedChipIds}")
-            Timber.d("선택된 부정 키워드 아이디 리스트 : ${binding.cgDislikeKeywordGroup.checkedChipIds}")
-        }
+            postReviewViewModel.postReview(UserInfo.getUserInfo()!!.token, postingData)
+        })
 
         postReviewViewModel.isPostedReview.observe(viewLifecycleOwner, EventObserver { isPosted ->
             LoadingUtil.cancelTaskProgressAnimation(binding.lavLoading)

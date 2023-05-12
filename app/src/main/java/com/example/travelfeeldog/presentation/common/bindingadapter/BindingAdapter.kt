@@ -95,6 +95,8 @@ object BindingAdapter {
     fun setEmotionTextView(view: TextView, value: String) {
         if(view.contentDescription == value) {
             view.visibility = View.VISIBLE
+        } else {
+            view.visibility = View.INVISIBLE
         }
     }
 

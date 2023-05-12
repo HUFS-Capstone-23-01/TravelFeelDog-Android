@@ -55,7 +55,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         //TODO("장소 상세 페이지 테스트를 위해 임시적으로 제작한 코드 -> 추후 삭제")
         binding.ibHomeCategoryLodging.setOnClickListener {
-            placeViewModel.setRequestPlace(2)
+            placeViewModel.setRequestPlace(1)
             navigate(R.id.action_nav_home_to_locationDetailFragment)
         }
 

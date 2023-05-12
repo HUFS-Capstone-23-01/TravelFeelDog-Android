@@ -3,6 +3,8 @@ package com.example.travelfeeldog.data.model.review
 import com.google.gson.annotations.SerializedName
 
 data class PlaceReview(
+    @SerializedName("reviewId")
+    val reviewId: Int,
     @SerializedName("additionalScript")
     val additionalScript: String,
     @SerializedName("createdDateTime")

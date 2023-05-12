@@ -24,25 +24,29 @@ class PostReviewViewModel(private val repository: PostReviewRepository): ViewMod
     val placeReviewKeywordSet: LiveData<Event<KeywordSet>>
         get() = _placeReviewKeywordSet
 
-    private val _reviewImageSet: MutableLiveData<List<String>> = MutableLiveData<List<String>>()
-    val reviewImageSet: LiveData<List<String>>
+    private val _reviewImageSet: MutableLiveData<Event<List<String>>> = MutableLiveData<Event<List<String>>>()
+    val reviewImageSet: LiveData<Event<List<String>>>
         get() = _reviewImageSet
 
     private val _isPostedReview: MutableLiveData<Event<Boolean>> = MutableLiveData<Event<Boolean>>()
     val isPostedReview: LiveData<Event<Boolean>>
         get() = _isPostedReview
 
-
     // -------------------- 서버 통신 --------------------
 
     fun postReviewImage() {
         viewModelScope.launch {
             try {
-                val response = repository.postReviewImage("review", _files.toList())
-                if(response.header.status == 201) {
-                    _reviewImageSet.value = getStringUrls(response.body)
-                } else {
-                    _reviewImageSet.value = emptyList()
+                when(_files.size) {
+                    0 -> {
+                        _reviewImageSet.value = Event(emptyList())
+                    }
+                    else -> {
+                        val response = repository.postReviewImage("review", _files.toList())
+                        if(response.header.status == 201) {
+                            _reviewImageSet.value = Event(getStringUrls(response.body))
+                        }
+                    }
                 }
             } catch (e: Throwable) {
                 Timber.d(e)
@@ -55,6 +59,7 @@ class PostReviewViewModel(private val repository: PostReviewRepository): ViewMod
             try {
                 val response = repository.postPlaceEvaluation(authToken, reviewSet)
                 _isPostedReview.value = Event(response.header.status == 200)
+                Timber.d("등록한 리뷰 정보입니다. : $reviewSet")
             } catch (e: Throwable) {
                 Timber.d(e)
             }
@@ -86,6 +91,9 @@ class PostReviewViewModel(private val repository: PostReviewRepository): ViewMod
         val requestFile = file.asRequestBody("image/*".toMediaType())
         val body = MultipartBody.Part.createFormData("files", file.name, requestFile)
         _files.add(body)
+    }
+
+    fun checkValidEvaluation() {
     }
 
     // -------------------- 내부 로직 처리 --------------------
