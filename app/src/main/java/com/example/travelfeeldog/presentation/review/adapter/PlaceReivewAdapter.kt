@@ -35,6 +35,7 @@ class PlaceReviewAdapter(private val viewModel: PlaceViewModel) :
             oldItem: PlaceReview,
             newItem: PlaceReview
         ): Boolean {
+            //TODO(리뷰 아이디가 존재하지 않아서 임시방편으로 날짜로 설정함 -> 아이디 추가되면 추후 수정)
             return oldItem.createdDateTime == newItem.createdDateTime
         }
 

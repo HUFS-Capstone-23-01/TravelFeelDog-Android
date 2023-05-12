@@ -38,7 +38,7 @@ class PostReviewViewModel(private val repository: PostReviewRepository): ViewMod
     fun postReviewImage() {
         viewModelScope.launch {
             try {
-                val response = repository.postReviewImage("PostReviewImage", _files.toList())
+                val response = repository.postReviewImage("review", _files.toList())
                 if(response.header.status == 201) {
                     _reviewImageSet.value = getStringUrls(response.body)
                 } else {
@@ -83,7 +83,7 @@ class PostReviewViewModel(private val repository: PostReviewRepository): ViewMod
     }
 
     fun convertFileToFormData(file: File) {
-        val requestFile = file.asRequestBody("image/jpg".toMediaType())
+        val requestFile = file.asRequestBody("image/*".toMediaType())
         val body = MultipartBody.Part.createFormData("files", file.name, requestFile)
         _files.add(body)
     }
