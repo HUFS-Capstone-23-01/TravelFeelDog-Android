@@ -19,7 +19,8 @@ class PlaceDetailFragment : BaseFragment<FragmentLocationDetailBinding>(R.layout
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        placeViewModel.getPlaceInfo(UserInfo.getUserInfo()!!.token, 2)
+        //TODO("홈, 검색 구현 이전 임시적으로 장소 아이디 설정, 원래는 이 페이지로 이동하기 전에 장소 아이디를 저장시켜야 함 -> 추후 수정")
+        placeViewModel.getPlaceInfo(UserInfo.getUserInfo()!!.token)
 
         placeViewModel.placeInfo.observe(viewLifecycleOwner) { placeInfo ->
             binding.placeInfo = placeInfo

@@ -11,9 +11,12 @@ import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.n
 import com.example.travelfeeldog.presentation.common.navigation.OnRequestNavigateNotBottomViewListener
 import com.example.travelfeeldog.presentation.home.adapter.EventBannerAdapter
 import com.example.travelfeeldog.presentation.home.item.EventBanner
+import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
+    private val placeViewModel: PlaceViewModel by sharedViewModel()
     private var navigateListener: OnRequestNavigateNotBottomViewListener? = null
 
     override fun onAttach(context: Context) {
@@ -50,7 +53,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             navigateListener?.onRequestNavigate(R.id.nav_search)
         }
 
+        //TODO("장소 상세 페이지 테스트를 위해 임시적으로 제작한 코드 -> 추후 삭제")
         binding.ibHomeCategoryLodging.setOnClickListener {
+            placeViewModel.setRequestPlace(2)
             navigate(R.id.action_nav_home_to_locationDetailFragment)
         }
 

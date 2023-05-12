@@ -2,9 +2,7 @@ package com.example.travelfeeldog.data.network.api
 
 import com.example.travelfeeldog.data.model.place.GetPlaceInfoResponse
 import com.example.travelfeeldog.data.model.review.PlaceReviewResponse
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface PlaceApi {
 

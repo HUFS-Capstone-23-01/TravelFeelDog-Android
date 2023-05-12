@@ -78,6 +78,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sig
             .build()
 
         binding.btnSignIn.setOnClickListener {
+            Timber.d("구글 로그인 진입")
             googleLogInRequest.launch(GoogleSignIn.getClient(requireActivity(), gso).signInIntent)
         }
     }

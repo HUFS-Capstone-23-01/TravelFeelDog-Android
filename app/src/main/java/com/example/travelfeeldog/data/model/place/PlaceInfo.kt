@@ -38,5 +38,7 @@ data class PlaceInfo(
     @SerializedName("thumbNailImageUrl")
     val thumbNailImageUrl: String,
     @SerializedName("reviewCount")
-    val reviewCount: Int
+    val reviewCount: Int,
+    @SerializedName("categoryId")
+    val categoryId: Int
 )

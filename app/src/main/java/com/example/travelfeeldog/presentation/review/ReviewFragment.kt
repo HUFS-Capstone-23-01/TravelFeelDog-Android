@@ -13,6 +13,7 @@ import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.n
 import com.example.travelfeeldog.presentation.mypage.adapter.MyReviewAdapter
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
 import com.example.travelfeeldog.presentation.review.adapter.PlaceReviewAdapter
+import com.example.travelfeeldog.util.EventObserver
 import com.example.travelfeeldog.util.UserInfo
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -23,12 +24,12 @@ class ReviewFragment : BaseFragment<FragmentReviewBinding>(R.layout.fragment_rev
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        placeViewModel.getPlaceReview(UserInfo.getUserInfo()!!.token, 2)
+        placeViewModel.getPlaceReview(UserInfo.getUserInfo()!!.token)
 
         binding.rvReviewContainer.adapter = PlaceReviewAdapter(placeViewModel).apply {
-            placeViewModel.placeReview.observe(viewLifecycleOwner) { reviewList ->
+            placeViewModel.placeReview.observe(viewLifecycleOwner, EventObserver { reviewList ->
                 submitList(reviewList)
-            }
+            })
         }
 
         binding.ibReviewClose.setOnClickListener {
