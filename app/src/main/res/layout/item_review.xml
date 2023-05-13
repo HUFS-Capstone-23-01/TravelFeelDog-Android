@@ -175,8 +175,8 @@
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/siv_first"
-                        order="@{0}"
                         setManyImageUrl="@{reviewInfo.imageUrls}"
+                        order="@{0}"
                         android:layout_width="130dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="18dp"
@@ -187,8 +187,8 @@
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/siv_second"
-                        order="@{1}"
                         setManyImageUrl="@{reviewInfo.imageUrls}"
+                        order="@{1}"
                         android:layout_width="130dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="18dp"
@@ -199,12 +199,12 @@
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/siv_third"
-                        order="@{2}"
                         setManyImageUrl="@{reviewInfo.imageUrls}"
+                        order="@{2}"
                         android:layout_width="130dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="18dp"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginEnd="20dp"
                         android:scaleType="centerCrop"
                         app:shapeAppearanceOverlay="@style/RoundingImageView"
                         tools:src="@drawable/img_test_location" />

@@ -87,6 +87,7 @@ class PlaceReviewFragment : BaseFragment<FragmentPlaceReviewBinding>(R.layout.fr
         })
 
         postReviewViewModel.reviewImageSet.observe(viewLifecycleOwner, EventObserver { imageUrls ->
+            Timber.d("이미지 URL을 불러오는 데 성공했습니다 : ${imageUrls}")
             val postingData = PlaceUserEvaluationResultRequest(
                 placeViewModel.placeId.value!!,
                 getSelectedEvaluation(binding.cgEvaluationGroup.checkedChipId),

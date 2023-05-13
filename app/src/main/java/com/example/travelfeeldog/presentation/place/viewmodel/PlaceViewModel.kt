@@ -56,7 +56,6 @@ class PlaceViewModel(private val repository: PlaceRepository) : ViewModel() {
                 val response = repository.getPlaceReview(authToken, _placeId.value!!)
                 if(response.header.status == 200) {
                     _placeReview.value = Event(response.body)
-                    Timber.d("해당 장소의 모든 리뷰들을 불러왔습니다 : ${_placeReview.value}")
                 } else {
                     Timber.d("해당 장소에 대한 정보를 불러오는 데 실패했습니다 : status(${response.header.status})")
                 }

@@ -30,6 +30,7 @@ class ReviewFragment : BaseFragment<FragmentReviewBinding>(R.layout.fragment_rev
 
         binding.rvReviewContainer.adapter = PlaceReviewAdapter(placeViewModel).apply {
             placeViewModel.placeReview.observe(viewLifecycleOwner, EventObserver { reviewList ->
+                Timber.d("장소 리뷰를 불러왔습니다 : $reviewList")
                 submitList(reviewList)
             })
         }

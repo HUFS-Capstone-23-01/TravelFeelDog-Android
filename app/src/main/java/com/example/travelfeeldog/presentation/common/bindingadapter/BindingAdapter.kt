@@ -39,6 +39,7 @@ object BindingAdapter {
             Glide.with(view)
                 .load(url)
                 .into(view)
+            view.visibility = View.VISIBLE
         }
     }
 
@@ -50,11 +51,13 @@ object BindingAdapter {
 
     @JvmStatic
     @BindingAdapter("setManyImageUrl", "order")
-    fun setManyImageUrl(view: ImageView, urls: List<String>, order: Int) {
-        if(order < urls.size) {
-            setImage(view, urls[order])
-        } else {
-            view.visibility = View.GONE
+    fun setManyImageUrl(view: ImageView, urls: List<String>?, order: Int) {
+        urls?.let{
+            if(order < urls.size) {
+                setImage(view, urls[order])
+            } else {
+                view.visibility = View.GONE
+            }
         }
     }
 

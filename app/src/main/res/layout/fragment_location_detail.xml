@@ -110,7 +110,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_review_count"
-                    style="@style/Text_12_Regular.Gray1"
+                    style="@style/Text_12_Medium.Gray0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
