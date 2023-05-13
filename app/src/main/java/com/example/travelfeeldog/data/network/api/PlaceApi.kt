@@ -1,6 +1,8 @@
 package com.example.travelfeeldog.data.network.api
 
 import com.example.travelfeeldog.data.model.place.GetPlaceInfoResponse
+import com.example.travelfeeldog.data.model.place.MostReviewResponse
+import com.example.travelfeeldog.data.model.place.PopularPlaceResponse
 import com.example.travelfeeldog.data.model.review.PlaceReviewResponse
 import retrofit2.http.*
 
@@ -17,5 +19,18 @@ interface PlaceApi {
         @Header("Authorization") authToken: String,
         @Path("placeId") placeId: Int
     ): PlaceReviewResponse
+
+    @GET("place/recommend")
+    suspend fun getPopularPlace(
+        @Header("Authorization") authToken: String,
+        @Query("categoryName") categoryName: String,
+        @Query("locationName") locationName: String
+    ): PopularPlaceResponse
+
+    @GET("place/most/review")
+    suspend fun getMostReviewPlace(
+        @Header("Authorization") authToken: String,
+        @Query("locationName") locationName: String
+    ): MostReviewResponse
 
 }

@@ -1,6 +1,7 @@
 package com.example.travelfeeldog.di
 
 import com.example.travelfeeldog.presentation.common.UserViewModel
+import com.example.travelfeeldog.presentation.home.viewmodel.HomeViewModel
 import com.example.travelfeeldog.presentation.mypage.viewmodel.MyPageViewModel
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
 import com.example.travelfeeldog.presentation.review.viewmodel.PostReviewViewModel
@@ -16,4 +17,5 @@ val viewModelModule = module{
     viewModel { UserViewModel(get()) }
     viewModel { PlaceViewModel(get()) }
     viewModel { PostReviewViewModel(get()) }
+    viewModel { HomeViewModel(get()) }
 }

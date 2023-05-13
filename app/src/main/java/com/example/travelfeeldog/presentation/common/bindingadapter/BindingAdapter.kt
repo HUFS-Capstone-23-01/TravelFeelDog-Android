@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.travelfeeldog.R
+import com.example.travelfeeldog.data.model.place.ReviewInfo
 import com.example.travelfeeldog.util.Event
 import timber.log.Timber
 
@@ -142,5 +143,31 @@ object BindingAdapter {
             }
         }
     }
+
+    @JvmStatic
+    @BindingAdapter("setManyReviewText", "reviewOrder")
+    fun setManyText(view: TextView, reviewList: List<ReviewInfo>?, order: Int) {
+        reviewList?.let {
+            if(order < reviewList.size) {
+                view.text = reviewList[order].additionalScript
+            } else {
+                view.visibility = View.GONE
+            }
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("setManyNicknameText", "nicknameOrder")
+    fun setManyNicknameText(view: TextView, reviewList: List<ReviewInfo>?, order: Int) {
+        reviewList?.let {
+            if(order < reviewList.size) {
+                view.text = reviewList[order].nickName
+            } else {
+                view.visibility = View.GONE
+            }
+        }
+    }
+
+
 
 }

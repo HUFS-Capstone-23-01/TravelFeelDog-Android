@@ -43,26 +43,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_home_search_bar_hint"
                 app:singleLine="true"
+                app:selectionRequired="true"
                 app:singleSelection="true">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/c_jeju"
-                    style="@style/CustomChipStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="제주도"
-                    app:chipCornerRadius="8dp"
-                    app:chipStrokeColor="@color/gray2"
-                    tools:checked="true" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/c_gangwon"
-                    style="@style/CustomChipStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="강원도"
-                    app:chipCornerRadius="8dp"
-                    tools:checked="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/c_seoul"
@@ -71,7 +53,25 @@
                     android:layout_height="wrap_content"
                     android:text="서울"
                     app:chipCornerRadius="8dp"
-                    tools:checked="false" />
+                    android:checked="true"
+                    tools:checked="true" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_gangwon"
+                    style="@style/CustomChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="강원"
+                    app:chipCornerRadius="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/c_jeju"
+                    style="@style/CustomChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="제주"
+                    app:chipCornerRadius="8dp" />
+
 
             </com.google.android.material.chip.ChipGroup>
 
@@ -181,7 +181,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title_favorite_location"
-                style="@style/Text_18_ExtraBold.Black"
+                style="@style/Text_22_Bold.Black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
@@ -207,7 +207,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title_review_sorted"
-                style="@style/Text_18_ExtraBold.Black"
+                style="@style/Text_22_Bold.Black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"

@@ -10,8 +10,9 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.presentation.home.item.EventBanner
+import com.example.travelfeeldog.presentation.home.item.EventBannerBody
 
-class EventBannerAdapter(private val context: Context, private val infoList: MutableList<EventBanner>) :
+class EventBannerAdapter(private val context: Context, private val infoList: MutableList<EventBannerBody>) :
     RecyclerView.Adapter<EventBannerAdapter.PagerViewHolder>() {
 
     inner class PagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
