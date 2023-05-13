@@ -16,6 +16,9 @@ import com.google.android.material.snackbar.Snackbar
 
 class CustomSnackBar(view: View, private val message: String, private val drawable: Drawable) {
 
+//    val drawable = ContextCompat.getDrawable(this, R.drawable.ic_check)!!
+//    SampleSnackBar.make(binding.root, "String", drawable).show()
+
     companion object {
         fun make(view: View, message: String, drawable: Drawable) =
             CustomSnackBar(view, message, drawable)
@@ -44,7 +47,7 @@ class CustomSnackBar(view: View, private val message: String, private val drawab
 
             Handler(Looper.getMainLooper()).postDelayed({
                 this.startAnimation(snackBarHideAnim)
-            }, 40000L)
+            }, 80000L)
 
             layoutParams.gravity = Gravity.TOP
             removeAllViews()
@@ -63,3 +66,4 @@ class CustomSnackBar(view: View, private val message: String, private val drawab
         snackBar.show()
     }
 }
+

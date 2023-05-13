@@ -15,6 +15,7 @@ import android.widget.NumberPicker
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.core.view.marginRight
 import androidx.core.view.setPadding
@@ -28,6 +29,7 @@ import com.example.travelfeeldog.data.model.review.KeywordSet
 import com.example.travelfeeldog.data.model.review.PlaceUserEvaluationResultRequest
 import com.example.travelfeeldog.databinding.FragmentPlaceReviewBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
+import com.example.travelfeeldog.presentation.common.CustomSnackBar
 import com.example.travelfeeldog.presentation.common.FileUtil
 import com.example.travelfeeldog.presentation.common.LoadingUtil
 import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigateUp
@@ -105,7 +107,8 @@ class PlaceReviewFragment : BaseFragment<FragmentPlaceReviewBinding>(R.layout.fr
         postReviewViewModel.isPostedReview.observe(viewLifecycleOwner, EventObserver { isPosted ->
             LoadingUtil.cancelTaskProgressAnimation(binding.lavLoading)
             if(isPosted) {
-                Toast.makeText(requireActivity(), "리뷰가 등록됐습니다.", Toast.LENGTH_SHORT).show()
+                val drawable = ContextCompat.getDrawable(requireActivity(), R.drawable.ic_check)!!
+                CustomSnackBar.make(binding.root, "리뷰가 등록됐어요", drawable).show()
                 navigateUp()
             } else {
                 Toast.makeText(requireActivity(), "다시 시도해 주세요.", Toast.LENGTH_SHORT).show()
