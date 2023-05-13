@@ -9,7 +9,7 @@ data class PlaceUserEvaluationResultRequest(
     val recommendStatus: String,
     @SerializedName("smallDogNumber")
     val smallDogNumber: Int,
-    @SerializedName("meiumDogNumber")
+    @SerializedName("mediumDogNumber")
     val mediumDogNumber: Int,
     @SerializedName("largeDogNumber")
     val largeDogNumber: Int,
