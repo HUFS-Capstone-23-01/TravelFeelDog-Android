@@ -10,7 +10,7 @@ import com.example.travelfeeldog.databinding.ItemReviewBinding
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
 
 class PlaceReviewAdapter(private val viewModel: PlaceViewModel) :
-    ListAdapter<PlaceReview, PlaceReviewAdapter.PlaceReviewViewHolder>(PlaceReviewAdapter.PlaceReviewDiffCallback()) {
+    ListAdapter<PlaceReview, PlaceReviewAdapter.PlaceReviewViewHolder>(PlaceReviewDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaceReviewViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -35,7 +35,7 @@ class PlaceReviewAdapter(private val viewModel: PlaceViewModel) :
             oldItem: PlaceReview,
             newItem: PlaceReview
         ): Boolean {
-            return oldItem.createdDateTime == newItem.createdDateTime
+            return oldItem.reviewId == newItem.reviewId
         }
 
         override fun areContentsTheSame(

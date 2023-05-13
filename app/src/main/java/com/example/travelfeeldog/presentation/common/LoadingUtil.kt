@@ -9,7 +9,6 @@ object LoadingUtil {
         loadingView.visibility = View.VISIBLE
         loadingView.playAnimation()
     }
-
     fun cancelTaskProgressAnimation(loadingView: LottieAnimationView) {
         loadingView.cancelAnimation()
         loadingView.visibility = View.INVISIBLE

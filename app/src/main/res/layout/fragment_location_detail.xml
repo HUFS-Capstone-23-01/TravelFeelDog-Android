@@ -79,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="16dp"
                     android:src="@drawable/ic_location"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_location_name" />
@@ -103,14 +103,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:src="@drawable/ic_comment"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_location_info_icon" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_review_count"
-                    style="@style/Text_12_Regular.Gray1"
+                    style="@style/Text_12_Medium.Gray0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -123,12 +123,11 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_move_review_page"
                     style="@style/Text_12_Bold.Blue"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="18dp"
                     app:layout_constraintBottom_toBottomOf="@id/tv_review_count"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_review_count"
                     app:layout_constraintTop_toTopOf="@id/tv_review_count"
                     android:text="리뷰보기>" />
@@ -138,7 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="24dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_review_icon">
@@ -291,6 +290,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:drawableEnd="@drawable/ic_arrow_below"
+                    android:visibility="visible"
                     android:text="더보기"
                     android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -329,10 +329,11 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_sub_title_evaluation_description"
-                    style="@style/Text_12_Regular.Gray"
+                    style="@style/Text_14_Regular.Gray"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="6dp"
+                    android:visibility="gone"
                     android:text="이 장소가 내 반려동물에게 좋은지 참고해 보세요!"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -483,10 +484,10 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_like_statics_description"
-                    style="@style/Text_12_Regular.Gray"
+                    style="@style/Text_13_Regular.Gray"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="12dp"
                     android:text="어떤 점을 좋게 평가했는지 확인해 보세요!"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -544,10 +545,10 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_bad_statics_description"
-                    style="@style/Text_12_Regular.Gray"
+                    style="@style/Text_13_Regular.Gray"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="12dp"
                     android:text="어떤 점이 별로였는 확인해 보세요!"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -594,9 +595,9 @@
                     style="@style/Text_12_Regular.Gray"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="6dp"
                     android:lineSpacingExtra="3dp"
-                    android:text="소형견, 중형견, 대형견과 동반했던\n반려인들의 만족도에요."
+                    android:text="! 평가에 따른 동반 반려견 통계입니다.\n! 동행한 반려견 수를 나타냅니다."
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_dog_statics_title" />
@@ -776,10 +777,10 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_check_visit_description"
-                    style="@style/Text_12_Regular.Gray"
+                    style="@style/Text_13_Regular.Gray"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
                     android:text="다른 반려견과 반려인들에게 도움을 주세요!"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -787,7 +788,7 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_request_review"
-                    style="@style/Text_14_Regular.White"
+                    style="@style/Text_14_Medium.White"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"

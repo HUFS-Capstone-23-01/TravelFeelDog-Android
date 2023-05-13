@@ -26,8 +26,10 @@
     <color name="emo_purple">#AA6BDC</color>
     <color name="primary_color_weak">#3394E0AC</color>
 
+    <color name="black_transparent">#B3545454</color>
     <color name="black_gray_transparent">#80545454</color>
     <color name="black_gray_weak_transparent">#33545454</color>
+    <color name="snack_bar_background">#6E7176</color>
     <color name="gray0">#717171</color>
     <color name="gray1">#A5A5A5</color>
     <color name="gray2">#CCCCCC</color>

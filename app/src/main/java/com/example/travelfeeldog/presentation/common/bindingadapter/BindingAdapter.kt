@@ -28,7 +28,7 @@ object BindingAdapter {
         if (value) {
             view.visibility = View.VISIBLE
         } else {
-            view.visibility = View.INVISIBLE
+            view.visibility = View.GONE
         }
     }
 
@@ -39,6 +39,7 @@ object BindingAdapter {
             Glide.with(view)
                 .load(url)
                 .into(view)
+            view.visibility = View.VISIBLE
         }
     }
 
@@ -50,11 +51,13 @@ object BindingAdapter {
 
     @JvmStatic
     @BindingAdapter("setManyImageUrl", "order")
-    fun setManyImageUrl(view: ImageView, urls: List<String>, order: Int) {
-        if(order < urls.size) {
-            setImage(view, urls[order])
-        } else {
-            view.visibility = View.GONE
+    fun setManyImageUrl(view: ImageView, urls: List<String>?, order: Int) {
+        urls?.let{
+            if(order < urls.size) {
+                setImage(view, urls[order])
+            } else {
+                view.visibility = View.GONE
+            }
         }
     }
 
@@ -95,6 +98,8 @@ object BindingAdapter {
     fun setEmotionTextView(view: TextView, value: String) {
         if(view.contentDescription == value) {
             view.visibility = View.VISIBLE
+        } else {
+            view.visibility = View.INVISIBLE
         }
     }
 

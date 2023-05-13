@@ -2,10 +2,7 @@ package com.example.travelfeeldog.di
 
 import com.example.travelfeeldog.BuildConfig.BASE_URL
 import com.example.travelfeeldog.data.network.NetworkInterceptor
-import com.example.travelfeeldog.data.network.api.AuthApi
-import com.example.travelfeeldog.data.network.api.MyPageApi
-import com.example.travelfeeldog.data.network.api.PlaceApi
-import com.example.travelfeeldog.data.network.api.TestApi
+import com.example.travelfeeldog.data.network.api.*
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -49,5 +46,9 @@ val networkModule = module {
 
     single<PlaceApi> {
         get<Retrofit>().create(PlaceApi::class.java)
+    }
+
+    single<ReviewApi> {
+        get<Retrofit>().create(ReviewApi::class.java)
     }
 }
