@@ -51,12 +51,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             resources.getColor(R.color.dark_dark_yellow, null)
         )
 
-
-        setLocationOptionEvent()
-
         //TODO(API 요구사항 특성상, 요청시 지역 카테고리를 명시해야 하므로 임시적으로 숙소로 카테고리 지정 -> 추후 수정)
-        homeViewModel.getPopularPlace("숙소", selectedLocationOption)
-        homeViewModel.getMostReviewPlace(selectedLocationOption)
+        requestRecommendPlace()
+        setLocationOptionEvent()
 
         binding.rvFavoriteLocationContainer.adapter = PopularPlaceAdapter().apply {
             homeViewModel.popularPlace.observe(viewLifecycleOwner, EventObserver { popularPlace ->
@@ -125,6 +122,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun initLocationOption(checkedChip: Chip) {
         selectedLocationOption = checkedChip.text.toString()
+        requestRecommendPlace()
+    }
+
+    private fun requestRecommendPlace() {
+        homeViewModel.getPopularPlace("숙소", selectedLocationOption)
+        homeViewModel.getMostReviewPlace(selectedLocationOption)
     }
 
     override fun onDetach() {
