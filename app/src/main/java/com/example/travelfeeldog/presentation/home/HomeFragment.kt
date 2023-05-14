@@ -55,14 +55,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         requestRecommendPlace()
         setLocationOptionEvent()
 
-        binding.rvFavoriteLocationContainer.adapter = PopularPlaceAdapter().apply {
+        placeViewModel.isClickedPlaceItem.observe(viewLifecycleOwner, EventObserver { isClicked ->
+            if(isClicked) {
+                navigate(R.id.action_nav_home_to_locationDetailFragment)
+            }
+        })
+
+        binding.rvFavoriteLocationContainer.adapter = PopularPlaceAdapter(placeViewModel).apply {
             homeViewModel.popularPlace.observe(viewLifecycleOwner, EventObserver { popularPlace ->
                 Timber.d("인기 장소를 불러오는 데 성공했습니다 : $popularPlace")
                 submitList(popularPlace)
             })
         }
 
-        binding.rvReviewSortedContainer.adapter = MostReviewPlaceAdapter(colorList).apply {
+        binding.rvReviewSortedContainer.adapter = MostReviewPlaceAdapter(placeViewModel, colorList).apply {
             homeViewModel.mostReviewPlace.observe(viewLifecycleOwner, EventObserver { mostReviewPlace ->
                 Timber.d("리뷰 많은 장소를 불러오는 데 성공했습니다 : ${mostReviewPlace}")
                 submitList(mostReviewPlace)

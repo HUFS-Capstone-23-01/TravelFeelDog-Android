@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.travelfeeldog.data.model.place.PopularPlace
 import com.example.travelfeeldog.databinding.ItemHomeBestLocationBinding
+import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
 
-class PopularPlaceAdapter() :
+class PopularPlaceAdapter(private val placeViewModel: PlaceViewModel) :
     ListAdapter<PopularPlace, PopularPlaceAdapter.PopularPlaceViewHolder>(PopularPlaceDiffCallback()) {
 
 
@@ -25,6 +26,7 @@ class PopularPlaceAdapter() :
     inner class PopularPlaceViewHolder(private val binding: ItemHomeBestLocationBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindItems(placeInfo: PopularPlace) {
+            binding.viewModel = placeViewModel
             binding.placeInfo = placeInfo
             binding.executePendingBindings()
         }

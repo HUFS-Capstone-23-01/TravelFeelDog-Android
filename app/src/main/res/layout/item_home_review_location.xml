@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="viewModel"
+            type="com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel" />
+
+        <variable
             name="placeInfo"
             type="com.example.travelfeeldog.data.model.place.MostReviewPlace" />
 
@@ -18,6 +22,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.handleOnClickPlaceItem(placeInfo.id)}"
         android:padding="6dp">
 
         <com.google.android.material.imageview.ShapeableImageView
