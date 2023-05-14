@@ -7,6 +7,7 @@ import com.example.travelfeeldog.data.model.review.PlaceReviewResponse
 import com.example.travelfeeldog.data.model.review.PlaceUserEvaluationResultRequest
 import com.example.travelfeeldog.data.model.review.PlaceUserEvaluationResultResponse
 import com.example.travelfeeldog.data.model.review.file.PostReviewFileResponse
+import com.example.travelfeeldog.data.model.search.PlaceSearchResultResponse
 import com.example.travelfeeldog.data.repository.place.datasource.PlaceDataSource
 import okhttp3.MultipartBody
 
@@ -25,5 +26,9 @@ class PlaceRepositoryImpl(private val placeDataSource: PlaceDataSource): PlaceRe
 
     override suspend fun getMostReviewPlace(authToken: String, locationName: String): MostReviewResponse {
         return placeDataSource.getMostReviewPlace(authToken, locationName)
+    }
+
+    override suspend fun getSearchResult(authToken: String, keyword: String, categoryName: String, locationName: String): PlaceSearchResultResponse {
+        return placeDataSource.getSearchResult(authToken, keyword, categoryName, locationName)
     }
 }

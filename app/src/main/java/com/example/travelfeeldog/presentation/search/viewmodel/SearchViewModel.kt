@@ -1,0 +1,52 @@
+package com.example.travelfeeldog.presentation.search.viewmodel
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.travelfeeldog.data.model.search.SearchingPlaceInfo
+import com.example.travelfeeldog.data.repository.place.PlaceRepository
+import com.example.travelfeeldog.util.Event
+import com.example.travelfeeldog.util.UserInfo.getUserInfo
+import kotlinx.coroutines.launch
+import timber.log.Timber
+
+class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
+
+    private val _keyword: MutableLiveData<String> = MutableLiveData<String>()
+    val keyword: LiveData<String>
+        get() = _keyword
+
+    private val _categoryName: MutableLiveData<String> = MutableLiveData<String>()
+    val categoryName: LiveData<String>
+        get() = _categoryName
+
+    private val _locationName: MutableLiveData<String> = MutableLiveData<String>()
+    val locationName: LiveData<String>
+        get() = _locationName
+
+    private val _searchResult: MutableLiveData<Event<List<SearchingPlaceInfo>>> = MutableLiveData<Event<List<SearchingPlaceInfo>>>()
+    val searchResult: LiveData<Event<List<SearchingPlaceInfo>>>
+        get() = _searchResult
+
+
+    fun getSearchResult() {
+        viewModelScope.launch {
+            try {
+                val response = repository.getSearchResult(
+                    getUserInfo()!!.token,
+                    _keyword.value!!,
+                    _categoryName.value!!,
+                    locationName.value!!
+                )
+                if(response.header.status == 200) {
+                    _searchResult.value = Event(response.body)
+                } else {
+                    Timber.d("검색 결과를 불러오는 데 실패했습니다.")
+                }
+            } catch (e: Throwable) {
+                Timber.d(e)
+            }
+        }
+    }
+}
