@@ -28,59 +28,95 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <HorizontalScrollView
-            android:id="@+id/hsv_search_option_container"
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:id="@+id/div_option_section"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tl_option_location"
+            app:dividerColor="@color/gray4"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_option_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_search_bar"
+            app:tabIndicatorColor="@color/primary_color"
+            app:tabIndicatorFullWidth="true"
+            app:tabMode="scrollable"
+            app:tabRippleColor="@color/transparent"
+            app:tabSelectedTextAppearance="@style/Text_14_Bold.Black"
+            app:tabSelectedTextColor="@color/primary_color"
+            app:tabTextAppearance="@style/Text_14_Medium.Black">
+
+            <com.google.android.material.tabs.TabItem
+                style="@style/Text_14_Medium.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="서울" />
+
+            <com.google.android.material.tabs.TabItem
+                style="@style/Text_14_Medium.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="강원" />
+
+            <com.google.android.material.tabs.TabItem
+                style="@style/Text_14_Medium.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제주" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_search_category_group"
+            style="@style/Widget.Material3.Chip.Filter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_search_bar">
+            app:layout_constraintTop_toBottomOf="@id/tl_option_location"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
 
-            <LinearLayout
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_lodging"
+                style="@style/SearchOptionChipStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="#숙소"
+                app:chipCornerRadius="8dp"
+                tools:checked="true" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_option_location"
-                    style="@style/Text_12_Medium.Green"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:drawableEnd="@drawable/ic_search_option_gray"
-                    android:paddingStart="18dp"
-                    android:paddingEnd="20dp"
-                    android:stateListAnimator="@null"
-                    android:text="지역" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_walking"
+                style="@style/SearchOptionChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#산책"
+                app:chipCornerRadius="8dp" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_option_category"
-                    style="@style/Text_12_Medium.Green"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:drawableEnd="@drawable/ic_search_option_gray"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="14dp"
-                    android:stateListAnimator="@null"
-                    android:text="카테고리" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_cafe"
+                style="@style/SearchOptionChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#카페/음식"
+                app:chipCornerRadius="8dp" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_option_keyword"
-                    style="@style/Text_12_Medium.Green"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:drawableEnd="@drawable/ic_search_option_gray"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="18dp"
-                    android:stateListAnimator="@null"
-                    android:text="키워드" />
-
-            </LinearLayout>
-
-        </HorizontalScrollView>
+        </com.google.android.material.chip.ChipGroup>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_search_result_container"
@@ -91,7 +127,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hsv_search_option_container"
+            app:layout_constraintTop_toBottomOf="@id/cg_search_category_group"
             tools:listitem="@layout/item_search_result" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

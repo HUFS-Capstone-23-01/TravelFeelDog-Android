@@ -140,7 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="카페/음식점"
+                android:text="카페/음식"
                 app:layout_constraintEnd_toEndOf="@id/ib_home_category_cafe_food"
                 app:layout_constraintStart_toStartOf="@id/ib_home_category_cafe_food"
                 app:layout_constraintTop_toBottomOf="@id/ib_home_category_cafe_food" />
