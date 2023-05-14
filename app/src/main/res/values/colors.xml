@@ -36,4 +36,14 @@
     <color name="gray2.5">#ECECEC</color>
     <color name="gray3">#EEEEEE</color>
     <color name="gray4">#F6F6F6</color>
+
+    <!-- 리스트 아이템 배경에 사용할 컬러 리스트 -->
+    <color name="dark_purple">#9D4B68</color>
+    <color name="dark_green">#4B9D8E</color>
+    <color name="dark_red">#9D4B4B</color>
+    <color name="dark_navy">#4B6C9D</color>
+    <color name="dark_yellow">#957E2E</color>
+    <color name="dark_purple_wine">#683388</color>
+    <color name="dark_dark_yellow">#696A23</color>
+
 </resources>

@@ -29,6 +29,10 @@ class PlaceViewModel(private val repository: PlaceRepository) : ViewModel() {
     val placeReview: LiveData<Event<List<PlaceReview>>>
         get() = _placeReview
 
+    private val _isClickedPlaceItem: MutableLiveData<Event<Boolean>> = MutableLiveData<Event<Boolean>>()
+    val isClickedPlaceItem: LiveData<Event<Boolean>>
+        get() = _isClickedPlaceItem
+
 
     // -------------------- 서버 통신 --------------------
 
@@ -68,6 +72,11 @@ class PlaceViewModel(private val repository: PlaceRepository) : ViewModel() {
     // -------------------- 뷰 관련 로직 요청 처리 --------------------
 
     fun setRequestPlace(placeId: Int) {
+        _placeId.value = placeId
+    }
+
+    fun handleOnClickPlaceItem(placeId: Int) {
+        _isClickedPlaceItem.value = Event(true)
         _placeId.value = placeId
     }
 

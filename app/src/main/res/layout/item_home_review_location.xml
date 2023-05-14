@@ -3,16 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel" />
+
+        <variable
+            name="placeInfo"
+            type="com.example.travelfeeldog.data.model.place.MostReviewPlace" />
+
+        <variable
+            name="backgroundColor"
+            type="int" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:onClick="@{() -> viewModel.handleOnClickPlaceItem(placeInfo.id)}"
         android:padding="6dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/siv_location_most_review_top"
+            setImageUrl="@{placeInfo.thumbNailImageUrl}"
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="120dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +39,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="0dp"
             android:background="@color/black_gray_transparent"
             app:layout_constraintBottom_toBottomOf="@id/siv_location_most_review_top"
             app:layout_constraintEnd_toEndOf="@id/siv_location_most_review_top"
@@ -36,10 +53,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="18dp"
             android:layout_marginEnd="18dp"
             android:ellipsize="end"
             android:maxLines="1"
+            android:text="@{placeInfo.placeName}"
+            app:layout_constraintBottom_toTopOf="@id/tv_location_category"
             app:layout_constraintEnd_toEndOf="@id/siv_location_most_review_top"
             app:layout_constraintStart_toStartOf="@id/siv_location_most_review_top"
             app:layout_constraintTop_toTopOf="@id/siv_location_most_review_top"
@@ -47,16 +65,17 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_location_category"
-            style="@style/Text_10_Regular.Black"
+            style="@style/Text_12_Medium.Black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="8dp"
             android:background="@drawable/bg_transparent_white_circle"
             android:paddingStart="12dp"
-            android:paddingTop="2dp"
+            android:paddingTop="4dp"
             android:paddingEnd="12dp"
-            android:paddingBottom="2dp"
+            android:paddingBottom="4dp"
+            android:text="@{placeInfo.categoryName}"
+            app:layout_constraintBottom_toTopOf="@id/siv_location_most_review_bottom"
             app:layout_constraintStart_toStartOf="@id/siv_location_most_review_top"
             app:layout_constraintTop_toBottomOf="@id/tv_location_name_most_review"
             tools:text="숙소" />
@@ -64,9 +83,9 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/siv_location_most_review_bottom"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="230dp"
             android:layout_marginBottom="4dp"
-            android:background="@drawable/bg_gradient_red_pinkpurple"
+            android:background="@color/dark_green"
             android:elevation="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,6 +96,8 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_review_top"
             style="@style/Text_12_Medium.White"
+            reviewOrder="@{0}"
+            setManyReviewText="@{placeInfo.reviews}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
@@ -84,6 +105,7 @@
             android:layout_marginEnd="18dp"
             android:elevation="4dp"
             android:lineSpacingExtra="3dp"
+            android:maxLines="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/siv_location_most_review_top"
@@ -92,6 +114,8 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_reviewer_top"
             style="@style/Text_10_Regular.WeakGray"
+            nicknameOrder="@{0}"
+            setManyNicknameText="@{placeInfo.reviews}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -104,10 +128,12 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_review_middle"
             style="@style/Text_12_Medium.White"
+            reviewOrder="@{1}"
+            setManyReviewText="@{placeInfo.reviews}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="18dp"
             android:elevation="4dp"
             android:ellipsize="end"
@@ -121,6 +147,8 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_reviewer_middle"
             style="@style/Text_10_Regular.WeakGray"
+            nicknameOrder="@{1}"
+            setManyNicknameText="@{placeInfo.reviews}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -133,13 +161,16 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_review_bottom"
             style="@style/Text_12_Medium.White"
+            reviewOrder="@{2}"
+            setManyReviewText="@{placeInfo.reviews}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="18dp"
             android:elevation="4dp"
             android:lineSpacingExtra="3dp"
+            android:maxLines="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_reviewer_middle"
@@ -148,12 +179,13 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_reviewer_bottom"
             style="@style/Text_10_Regular.WeakGray"
+            nicknameOrder="@{2}"
+            setManyNicknameText="@{placeInfo.reviews}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="30dp"
             android:elevation="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/tv_review_bottom"
             app:layout_constraintStart_toStartOf="@id/tv_review_bottom"
             app:layout_constraintTop_toBottomOf="@id/tv_review_bottom"
