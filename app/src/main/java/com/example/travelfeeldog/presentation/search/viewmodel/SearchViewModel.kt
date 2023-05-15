@@ -13,9 +13,9 @@ import timber.log.Timber
 
 class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
 
-    private val _keyword: MutableLiveData<String> = MutableLiveData<String>()
-    val keyword: LiveData<String>
-        get() = _keyword
+    private val _userInput: MutableLiveData<String> = MutableLiveData<String>("")
+    val userInput: LiveData<String>
+        get() = _userInput
 
     private val _categoryName: MutableLiveData<String> = MutableLiveData<String>()
     val categoryName: LiveData<String>
@@ -29,13 +29,18 @@ class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
     val searchResult: LiveData<Event<List<SearchingPlaceInfo>>>
         get() = _searchResult
 
+    private val _isValidOptionSet: MutableLiveData<Event<Boolean>> = MutableLiveData<Event<Boolean>>()
+    val isValidOptionSet: LiveData<Event<Boolean>>
+        get() = _isValidOptionSet
+
 
     fun getSearchResult() {
         viewModelScope.launch {
+            Timber.d("검색어: ${_userInput.value} 지역: ${_locationName.value} 카테고리: ${_categoryName.value}")
             try {
                 val response = repository.getSearchResult(
                     getUserInfo()!!.token,
-                    _keyword.value!!,
+                    _userInput.value!!,
                     _categoryName.value!!,
                     locationName.value!!
                 )
@@ -48,5 +53,24 @@ class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
                 Timber.d(e)
             }
         }
+    }
+
+    fun setUserInput(text: String) {
+        _userInput.value = text
+        _isValidOptionSet.value = Event(true)
+    }
+    fun setCategoryName(category: String) {
+        _categoryName.value = category
+        _isValidOptionSet.value = Event(true)
+    }
+    fun setLocation(location: String) {
+        _locationName.value = location
+        _isValidOptionSet.value = Event(true)
+    }
+
+    fun initOption(userInput: String, location: String, category: String) {
+        _userInput.value = userInput
+        _categoryName.value = category
+        _locationName.value = location
     }
 }

@@ -10,7 +10,7 @@
         android:background="@color/white">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/tv_search_bar"
+            android:id="@+id/et_search_bar"
             style="@style/Text_14_Regular.Black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -22,6 +22,8 @@
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
             android:hint="@string/home_search_bar"
+            android:maxLines="1"
+            android:imeOptions="actionSearch"
             android:padding="12dp"
             android:textColorHint="@color/gray1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,13 +31,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/div_option_section"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:id="@+id/div_option_section"
-            app:layout_constraintStart_toStartOf="parent"
+            app:dividerColor="@color/gray4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tl_option_location"
-            app:dividerColor="@color/gray4"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tl_option_location" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tl_option_location"
@@ -46,7 +48,7 @@
             android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_search_bar"
+            app:layout_constraintTop_toBottomOf="@id/et_search_bar"
             app:tabIndicatorColor="@color/primary_color"
             app:tabIndicatorFullWidth="true"
             app:tabMode="scrollable"
@@ -96,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:contentDescription="숙소"
                 android:text="#숙소"
                 app:chipCornerRadius="8dp"
                 tools:checked="true" />
@@ -105,6 +108,7 @@
                 style="@style/SearchOptionChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="산책"
                 android:text="#산책"
                 app:chipCornerRadius="8dp" />
 
@@ -113,6 +117,7 @@
                 style="@style/SearchOptionChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="카페/음식"
                 android:text="#카페/음식"
                 app:chipCornerRadius="8dp" />
 

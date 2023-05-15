@@ -7,6 +7,11 @@ object Constants {
     const val nicknameMinLength = 2
     const val nicknameMaxLength = 16
 
-    // 홈 화면 기본 검색 지역
+    // 홈 화면
     const val defaultLocation = "서울"
+    const val clickedCategory = "clickedCategory"
+
+
+    // 검색 화면 기본 카테고리
+    const val defaultCategory = "숙소"
 }

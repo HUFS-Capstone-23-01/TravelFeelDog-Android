@@ -4,12 +4,14 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.viewpager2.widget.ViewPager2
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentHomeBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
 import com.example.travelfeeldog.presentation.common.CustomSnackBar
 import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
+import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigateWithBundle
 import com.example.travelfeeldog.presentation.common.navigation.OnRequestNavigateNotBottomViewListener
 import com.example.travelfeeldog.presentation.home.adapter.EventBannerAdapter
 import com.example.travelfeeldog.presentation.home.adapter.MostReviewPlaceAdapter
@@ -84,10 +86,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         // -------------------- 카테고리 선택 관리 --------------------
 
-        //TODO("장소 상세 페이지 테스트를 위해 임시적으로 제작한 코드 -> 추후 삭제")
         binding.ibHomeCategoryLodging.setOnClickListener {
-            placeViewModel.setRequestPlace(1)
-            navigate(R.id.action_nav_home_to_locationDetailFragment)
+            navigateWithBundle(R.id.action_homeFragment_to_searchFragment , bundleOf(
+                Constants.clickedCategory to binding.tvHomeCategoryLodgingText.text.toString()
+            ))
+        }
+
+        binding.ibHomeCategoryWalking.setOnClickListener {
+            navigateWithBundle(R.id.action_homeFragment_to_searchFragment, bundleOf(
+                Constants.clickedCategory to binding.tvHomeCategoryWalkingText.text.toString()
+            ))
+        }
+
+        binding.ibHomeCategoryCafeFood.setOnClickListener {
+            navigateWithBundle(R.id.action_homeFragment_to_searchFragment, bundleOf(
+                Constants.clickedCategory to binding.tvHomeCategoryCafeFood.text.toString()
+            ))
         }
     }
 
