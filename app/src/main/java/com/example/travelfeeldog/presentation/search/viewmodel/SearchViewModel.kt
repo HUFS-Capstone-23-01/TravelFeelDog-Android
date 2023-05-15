@@ -34,6 +34,10 @@ class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
     val isValidOptionSet: LiveData<Event<Boolean>>
         get() = _isValidOptionSet
 
+    private val _isHome: MutableLiveData<Event<Boolean>> = MutableLiveData<Event<Boolean>>()
+    val isHome: LiveData<Event<Boolean>>
+        get() = _isHome
+
 
     fun getSearchResult() {
         viewModelScope.launch {
@@ -73,5 +77,15 @@ class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
         _userInput.value = ""
         _categoryName.value = Constants.defaultCategory
         _locationName.value = Constants.defaultLocation
+        _isValidOptionSet.value = Event(true)
+        Timber.d("초기화 함 : ${_categoryName.value}")
+    }
+
+    fun isSame(category: String): Boolean {
+        return _categoryName.value == category
+    }
+
+    fun isRequestFromHome() {
+        _isHome.value = Event(true)
     }
 }

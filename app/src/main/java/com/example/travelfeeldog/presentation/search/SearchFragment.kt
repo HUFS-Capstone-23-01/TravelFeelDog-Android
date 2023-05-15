@@ -1,20 +1,18 @@
 package com.example.travelfeeldog.presentation.search
 
 import android.os.Bundle
+import android.text.InputType
 import android.view.KeyEvent
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.RadioGroup
+import android.widget.RadioGroup.OnCheckedChangeListener
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
-import androidx.core.view.children
-import androidx.navigation.fragment.navArgs
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentSearchBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
 import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
-import com.example.travelfeeldog.presentation.home.HomeFragmentDirections
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
 import com.example.travelfeeldog.presentation.search.adapter.PlaceSearchResultAdapter
 import com.example.travelfeeldog.presentation.search.viewmodel.SearchViewModel
@@ -35,17 +33,27 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        searchViewModel.getSearchResult()
 
         handleSelectedLocationOption()
-        handleCategoryOptionEvent()
         handleUserInput()
+
+        searchViewModel.isHome.observe(viewLifecycleOwner,EventObserver {
+            if(it) {
+                Timber.d("홈에서 왔음")
+            }
+        })
 
         searchViewModel.isValidOptionSet.observe(viewLifecycleOwner, EventObserver { isValidRequest ->
             if(isValidRequest) {
                 searchViewModel.getSearchResult()
             }
         })
+
+        searchViewModel.categoryName.observe(viewLifecycleOwner) {
+            Timber.d("카테고리 값 변경 ${it}")
+            initCheckedCategory()
+            handleCategoryOptionEvent()
+        }
 
         placeViewModel.isClickedPlaceItem.observe(viewLifecycleOwner, EventObserver { isRequested ->
             if(isRequested) {
@@ -96,6 +104,15 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         searchViewModel.setCategoryName(selectedCategoryOption)
     }
 
+    private fun initCheckedCategory() {
+        for(i in 0 until binding.cgSearchCategoryGroup.childCount) {
+            val childChip = binding.cgSearchCategoryGroup.getChildAt(i) as Chip
+            if(searchViewModel.isSame(childChip.contentDescription.toString())) {
+                childChip.isChecked = true
+            }
+        }
+    }
+
     // -------------------- 사용자 입력 값 관리 --------------------
 
     private fun handleUserInput() {
@@ -110,9 +127,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
                 }
                 return false
             }
-
         })
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         searchViewModel.initOption()

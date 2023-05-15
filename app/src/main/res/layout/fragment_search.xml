@@ -134,6 +134,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cg_search_category_group"
             tools:listitem="@layout/item_search_result" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

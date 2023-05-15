@@ -57,8 +57,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         )
 
         //TODO(API 요구사항 특성상, 요청시 지역 카테고리를 명시해야 하므로 임시적으로 숙소로 카테고리 지정 -> 추후 수정)
-        requestRecommendPlace()
-        setLocationOptionEvent()
+//        requestRecommendPlace()
+//        setLocationOptionEvent()
 
         placeViewModel.isClickedPlaceItem.observe(viewLifecycleOwner, EventObserver { isClicked ->
             if(isClicked) {
@@ -89,29 +89,26 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         // -------------------- 카테고리 선택 관리 --------------------
 
-        //TODO(프래그먼트 이동은 메인 액티비티에서 처리, 전달 값은 따로 생각해보기)
         binding.ibHomeCategoryLodging.setOnClickListener {
+            searchViewModel.isRequestFromHome()
             searchViewModel.setCategoryName(binding.tvHomeCategoryLodgingText.text.toString())
             navigateListener?.onRequestNavigate(R.id.nav_search)
-//            navigateWithBundle(R.id.action_homeFragment_to_searchFragment , bundleOf(
-//                Constants.clickedCategory to binding.tvHomeCategoryLodgingText.text.toString()
-//            ))
+
         }
 
         binding.ibHomeCategoryWalking.setOnClickListener {
+            searchViewModel.isRequestFromHome()
+
             searchViewModel.setCategoryName(binding.tvHomeCategoryWalkingText.text.toString())
             navigateListener?.onRequestNavigate(R.id.nav_search)
-//            navigateWithBundle(R.id.action_homeFragment_to_searchFragment, bundleOf(
-//                Constants.clickedCategory to binding.tvHomeCategoryWalkingText.text.toString()
-//            ))
+
         }
 
         binding.ibHomeCategoryCafeFood.setOnClickListener {
+            searchViewModel.isRequestFromHome()
+
             searchViewModel.setCategoryName(binding.tvHomeCategoryCafeFood.text.toString())
             navigateListener?.onRequestNavigate(R.id.nav_search)
-//            navigateWithBundle(R.id.action_homeFragment_to_searchFragment, bundleOf(
-//                Constants.clickedCategory to binding.tvHomeCategoryCafeFood.text.toString()
-//            ))
         }
     }
 
