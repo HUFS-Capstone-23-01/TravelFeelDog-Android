@@ -8,10 +8,15 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
+import androidx.core.view.children
+import androidx.navigation.fragment.navArgs
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentSearchBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
+import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
+import com.example.travelfeeldog.presentation.home.HomeFragmentDirections
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
+import com.example.travelfeeldog.presentation.search.adapter.PlaceSearchResultAdapter
 import com.example.travelfeeldog.presentation.search.viewmodel.SearchViewModel
 import com.example.travelfeeldog.util.Constants
 import com.example.travelfeeldog.util.EventObserver
@@ -26,15 +31,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     private val placeViewModel: PlaceViewModel by sharedViewModel()
     private val searchViewModel: SearchViewModel by sharedViewModel()
     private var selectedCategoryOption: String = Constants.defaultCategory
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bundle = arguments
-        if (bundle != null && bundle.containsKey(Constants.clickedCategory)) {
-            selectedCategoryOption = bundle.getString(Constants.clickedCategory) ?: Constants.defaultCategory
-        }
-
-        initSearchOption()
         searchViewModel.getSearchResult()
 
         handleSelectedLocationOption()
@@ -46,12 +46,18 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
                 searchViewModel.getSearchResult()
             }
         })
-    }
 
-    private fun initSearchOption() {
-        val location = binding.tlOptionLocation.getTabAt(binding.tlOptionLocation.selectedTabPosition)?.text.toString()
-        val category = selectedCategoryOption
-        searchViewModel.initOption("", location, category)
+        placeViewModel.isClickedPlaceItem.observe(viewLifecycleOwner, EventObserver { isRequested ->
+            if(isRequested) {
+                navigate(R.id.action_nav_search_to_locationDetailFragment)
+            }
+        })
+
+        binding.rvSearchResultContainer.adapter = PlaceSearchResultAdapter(placeViewModel).apply {
+            searchViewModel.searchResult.observe(viewLifecycleOwner, EventObserver { searchResult ->
+                submitList(searchResult)
+            })
+        }
     }
 
     // -------------------- 지역 옵션 관리 --------------------
@@ -78,7 +84,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         binding.cgSearchCategoryGroup.setOnCheckedStateChangeListener { group, _ ->
             val checkedChip = getCheckedChip(group.checkedChipId)
             initCategoryOption(checkedChip)
-            Timber.d("선택된 카테고리 옵션 : $selectedCategoryOption")
         }
     }
 
@@ -107,6 +112,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
             }
 
         })
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        searchViewModel.initOption()
     }
 
 }

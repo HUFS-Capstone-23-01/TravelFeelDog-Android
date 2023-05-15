@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.travelfeeldog.data.model.search.SearchingPlaceInfo
 import com.example.travelfeeldog.data.repository.place.PlaceRepository
+import com.example.travelfeeldog.util.Constants
 import com.example.travelfeeldog.util.Event
 import com.example.travelfeeldog.util.UserInfo.getUserInfo
 import kotlinx.coroutines.launch
@@ -17,11 +18,11 @@ class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
     val userInput: LiveData<String>
         get() = _userInput
 
-    private val _categoryName: MutableLiveData<String> = MutableLiveData<String>()
+    private val _categoryName: MutableLiveData<String> = MutableLiveData<String>(Constants.defaultCategory)
     val categoryName: LiveData<String>
         get() = _categoryName
 
-    private val _locationName: MutableLiveData<String> = MutableLiveData<String>()
+    private val _locationName: MutableLiveData<String> = MutableLiveData<String>(Constants.defaultLocation)
     val locationName: LiveData<String>
         get() = _locationName
 
@@ -68,9 +69,9 @@ class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
         _isValidOptionSet.value = Event(true)
     }
 
-    fun initOption(userInput: String, location: String, category: String) {
-        _userInput.value = userInput
-        _categoryName.value = category
-        _locationName.value = location
+    fun initOption() {
+        _userInput.value = ""
+        _categoryName.value = Constants.defaultCategory
+        _locationName.value = Constants.defaultLocation
     }
 }

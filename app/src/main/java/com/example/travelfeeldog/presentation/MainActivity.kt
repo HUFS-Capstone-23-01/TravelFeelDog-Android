@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.ActivityMainBinding
 import com.example.travelfeeldog.presentation.common.BaseActivity
 import com.example.travelfeeldog.presentation.common.navigation.OnRequestNavigateNotBottomViewListener
+import com.example.travelfeeldog.presentation.home.HomeFragmentDirections
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main),
     OnRequestNavigateNotBottomViewListener {

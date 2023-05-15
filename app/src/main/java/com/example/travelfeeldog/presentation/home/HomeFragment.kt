@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentHomeBinding
@@ -20,6 +21,7 @@ import com.example.travelfeeldog.presentation.home.item.EventBanner
 import com.example.travelfeeldog.presentation.home.item.EventBannerBody
 import com.example.travelfeeldog.presentation.home.viewmodel.HomeViewModel
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
+import com.example.travelfeeldog.presentation.search.viewmodel.SearchViewModel
 import com.example.travelfeeldog.util.Constants
 import com.example.travelfeeldog.util.EventObserver
 import com.google.android.material.chip.Chip
@@ -30,6 +32,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private val placeViewModel: PlaceViewModel by sharedViewModel()
     private val homeViewModel: HomeViewModel by sharedViewModel()
+    private val searchViewModel: SearchViewModel by sharedViewModel()
     private var navigateListener: OnRequestNavigateNotBottomViewListener? = null
     private var selectedLocationOption: String = Constants.defaultLocation
 
@@ -86,22 +89,29 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         // -------------------- 카테고리 선택 관리 --------------------
 
+        //TODO(프래그먼트 이동은 메인 액티비티에서 처리, 전달 값은 따로 생각해보기)
         binding.ibHomeCategoryLodging.setOnClickListener {
-            navigateWithBundle(R.id.action_homeFragment_to_searchFragment , bundleOf(
-                Constants.clickedCategory to binding.tvHomeCategoryLodgingText.text.toString()
-            ))
+            searchViewModel.setCategoryName(binding.tvHomeCategoryLodgingText.text.toString())
+            navigateListener?.onRequestNavigate(R.id.nav_search)
+//            navigateWithBundle(R.id.action_homeFragment_to_searchFragment , bundleOf(
+//                Constants.clickedCategory to binding.tvHomeCategoryLodgingText.text.toString()
+//            ))
         }
 
         binding.ibHomeCategoryWalking.setOnClickListener {
-            navigateWithBundle(R.id.action_homeFragment_to_searchFragment, bundleOf(
-                Constants.clickedCategory to binding.tvHomeCategoryWalkingText.text.toString()
-            ))
+            searchViewModel.setCategoryName(binding.tvHomeCategoryWalkingText.text.toString())
+            navigateListener?.onRequestNavigate(R.id.nav_search)
+//            navigateWithBundle(R.id.action_homeFragment_to_searchFragment, bundleOf(
+//                Constants.clickedCategory to binding.tvHomeCategoryWalkingText.text.toString()
+//            ))
         }
 
         binding.ibHomeCategoryCafeFood.setOnClickListener {
-            navigateWithBundle(R.id.action_homeFragment_to_searchFragment, bundleOf(
-                Constants.clickedCategory to binding.tvHomeCategoryCafeFood.text.toString()
-            ))
+            searchViewModel.setCategoryName(binding.tvHomeCategoryCafeFood.text.toString())
+            navigateListener?.onRequestNavigate(R.id.nav_search)
+//            navigateWithBundle(R.id.action_homeFragment_to_searchFragment, bundleOf(
+//                Constants.clickedCategory to binding.tvHomeCategoryCafeFood.text.toString()
+//            ))
         }
     }
 

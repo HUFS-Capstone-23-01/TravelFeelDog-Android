@@ -19,8 +19,10 @@ data class SearchingPlaceInfo(
     val id: Int,
     @SerializedName("likes")
     val likes: Int,
-    @SerializedName("name")
-    val name: String,
+    @SerializedName("placeName")
+    val placeName: String,
+    @SerializedName("categoryName")
+    val categoryName: String,
     @SerializedName("thumbNailImageUrl")
     val thumbNailImageUrl: String
 )

@@ -404,7 +404,7 @@
         <item name="chipStartPadding">1dp</item>
         <item name="android:textColor">@color/primary_color</item>
         <item name="checkedTextViewStyle">@color/primary_color</item>
-        <item name="android:textAppearance">@style/Text_8_Regular.Green</item>
+        <item name="android:textAppearance">@style/Text_10_Medium.Green</item>
     </style>
 
     <!-- 이미지 모서리 설정 -->
