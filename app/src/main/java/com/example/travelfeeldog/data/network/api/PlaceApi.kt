@@ -2,6 +2,7 @@ package com.example.travelfeeldog.data.network.api
 
 import com.example.travelfeeldog.data.model.place.GetPlaceInfoResponse
 import com.example.travelfeeldog.data.model.place.MostReviewResponse
+import com.example.travelfeeldog.data.model.place.PlaceKeywordStatisticsResponse
 import com.example.travelfeeldog.data.model.place.PopularPlaceResponse
 import com.example.travelfeeldog.data.model.review.PlaceReviewResponse
 import com.example.travelfeeldog.data.model.search.PlaceSearchResultResponse
@@ -41,5 +42,13 @@ interface PlaceApi {
         @Query("categoryName") categoryName: String,
         @Query("locationName") locationName: String
     ): PlaceSearchResultResponse
+
+    @GET("review-keyword/{placeId}")
+    suspend fun getPlaceKeywordStatistics(
+        @Header("Authorization") authToken: String,
+        @Path("placeId") placeId: Int,
+        @Query("keyWord") evaluation: String
+    ): PlaceKeywordStatisticsResponse
+
 
 }

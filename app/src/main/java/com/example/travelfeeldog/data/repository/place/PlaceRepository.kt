@@ -2,6 +2,7 @@ package com.example.travelfeeldog.data.repository.place
 
 import com.example.travelfeeldog.data.model.place.GetPlaceInfoResponse
 import com.example.travelfeeldog.data.model.place.MostReviewResponse
+import com.example.travelfeeldog.data.model.place.PlaceKeywordStatisticsResponse
 import com.example.travelfeeldog.data.model.place.PopularPlaceResponse
 import com.example.travelfeeldog.data.model.review.PlaceReviewResponse
 import com.example.travelfeeldog.data.model.review.PlaceUserEvaluationResultRequest
@@ -16,5 +17,7 @@ interface PlaceRepository {
     suspend fun getPopularPlace(authToken: String, categoryName: String, locationName: String): PopularPlaceResponse
     suspend fun getMostReviewPlace(authToken: String, locationName: String): MostReviewResponse
     suspend fun getSearchResult(authToken: String, keyword: String, categoryName: String, locationName: String): PlaceSearchResultResponse
+    suspend fun getPlaceKeywordStatistics(authToken: String, placeId: Int, evaluation: String): PlaceKeywordStatisticsResponse
+
 
 }

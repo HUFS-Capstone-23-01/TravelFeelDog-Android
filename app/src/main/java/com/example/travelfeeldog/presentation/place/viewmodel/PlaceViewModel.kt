@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.travelfeeldog.data.model.place.KeywordStatistics
 import com.example.travelfeeldog.data.model.place.PlaceInfo
 import com.example.travelfeeldog.data.model.review.PlaceReview
 import com.example.travelfeeldog.data.repository.place.PlaceRepository
@@ -32,6 +33,10 @@ class PlaceViewModel(private val repository: PlaceRepository) : ViewModel() {
     private val _isClickedPlaceItem: MutableLiveData<Event<Boolean>> = MutableLiveData<Event<Boolean>>()
     val isClickedPlaceItem: LiveData<Event<Boolean>>
         get() = _isClickedPlaceItem
+
+    private val _placeKeywordStatistics: MutableLiveData<Event<List<KeywordStatistics>>> = MutableLiveData<Event<List<KeywordStatistics>>>()
+    val placeKeywordStatistics: LiveData<Event<List<KeywordStatistics>>>
+        get() = _placeKeywordStatistics
 
 
     // -------------------- 서버 통신 --------------------
@@ -62,6 +67,19 @@ class PlaceViewModel(private val repository: PlaceRepository) : ViewModel() {
                     _placeReview.value = Event(response.body)
                 } else {
                     Timber.d("해당 장소에 대한 정보를 불러오는 데 실패했습니다 : status(${response.header.status})")
+                }
+            } catch (e: Throwable) {
+                Timber.d(e)
+            }
+        }
+    }
+
+    fun getPlaceKeywordStatistics(authToken: String, evaluation: String) {
+        viewModelScope.launch {
+            try {
+                val response = repository.getPlaceKeywordStatistics(authToken, _placeId.value!!, evaluation)
+                if(response.header.status == 200) {
+                    _placeKeywordStatistics.value = Event(response.body.keyWords)
                 }
             } catch (e: Throwable) {
                 Timber.d(e)
