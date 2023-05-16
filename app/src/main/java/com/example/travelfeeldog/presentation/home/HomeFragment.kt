@@ -4,12 +4,15 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentHomeBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
 import com.example.travelfeeldog.presentation.common.CustomSnackBar
 import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
+import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigateWithBundle
 import com.example.travelfeeldog.presentation.common.navigation.OnRequestNavigateNotBottomViewListener
 import com.example.travelfeeldog.presentation.home.adapter.EventBannerAdapter
 import com.example.travelfeeldog.presentation.home.adapter.MostReviewPlaceAdapter
@@ -18,6 +21,7 @@ import com.example.travelfeeldog.presentation.home.item.EventBanner
 import com.example.travelfeeldog.presentation.home.item.EventBannerBody
 import com.example.travelfeeldog.presentation.home.viewmodel.HomeViewModel
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
+import com.example.travelfeeldog.presentation.search.viewmodel.SearchViewModel
 import com.example.travelfeeldog.util.Constants
 import com.example.travelfeeldog.util.EventObserver
 import com.google.android.material.chip.Chip
@@ -28,6 +32,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private val placeViewModel: PlaceViewModel by sharedViewModel()
     private val homeViewModel: HomeViewModel by sharedViewModel()
+    private val searchViewModel: SearchViewModel by sharedViewModel()
     private var navigateListener: OnRequestNavigateNotBottomViewListener? = null
     private var selectedLocationOption: String = Constants.defaultLocation
 
@@ -52,8 +57,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         )
 
         //TODO(API 요구사항 특성상, 요청시 지역 카테고리를 명시해야 하므로 임시적으로 숙소로 카테고리 지정 -> 추후 수정)
-        requestRecommendPlace()
-        setLocationOptionEvent()
+//        requestRecommendPlace()
+//        setLocationOptionEvent()
 
         placeViewModel.isClickedPlaceItem.observe(viewLifecycleOwner, EventObserver { isClicked ->
             if(isClicked) {
@@ -84,10 +89,26 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         // -------------------- 카테고리 선택 관리 --------------------
 
-        //TODO("장소 상세 페이지 테스트를 위해 임시적으로 제작한 코드 -> 추후 삭제")
         binding.ibHomeCategoryLodging.setOnClickListener {
-            placeViewModel.setRequestPlace(1)
-            navigate(R.id.action_nav_home_to_locationDetailFragment)
+            searchViewModel.isRequestFromHome()
+            searchViewModel.setCategoryName(binding.tvHomeCategoryLodgingText.text.toString())
+            navigateListener?.onRequestNavigate(R.id.nav_search)
+
+        }
+
+        binding.ibHomeCategoryWalking.setOnClickListener {
+            searchViewModel.isRequestFromHome()
+
+            searchViewModel.setCategoryName(binding.tvHomeCategoryWalkingText.text.toString())
+            navigateListener?.onRequestNavigate(R.id.nav_search)
+
+        }
+
+        binding.ibHomeCategoryCafeFood.setOnClickListener {
+            searchViewModel.isRequestFromHome()
+
+            searchViewModel.setCategoryName(binding.tvHomeCategoryCafeFood.text.toString())
+            navigateListener?.onRequestNavigate(R.id.nav_search)
         }
     }
 

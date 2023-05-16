@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/nav_search" />
+            app:destination="@id/nav_search"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homeFragment_to_myPageFragment"
             app:destination="@id/nav_my_page" />
@@ -54,6 +56,11 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_nav_search_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_search"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment

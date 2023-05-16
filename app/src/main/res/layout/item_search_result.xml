@@ -3,6 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel" />
+
+        <variable
+            name="placeInfo"
+            type="com.example.travelfeeldog.data.model.search.SearchingPlaceInfo" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +27,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_white_radius"
-            android:padding="12dp"
+            android:onClick="@{() -> viewModel.handleOnClickPlaceItem(placeInfo.id)}"
+            android:paddingBottom="12dp"
+            android:layout_marginBottom="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +37,9 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/siv_search_location_image"
+                setImageUrl="@{placeInfo.thumbNailImageUrl}"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:layout_height="220dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -34,16 +49,17 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_location_category"
-                style="@style/Text_10_Regular.Black"
+                style="@style/Text_12_Medium.Black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="14dp"
                 android:background="@drawable/bg_transparent_white_circle"
                 android:paddingStart="14dp"
-                android:paddingTop="2dp"
+                android:paddingTop="4dp"
                 android:paddingEnd="14dp"
-                android:paddingBottom="2dp"
+                android:paddingBottom="4dp"
+                android:text="@{placeInfo.categoryName}"
                 app:layout_constraintStart_toStartOf="@id/siv_search_location_image"
                 app:layout_constraintTop_toTopOf="@id/siv_search_location_image"
                 tools:text="숙소" />
@@ -53,8 +69,10 @@
                 style="@style/Text_16_Bold.Black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:text="@{placeInfo.placeName}"
                 app:layout_constraintEnd_toStartOf="@id/iv_location_like"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/siv_search_location_image"
@@ -73,9 +91,11 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_location_like_count"
                 style="@style/Text_12_Regular.Green"
+                convertTextStringToInt="@{placeInfo.likes}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="14dp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_location_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_location_name"
@@ -86,7 +106,10 @@
                 style="@style/Text_12_Regular.Gray"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="14dp"
+                android:text="@{placeInfo.address}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_location_name"
@@ -97,10 +120,14 @@
                 style="@style/HashTagChipStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"
+                android:layout_marginEnd="18dp"
                 android:orientation="horizontal"
                 app:chipSpacingHorizontal="3dp"
                 app:chipSpacingVertical="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_location_location_info">

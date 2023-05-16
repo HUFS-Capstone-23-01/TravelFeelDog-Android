@@ -4,6 +4,7 @@ import com.example.travelfeeldog.data.model.place.GetPlaceInfoResponse
 import com.example.travelfeeldog.data.model.place.MostReviewResponse
 import com.example.travelfeeldog.data.model.place.PopularPlaceResponse
 import com.example.travelfeeldog.data.model.review.PlaceReviewResponse
+import com.example.travelfeeldog.data.model.search.PlaceSearchResultResponse
 import retrofit2.http.*
 
 interface PlaceApi {
@@ -32,5 +33,13 @@ interface PlaceApi {
         @Header("Authorization") authToken: String,
         @Query("locationName") locationName: String
     ): MostReviewResponse
+
+    @GET("place/search")
+    suspend fun getSearchResult(
+        @Header("Authorization") authToken: String,
+        @Query("keyWord") keyword: String,
+        @Query("categoryName") categoryName: String,
+        @Query("locationName") locationName: String
+    ): PlaceSearchResultResponse
 
 }
