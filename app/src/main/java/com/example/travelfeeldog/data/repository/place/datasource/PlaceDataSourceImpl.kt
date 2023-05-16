@@ -2,6 +2,7 @@ package com.example.travelfeeldog.data.repository.place.datasource
 
 import com.example.travelfeeldog.data.model.place.GetPlaceInfoResponse
 import com.example.travelfeeldog.data.model.place.MostReviewResponse
+import com.example.travelfeeldog.data.model.place.PlaceKeywordStatisticsResponse
 import com.example.travelfeeldog.data.model.place.PopularPlaceResponse
 import com.example.travelfeeldog.data.model.review.PlaceReviewResponse
 import com.example.travelfeeldog.data.model.review.PlaceUserEvaluationResultRequest
@@ -28,6 +29,10 @@ class PlaceDataSourceImpl(private val placeApi: PlaceApi): PlaceDataSource {
 
     override suspend fun getSearchResult(authToken: String, keyword: String, categoryName: String, locationName: String): PlaceSearchResultResponse {
         return placeApi.getSearchResult(authToken, keyword, categoryName, locationName)
+    }
+
+    override suspend fun getPlaceKeywordStatistics(authToken: String, placeId: Int, evaluation: String): PlaceKeywordStatisticsResponse {
+        return placeApi.getPlaceKeywordStatistics(authToken, placeId, evaluation)
     }
 
 }

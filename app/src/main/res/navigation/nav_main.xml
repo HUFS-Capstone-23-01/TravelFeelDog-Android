@@ -125,12 +125,22 @@
         android:id="@+id/positiveEvaluationFragment"
         android:name="com.example.travelfeeldog.presentation.place.PositiveEvaluationFragment"
         android:label="fragment_positive_evaluation"
-        tools:layout="@layout/fragment_positive_evaluation" />
+        tools:layout="@layout/fragment_positive_evaluation" >
+        <argument
+            android:name="evaluation"
+            app:argType="string"
+            android:defaultValue="GOOD" />
+    </fragment>
     <fragment
         android:id="@+id/negativeEvaluationFragment"
         android:name="com.example.travelfeeldog.presentation.place.NegativeEvaluationFragment"
         android:label="fragment_negative_evaluation"
-        tools:layout="@layout/fragment_negative_evaluation" />
+        tools:layout="@layout/fragment_negative_evaluation" >
+        <argument
+            android:name="evaluation"
+            android:defaultValue="BAD"
+            app:argType="string" />
+    </fragment>
     <activity
         android:id="@+id/signInActivity"
         android:name="com.example.travelfeeldog.presentation.signin.SignInActivity"

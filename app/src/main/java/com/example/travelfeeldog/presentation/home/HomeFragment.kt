@@ -57,8 +57,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         )
 
         //TODO(API 요구사항 특성상, 요청시 지역 카테고리를 명시해야 하므로 임시적으로 숙소로 카테고리 지정 -> 추후 수정)
-//        requestRecommendPlace()
-//        setLocationOptionEvent()
+        requestRecommendPlace()
+        setLocationOptionEvent()
 
         placeViewModel.isClickedPlaceItem.observe(viewLifecycleOwner, EventObserver { isClicked ->
             if(isClicked) {
