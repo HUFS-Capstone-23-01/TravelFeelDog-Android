@@ -18,10 +18,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.appbar.AppBarLayout
-                android:paddingStart="-18dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black">
+                android:background="@color/black"
+                android:paddingStart="-18dp">
 
                 <com.google.android.material.appbar.MaterialToolbar
                     android:layout_width="match_parent"
@@ -34,13 +34,23 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white">
 
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/ib_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/ic_arrow_back_left_black"
+                            android:background="@color/transparent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/et_search_bar"
                             style="@style/Text_14_Regular.Black"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="18dp"
-                            android:layout_marginTop="18dp"
+                            android:layout_marginStart="8dp"
                             android:layout_marginEnd="18dp"
                             android:background="@drawable/bg_box_solid_gray"
                             android:drawableStart="@drawable/ic_search"
@@ -52,9 +62,10 @@
                             android:maxLines="1"
                             android:padding="12dp"
                             android:textColorHint="@color/gray1"
+                            app:layout_constraintBottom_toBottomOf="@id/ib_back"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintStart_toEndOf="@id/ib_back"
+                            app:layout_constraintTop_toTopOf="@id/ib_back" />
 
                         <com.google.android.material.divider.MaterialDivider
                             android:id="@+id/div_option_section"
