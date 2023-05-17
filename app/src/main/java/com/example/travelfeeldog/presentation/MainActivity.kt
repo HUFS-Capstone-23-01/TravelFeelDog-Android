@@ -2,6 +2,7 @@ package com.example.travelfeeldog.presentation
 
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -33,7 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main),
         findNavController().addOnDestinationChangedListener { _, destination, _ ->
             binding.bnvMain.visibility =
                 when (destination.id) {
-                    R.id.nav_home, R.id.nav_search, R.id.nav_my_page -> View.VISIBLE
+                    R.id.nav_home, R.id.nav_my_page -> View.VISIBLE
                     else -> View.GONE
                 }
         }

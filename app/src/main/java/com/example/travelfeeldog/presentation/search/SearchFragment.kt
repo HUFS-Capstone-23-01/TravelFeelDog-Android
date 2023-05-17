@@ -13,6 +13,7 @@ import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentSearchBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
 import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigate
+import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigateUp
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
 import com.example.travelfeeldog.presentation.search.adapter.PlaceSearchResultAdapter
 import com.example.travelfeeldog.presentation.search.viewmodel.SearchViewModel
@@ -37,12 +38,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         handleSelectedLocationOption()
         handleUserInput()
 
-        searchViewModel.isHome.observe(viewLifecycleOwner,EventObserver {
-            if(it) {
-                Timber.d("홈에서 왔음")
-            }
-        })
-
         searchViewModel.isValidOptionSet.observe(viewLifecycleOwner, EventObserver { isValidRequest ->
             if(isValidRequest) {
                 searchViewModel.getSearchResult()
@@ -65,6 +60,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
             searchViewModel.searchResult.observe(viewLifecycleOwner, EventObserver { searchResult ->
                 submitList(searchResult)
             })
+        }
+
+        binding.ibBack.setOnClickListener {
+            navigateUp()
         }
     }
 

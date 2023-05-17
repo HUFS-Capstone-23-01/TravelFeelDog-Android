@@ -34,10 +34,6 @@ class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
     val isValidOptionSet: LiveData<Event<Boolean>>
         get() = _isValidOptionSet
 
-    private val _isHome: MutableLiveData<Event<Boolean>> = MutableLiveData<Event<Boolean>>()
-    val isHome: LiveData<Event<Boolean>>
-        get() = _isHome
-
 
     fun getSearchResult() {
         viewModelScope.launch {
@@ -85,7 +81,4 @@ class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
         return _categoryName.value == category
     }
 
-    fun isRequestFromHome() {
-        _isHome.value = Event(true)
-    }
 }

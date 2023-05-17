@@ -62,6 +62,7 @@ class PlaceViewModel(private val repository: PlaceRepository) : ViewModel() {
     fun getPlaceReview(authToken: String) {
         viewModelScope.launch {
             try {
+                Timber.d("리뷰 요청 placeId : ${_placeId.value}")
                 val response = repository.getPlaceReview(authToken, _placeId.value!!)
                 if(response.header.status == 200) {
                     _placeReview.value = Event(response.body)

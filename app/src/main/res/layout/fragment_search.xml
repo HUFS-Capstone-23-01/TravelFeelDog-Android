@@ -9,132 +9,173 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_search_bar"
-            style="@style/Text_14_Regular.Black"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="18dp"
-            android:background="@drawable/bg_box_solid_gray"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical"
-            android:hint="@string/home_search_bar"
-            android:maxLines="1"
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColorHint="@color/gray1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/div_option_section"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            app:dividerColor="@color/gray4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tl_option_location" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tl_option_location"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_search_bar"
-            app:tabIndicatorColor="@color/primary_color"
-            app:tabIndicatorFullWidth="true"
-            app:tabMode="scrollable"
-            app:tabRippleColor="@color/transparent"
-            app:tabSelectedTextAppearance="@style/Text_14_Bold.Black"
-            app:tabSelectedTextColor="@color/primary_color"
-            app:tabTextAppearance="@style/Text_14_Medium.Black">
-
-            <com.google.android.material.tabs.TabItem
-                style="@style/Text_14_Medium.Black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="서울" />
-
-            <com.google.android.material.tabs.TabItem
-                style="@style/Text_14_Medium.Black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="강원" />
-
-            <com.google.android.material.tabs.TabItem
-                style="@style/Text_14_Medium.Black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="제주" />
-
-        </com.google.android.material.tabs.TabLayout>
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/cg_search_category_group"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tl_option_location"
-            app:selectionRequired="true"
-            app:singleLine="true"
-            app:singleSelection="true">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/c_lodging"
-                style="@style/SearchOptionChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:contentDescription="숙소"
-                android:text="#숙소"
-                app:chipCornerRadius="8dp"
-                tools:checked="true" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/c_walking"
-                style="@style/SearchOptionChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="산책"
-                android:text="#산책"
-                app:chipCornerRadius="8dp" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/c_cafe"
-                style="@style/SearchOptionChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="카페/식당"
-                android:text="#카페/식당"
-                app:chipCornerRadius="8dp" />
-
-        </com.google.android.material.chip.ChipGroup>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_search_result_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cg_search_category_group"
-            tools:listitem="@layout/item_search_result" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:paddingStart="-18dp">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollEffect="compress"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/ib_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/ic_arrow_back_left_black"
+                            android:background="@color/transparent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_search_bar"
+                            style="@style/Text_14_Regular.Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="18dp"
+                            android:background="@drawable/bg_box_solid_gray"
+                            android:drawableStart="@drawable/ic_search"
+                            android:drawablePadding="10dp"
+                            android:gravity="center_vertical"
+                            android:hint="@string/home_search_bar"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:padding="12dp"
+                            android:textColorHint="@color/gray1"
+                            app:layout_constraintBottom_toBottomOf="@id/ib_back"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/ib_back"
+                            app:layout_constraintTop_toTopOf="@id/ib_back" />
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/div_option_section"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            app:dividerColor="@color/gray4"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tl_option_location" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tl_option_location"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/et_search_bar"
+                            app:tabIndicatorColor="@color/primary_color"
+                            app:tabIndicatorFullWidth="true"
+                            app:tabMode="scrollable"
+                            app:tabRippleColor="@color/transparent"
+                            app:tabSelectedTextAppearance="@style/Text_14_Bold.Black"
+                            app:tabSelectedTextColor="@color/primary_color"
+                            app:tabTextAppearance="@style/Text_14_Medium.Black">
+
+                            <com.google.android.material.tabs.TabItem
+                                style="@style/Text_14_Medium.Black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="서울" />
+
+                            <com.google.android.material.tabs.TabItem
+                                style="@style/Text_14_Medium.Black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="강원" />
+
+                            <com.google.android.material.tabs.TabItem
+                                style="@style/Text_14_Medium.Black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="제주" />
+
+                        </com.google.android.material.tabs.TabLayout>
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/cg_search_category_group"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="18dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tl_option_location"
+                            app:selectionRequired="true"
+                            app:singleLine="true"
+                            app:singleSelection="true">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/c_lodging"
+                                style="@style/SearchOptionChipStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:contentDescription="숙소"
+                                android:text="#숙소"
+                                app:chipCornerRadius="8dp"
+                                tools:checked="true" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/c_walking"
+                                style="@style/SearchOptionChipStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:contentDescription="산책"
+                                android:text="#산책"
+                                app:chipCornerRadius="8dp" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/c_cafe"
+                                style="@style/SearchOptionChipStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:contentDescription="카페/식당"
+                                android:text="#카페/식당"
+                                app:chipCornerRadius="8dp" />
+
+                        </com.google.android.material.chip.ChipGroup>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.appbar.MaterialToolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_search_result_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:listitem="@layout/item_search_result" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
