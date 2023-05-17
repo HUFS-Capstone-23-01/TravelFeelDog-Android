@@ -38,12 +38,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         handleSelectedLocationOption()
         handleUserInput()
 
-        searchViewModel.isHome.observe(viewLifecycleOwner,EventObserver {
-            if(it) {
-                Timber.d("홈에서 왔음")
-            }
-        })
-
         searchViewModel.isValidOptionSet.observe(viewLifecycleOwner, EventObserver { isValidRequest ->
             if(isValidRequest) {
                 searchViewModel.getSearchResult()

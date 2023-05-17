@@ -134,7 +134,6 @@
                                 style="@style/SearchOptionChipStyle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:checked="true"
                                 android:contentDescription="숙소"
                                 android:text="#숙소"
                                 app:chipCornerRadius="8dp"

@@ -2,7 +2,9 @@ package com.example.travelfeeldog.presentation.home
 
 import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
@@ -43,8 +45,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        searchViewModel.setCategoryName(Constants.defaultCategory)
+
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         val colorList: MutableList<Int> = mutableListOf(
             resources.getColor(R.color.dark_purple, null),
@@ -56,7 +70,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             resources.getColor(R.color.dark_dark_yellow, null)
         )
 
-        //TODO(API 요구사항 특성상, 요청시 지역 카테고리를 명시해야 하므로 임시적으로 숙소로 카테고리 지정 -> 추후 수정)
         requestRecommendPlace()
         setLocationOptionEvent()
 
@@ -90,23 +103,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         // -------------------- 카테고리 선택 관리 --------------------
 
         binding.ibHomeCategoryLodging.setOnClickListener {
-            searchViewModel.isRequestFromHome()
             searchViewModel.setCategoryName(binding.tvHomeCategoryLodgingText.text.toString())
             navigateListener?.onRequestNavigate(R.id.nav_search)
 
         }
 
         binding.ibHomeCategoryWalking.setOnClickListener {
-            searchViewModel.isRequestFromHome()
-
             searchViewModel.setCategoryName(binding.tvHomeCategoryWalkingText.text.toString())
             navigateListener?.onRequestNavigate(R.id.nav_search)
 
         }
 
         binding.ibHomeCategoryCafeFood.setOnClickListener {
-            searchViewModel.isRequestFromHome()
-
             searchViewModel.setCategoryName(binding.tvHomeCategoryCafeFood.text.toString())
             navigateListener?.onRequestNavigate(R.id.nav_search)
         }
