@@ -30,6 +30,7 @@ class PlaceDetailFragment :
             requireActivity(),
             R.color.transparent
         )
+
         placeViewModel.getPlaceInfo(UserInfo.getUserInfo()!!.token)
 
         placeViewModel.placeInfo.observe(viewLifecycleOwner) { placeInfo ->
