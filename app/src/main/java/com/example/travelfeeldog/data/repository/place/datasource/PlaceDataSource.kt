@@ -13,7 +13,7 @@ import okhttp3.MultipartBody
 
 interface PlaceDataSource {
     suspend fun getPlaceInfo(authToken: String, placeId: Int): GetPlaceInfoResponse
-    suspend fun getPlaceReview(authToken: String, placeId: Int): PlaceReviewResponse
+    suspend fun getPlaceReview(authToken: String, placeId: Int, requestKeyword: String): PlaceReviewResponse
     suspend fun getPopularPlace(authToken: String, categoryName: String, locationName: String): PopularPlaceResponse
     suspend fun getMostReviewPlace(authToken: String, locationName: String): MostReviewResponse
     suspend fun getSearchResult(authToken: String, keyword: String, categoryName: String, locationName: String): PlaceSearchResultResponse

@@ -17,8 +17,8 @@ class PlaceRepositoryImpl(private val placeDataSource: PlaceDataSource): PlaceRe
     override suspend fun getPlaceInfo(authToken: String, placeId: Int): GetPlaceInfoResponse {
         return placeDataSource.getPlaceInfo(authToken, placeId)
     }
-    override suspend fun getPlaceReview(authToken: String, placeId: Int): PlaceReviewResponse {
-        return placeDataSource.getPlaceReview(authToken, placeId)
+    override suspend fun getPlaceReview(authToken: String, placeId: Int, requestKeyword: String): PlaceReviewResponse {
+        return placeDataSource.getPlaceReview(authToken, placeId, requestKeyword)
     }
     override suspend fun getPopularPlace(authToken: String, categoryName: String, locationName: String): PopularPlaceResponse {
         return placeDataSource.getPopularPlace(authToken, categoryName, locationName)

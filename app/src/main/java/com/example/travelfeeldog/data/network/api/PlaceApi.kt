@@ -16,10 +16,11 @@ interface PlaceApi {
         @Path("placeId") placeId: Int
     ): GetPlaceInfoResponse
 
-    @GET("review/places/{placeId}")
+    @GET("review/place/{placeId}")
     suspend fun getPlaceReview(
         @Header("Authorization") authToken: String,
-        @Path("placeId") placeId: Int
+        @Path("placeId") placeId: Int,
+        @Query("request") requestKeyword: String
     ): PlaceReviewResponse
 
     @GET("place/recommend")

@@ -17,8 +17,8 @@ class PlaceDataSourceImpl(private val placeApi: PlaceApi): PlaceDataSource {
     override suspend fun getPlaceInfo(authToken: String, placeId: Int): GetPlaceInfoResponse {
         return placeApi.getPlaceInfo(authToken, placeId)
     }
-    override suspend fun getPlaceReview(authToken: String, placeId: Int): PlaceReviewResponse {
-        return placeApi.getPlaceReview(authToken, placeId)
+    override suspend fun getPlaceReview(authToken: String, placeId: Int, requestKeyword: String): PlaceReviewResponse {
+        return placeApi.getPlaceReview(authToken, placeId, requestKeyword)
     }
     override suspend fun getPopularPlace(authToken: String, categoryName: String, locationName: String): PopularPlaceResponse {
         return placeApi.getPopularPlace(authToken, categoryName, locationName)

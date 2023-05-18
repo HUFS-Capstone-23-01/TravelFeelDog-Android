@@ -11,7 +11,9 @@ object Constants {
     const val defaultLocation = "서울"
     const val clickedCategory = "clickedCategory"
 
-
     // 검색 화면 기본 카테고리
     const val defaultCategory = "숙소"
+
+    // 리뷰 정렬 기본 옵션
+    const val defaultReviewSortingOption = "TIME"
 }
