@@ -13,6 +13,7 @@ import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.n
 import com.example.travelfeeldog.presentation.mypage.adapter.MyReviewAdapter
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
 import com.example.travelfeeldog.presentation.review.adapter.PlaceReviewAdapter
+import com.example.travelfeeldog.util.Constants
 import com.example.travelfeeldog.util.EventObserver
 import com.example.travelfeeldog.util.UserInfo
 import com.google.android.material.chip.Chip
@@ -26,7 +27,7 @@ class ReviewFragment : BaseFragment<FragmentReviewBinding>(R.layout.fragment_rev
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        placeViewModel.getPlaceReview(UserInfo.getUserInfo()!!.token)
+        placeViewModel.getPlaceReview(UserInfo.getUserInfo()!!.token, Constants.defaultReviewSortingOption)
 
         binding.rvReviewContainer.adapter = PlaceReviewAdapter(placeViewModel).apply {
             placeViewModel.placeReview.observe(viewLifecycleOwner, EventObserver { reviewList ->
@@ -39,11 +40,16 @@ class ReviewFragment : BaseFragment<FragmentReviewBinding>(R.layout.fragment_rev
             navigateUp()
         }
 
+        handleReviewSortingOption()
+    }
+
+    private fun handleReviewSortingOption() {
         binding.cgOptionContainer.setOnCheckedStateChangeListener { group, checkedIds ->
             val checkedId = group.checkedChipId
             val checkedChip = requireActivity().findViewById<Chip>(checkedId)
-            val checkedOption = checkedChip.text.toString()
-            Timber.d("선택된 검색 옵션 : $checkedOption")
+            val requestKeyword = checkedChip.contentDescription.toString()
+            placeViewModel.getPlaceReview(UserInfo.getUserInfo()!!.token, requestKeyword)
+            Timber.d("선택된 정렬 옵션으로 데이터를 업데이트합니다 : $requestKeyword")
         }
     }
 

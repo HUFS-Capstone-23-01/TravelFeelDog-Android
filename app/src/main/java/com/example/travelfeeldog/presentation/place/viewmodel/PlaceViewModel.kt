@@ -59,11 +59,11 @@ class PlaceViewModel(private val repository: PlaceRepository) : ViewModel() {
         }
     }
 
-    fun getPlaceReview(authToken: String) {
+    fun getPlaceReview(authToken: String, requestKeyword: String) {
         viewModelScope.launch {
             try {
                 Timber.d("리뷰 요청 placeId : ${_placeId.value}")
-                val response = repository.getPlaceReview(authToken, _placeId.value!!)
+                val response = repository.getPlaceReview(authToken, _placeId.value!!, requestKeyword)
                 if(response.header.status == 200) {
                     _placeReview.value = Event(response.body)
                 } else {
@@ -89,10 +89,6 @@ class PlaceViewModel(private val repository: PlaceRepository) : ViewModel() {
     }
 
     // -------------------- 뷰 관련 로직 요청 처리 --------------------
-
-    fun setRequestPlace(placeId: Int) {
-        _placeId.value = placeId
-    }
 
     fun handleOnClickPlaceItem(placeId: Int) {
         _isClickedPlaceItem.value = Event(true)
