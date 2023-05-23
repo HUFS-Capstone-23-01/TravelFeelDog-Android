@@ -6,6 +6,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentNegativeEvaluationBinding
 import com.example.travelfeeldog.presentation.common.BaseFragment
+import com.example.travelfeeldog.presentation.common.navigation.NavigationUtil.navigateUp
 import com.example.travelfeeldog.presentation.place.adapter.PlaceKeywordStatisticsAdapter
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
 import com.example.travelfeeldog.util.EventObserver
@@ -25,6 +26,10 @@ class NegativeEvaluationFragment : BaseFragment<FragmentNegativeEvaluationBindin
             placeViewModel.placeKeywordStatistics.observe(viewLifecycleOwner, EventObserver { keywordStatistics ->
                 submitList(keywordStatistics)
             })
+        }
+
+        binding.ibPageClose.setOnClickListener {
+            navigateUp()
         }
     }
 
