@@ -40,8 +40,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="18dp"
                             android:layout_marginTop="18dp"
-                            android:src="@drawable/ic_arrow_back_left_black"
                             android:background="@color/transparent"
+                            android:src="@drawable/ic_arrow_back_left_black"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -169,6 +169,7 @@
                 android:id="@+id/rv_search_result_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/gray4"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
