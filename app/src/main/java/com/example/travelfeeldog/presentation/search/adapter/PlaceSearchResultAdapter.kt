@@ -19,14 +19,14 @@ class PlaceSearchResultAdapter(private val placeViewModel: PlaceViewModel):
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemSearchResultBinding.inflate(layoutInflater, parent, false)
         val hashTag: Chip = layoutInflater.inflate(R.layout.item_custom_chip_hashtag, binding.cgHashtagContainer, false) as Chip
-        return PlaceSearchResultViewHolder(binding,hashTag)
+        return PlaceSearchResultViewHolder(binding, layoutInflater)
     }
 
     override fun onBindViewHolder(holder: PlaceSearchResultViewHolder, position: Int) {
         holder.bindItems(getItem(position))
     }
 
-    inner class PlaceSearchResultViewHolder(private val binding: ItemSearchResultBinding, private val hashTag: Chip) :
+    inner class PlaceSearchResultViewHolder(private val binding: ItemSearchResultBinding, private val layoutInflater: LayoutInflater) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindItems(placeInfo: SearchingPlaceInfo) {
             binding.viewModel = placeViewModel
@@ -37,9 +37,9 @@ class PlaceSearchResultAdapter(private val placeViewModel: PlaceViewModel):
         }
 
         private fun setHashTagChip(keywords: List<String>) {
+            binding.cgHashtagContainer.removeAllViews()
             for (keyword in keywords) {
-                val chip = hashTag
-                binding.cgHashtagContainer.removeAllViews()
+                val chip: Chip = layoutInflater.inflate(R.layout.item_custom_chip_hashtag, binding.cgHashtagContainer, false) as Chip
                 binding.cgHashtagContainer.addView(chip.apply {
                     text = "#${keyword}"
                     isCheckable = false

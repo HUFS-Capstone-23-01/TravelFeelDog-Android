@@ -47,6 +47,7 @@ class SearchViewModel(private val repository: PlaceRepository) : ViewModel() {
                 )
                 if(response.header.status == 200) {
                     _searchResult.value = Event(response.body)
+                    Timber.d("검색 결과를 불러왔습니다 : ${response.body}")
                 } else {
                     Timber.d("검색 결과를 불러오는 데 실패했습니다.")
                 }
