@@ -227,7 +227,7 @@
                                     android:drawableTop="@drawable/ic_loc_cat_dog_gray0"
                                     android:drawablePadding="6dp"
                                     android:text="대형견"
-                                    android:visibility="invisible"
+                                    android:visibility="gone"
                                     tools:text="대형견" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
