@@ -297,6 +297,10 @@
         <item name="android:textColor">@color/gray2</item>
     </style>
 
+    <style name="Text_13_Regular.Gray1" parent="Text_13_Regular">
+        <item name="android:textColor">@color/gray1</item>
+    </style>
+
     <style name="Text_12_Regular.Black" parent="Text_12_Regular">
         <item name="android:textColor">@color/black</item>
     </style>
