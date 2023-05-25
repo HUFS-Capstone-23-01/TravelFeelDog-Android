@@ -392,12 +392,12 @@
     </style>
 
     <style name="PositiveKeywordChipStyle" parent="CustomChipStyle">
-        <item name="android:textAppearance">@style/Text_14_Medium</item>
+        <item name="android:textAppearance">@style/Text_12_Medium</item>
     </style>
 
     <style name="NegativeKeywordChipStyle" parent="CustomChipStyle">
         <item name="chipBackgroundColor">@color/selector_chip_color_negative</item>
-        <item name="android:textAppearance">@style/Text_14_Medium</item>
+        <item name="android:textAppearance">@style/Text_12_Medium</item>
     </style>
 
     <style name="HashTagChipStyle" parent="Widget.MaterialComponents.Chip.Filter">

@@ -72,6 +72,7 @@ class PostReviewViewModel(private val repository: PostReviewRepository): ViewMod
                 val response = repository.getPlaceKeyword(categoryId)
                 if(response.header.status == 200) {
                     _placeReviewKeywordSet.value = Event(response.body)
+                    Timber.d("키워드 셋을 불러왔습니다 : ${response.body}")
                 } else {
                     Timber.d("키워드 셋을 불러오는 데 실패했습니다.")
                 }
