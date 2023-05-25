@@ -43,13 +43,9 @@ class PlaceMapFragment : BaseFragment<FragmentPlaceMapBinding>(R.layout.fragment
     }
 
     private fun getLatLng(): LatLng {
-//        return LatLng(
-//            placeViewModel.placeInfo.value!!.latitude,
-//            placeViewModel.placeInfo.value!!.longitude
-//        )
         return LatLng(
-            37.521953,
-            127.0479764
+            placeViewModel.placeInfo.value!!.latitude,
+            placeViewModel.placeInfo.value!!.longitude
         )
     }
 
