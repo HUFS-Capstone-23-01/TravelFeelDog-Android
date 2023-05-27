@@ -5,9 +5,10 @@
     tools:context=".presentation.home.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
-        android:background="@color/white"
+        android:id="@+id/nsv_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -43,8 +44,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_home_search_bar_hint"
-                app:singleLine="true"
                 app:selectionRequired="true"
+                app:singleLine="true"
                 app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
@@ -52,8 +53,8 @@
                     style="@style/CustomChipStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="서울"
                     android:checked="true"
+                    android:text="서울"
                     app:chipCornerRadius="8dp" />
 
                 <com.google.android.material.chip.Chip
@@ -205,27 +206,110 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_title_favorite_location"
                 tools:listitem="@layout/item_home_best_location" />
 
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/div_section_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="30dp"
+                app:dividerColor="@color/gray4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_favorite_location_container" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_search_bot_banner"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/bg_gradient_purple_pink"
+                android:elevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/div_section_bottom">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_banner_image_cover"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@drawable/img_circle_white_shadow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/img_bot_cat"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_banner_image_cover"
+                    app:layout_constraintEnd_toEndOf="@id/iv_banner_image_cover"
+                    app:layout_constraintStart_toStartOf="@id/iv_banner_image_cover"
+                    app:layout_constraintTop_toTopOf="@id/iv_banner_image_cover" />
+
+                <LinearLayout
+                    android:id="@+id/ll_banner_text_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_banner_image_cover"
+                    app:layout_constraintEnd_toStartOf="@id/iv_banner_entering_icon"
+                    app:layout_constraintStart_toEndOf="@id/iv_banner_image_cover"
+                    app:layout_constraintTop_toTopOf="@id/iv_banner_image_cover">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Text_12_Medium.White"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="GPT 봇을 이용해 검색하세요" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Text_18_Bold.White"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="무엇이든 물어보개냥" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_banner_entering_icon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title_review_sorted"
                 style="@style/Text_22_Bold.Black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="18dp"
                 android:text="리뷰가 많은 여행지는?"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_favorite_location_container" />
+                app:layout_constraintTop_toBottomOf="@id/cl_search_bot_banner" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_review_sorted_container"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="6dp"
                 android:layout_marginBottom="14dp"
-                android:orientation="horizontal"
+                android:background="@color/gray4"
+                android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -10,7 +10,7 @@ import com.example.travelfeeldog.databinding.ItemHomeBestLocationBinding
 import com.example.travelfeeldog.databinding.ItemHomeReviewLocationBinding
 import com.example.travelfeeldog.presentation.place.viewmodel.PlaceViewModel
 
-class MostReviewPlaceAdapter(private val placeViewModel: PlaceViewModel, private val colorList: MutableList<Int>) :
+class MostReviewPlaceAdapter(private val placeViewModel: PlaceViewModel) :
     ListAdapter<MostReviewPlace, MostReviewPlaceAdapter.MostReviewPlaceViewHolder>(MostReviewPlaceDiffCallback()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MostReviewPlaceViewHolder {
@@ -29,7 +29,6 @@ class MostReviewPlaceAdapter(private val placeViewModel: PlaceViewModel, private
         fun bindItems(placeInfo: MostReviewPlace, position: Int) {
             binding.viewModel = placeViewModel
             binding.placeInfo = placeInfo
-            binding.sivLocationMostReviewBottom.setBackgroundColor(colorList[position])
             binding.executePendingBindings()
         }
     }

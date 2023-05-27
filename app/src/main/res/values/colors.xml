@@ -46,4 +46,8 @@
     <color name="dark_purple_wine">#683388</color>
     <color name="dark_dark_yellow">#696A23</color>
 
+    <!-- 청록 계열 -->
+    <color name="sky_mint">#E0F8F1</color>
+    <color name="mint">#54C7A9</color>
+
 </resources>
