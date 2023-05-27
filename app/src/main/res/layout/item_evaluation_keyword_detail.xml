@@ -32,7 +32,7 @@
             app:layout_constraintEnd_toStartOf="@id/tv_stats"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text='"냉난방이 잘돼요 잘돼요 잘돼요 잘돼요 잘돼요 잘돼요 잘돼요"' />
+            tools:text='"냉난방이 잘돼요"' />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_stats"

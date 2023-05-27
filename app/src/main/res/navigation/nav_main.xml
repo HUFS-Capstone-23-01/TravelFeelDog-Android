@@ -110,6 +110,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_locationDetailFragment_to_placeMapFragment"
+            app:destination="@id/placeMapFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/placeReviewFragment"
@@ -145,5 +152,10 @@
         android:id="@+id/signInActivity"
         android:name="com.example.travelfeeldog.presentation.signin.SignInActivity"
         android:label="SignInActivity" />
+    <fragment
+        android:id="@+id/placeMapFragment"
+        android:name="com.example.travelfeeldog.presentation.place.PlaceMapFragment"
+        android:label="fragment_place_map"
+        tools:layout="@layout/fragment_place_map" />
 
 </navigation>

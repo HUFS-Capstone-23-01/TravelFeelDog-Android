@@ -67,8 +67,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_first_qa__title"
-                    app:singleLine="true"
                     app:selectionRequired="true"
+                    app:singleLine="true"
                     app:singleSelection="true">
 
                     <com.google.android.material.chip.Chip
@@ -78,8 +78,8 @@
                         android:layout_height="wrap_content"
                         android:contentDescription="GOOD"
                         android:text="추천"
-                        app:chipMinHeight="40dp"
                         app:chipCornerRadius="8dp"
+                        app:chipMinHeight="40dp"
                         app:chipStrokeColor="@color/gray2" />
 
                     <com.google.android.material.chip.Chip
@@ -90,8 +90,8 @@
                         android:checked="true"
                         android:contentDescription="IDK"
                         android:text="보통"
-                        app:chipMinHeight="40dp"
-                        app:chipCornerRadius="8dp" />
+                        app:chipCornerRadius="8dp"
+                        app:chipMinHeight="40dp" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/c_dislike"
@@ -100,8 +100,8 @@
                         android:layout_height="wrap_content"
                         android:contentDescription="BAD"
                         android:text="비추천"
-                        app:chipMinHeight="40dp"
-                        app:chipCornerRadius="8dp" />
+                        app:chipCornerRadius="8dp"
+                        app:chipMinHeight="40dp" />
 
                 </com.google.android.material.chip.ChipGroup>
 
@@ -254,6 +254,7 @@
                     android:layout_marginStart="18dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="18dp"
+                    android:scrollbars="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_fourth_qa_title" />

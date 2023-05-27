@@ -8,6 +8,7 @@ import android.view.View.OnClickListener
 import android.view.WindowManager
 import androidx.appcompat.app.ActionBar
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.FragmentLocationDetailBinding
@@ -53,6 +54,19 @@ class PlaceDetailFragment :
             navigate(R.id.action_locationDetailFragment_to_reviewFragment)
         }
 
+        binding.tvLocationLocationInfo.setOnClickListener {
+            navigate(R.id.action_locationDetailFragment_to_placeMapFragment)
+        }
+
         binding.tbTopMenu.setNavigationOnClickListener { navigateUp() }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+
+        requireActivity().window.statusBarColor = ContextCompat.getColor(
+            requireActivity(),
+            R.color.white
+        )
     }
 }

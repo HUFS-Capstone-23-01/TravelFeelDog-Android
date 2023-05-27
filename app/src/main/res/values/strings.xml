@@ -40,4 +40,6 @@
     <string name="logout_message">로그인 페이지로 이동합니다.</string>
     <string name="logout_decline">취소</string>
     <string name="logout_accept">확인</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

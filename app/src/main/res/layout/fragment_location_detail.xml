@@ -527,7 +527,7 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_like_statics_description"
-                            style="@style/Text_13_Regular.Gray"
+                            style="@style/Text_13_Regular.Gray1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -588,7 +588,7 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_bad_statics_description"
-                            style="@style/Text_13_Regular.Gray"
+                            style="@style/Text_13_Regular.Gray1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -635,7 +635,7 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_dog_statics_description"
-                            style="@style/Text_12_Regular.Gray"
+                            style="@style/Text_13_Regular.Gray1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
@@ -820,7 +820,7 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_check_visit_description"
-                            style="@style/Text_13_Regular.Gray"
+                            style="@style/Text_13_Regular.Gray1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"

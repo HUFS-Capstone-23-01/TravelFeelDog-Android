@@ -6,11 +6,13 @@ import com.example.travelfeeldog.di.networkModule
 import com.example.travelfeeldog.di.repositoryModule
 import com.example.travelfeeldog.di.viewModelModule
 import com.google.firebase.FirebaseApp
-import org.koin.android.ext.koin.androidContext
+import com.naver.maps.map.BuildConfig
+import com.naver.maps.map.NaverMapSdk
 import org.koin.core.context.startKoin
+import com.example.travelfeeldog.BuildConfig.NAVER_MAPS_CLIENT_ID
 import timber.log.Timber
 
-class AppApplication: Application() {
+class AppApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
@@ -20,14 +22,20 @@ class AppApplication: Application() {
 
         setUpFirebaseApp()
         setUpTimber()
-
+        setUpMaps()
     }
 
-    private fun setUpFirebaseApp(){
+    private fun setUpFirebaseApp() {
         FirebaseApp.initializeApp(this)
     }
 
-    private fun setUpTimber(){
+    private fun setUpTimber() {
         Timber.plant(Timber.DebugTree())
+    }
+
+    private fun setUpMaps() {
+        NaverMapSdk.getInstance(this).client = NaverMapSdk.NaverCloudPlatformClient(
+            NAVER_MAPS_CLIENT_ID
+        )
     }
 }
