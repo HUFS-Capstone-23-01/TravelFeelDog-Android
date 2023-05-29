@@ -59,17 +59,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        val colorList: MutableList<Int> = mutableListOf(
-            resources.getColor(R.color.dark_purple, null),
-            resources.getColor(R.color.dark_green, null),
-            resources.getColor(R.color.dark_red, null),
-            resources.getColor(R.color.dark_navy, null),
-            resources.getColor(R.color.dark_yellow, null),
-            resources.getColor(R.color.dark_purple_wine, null),
-            resources.getColor(R.color.dark_dark_yellow, null)
-        )
-
         requestRecommendPlace()
         setLocationOptionEvent()
 
@@ -86,7 +75,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             })
         }
 
-        binding.rvReviewSortedContainer.adapter = MostReviewPlaceAdapter(placeViewModel, colorList).apply {
+        binding.rvReviewSortedContainer.adapter = MostReviewPlaceAdapter(placeViewModel).apply {
             homeViewModel.mostReviewPlace.observe(viewLifecycleOwner, EventObserver { mostReviewPlace ->
                 Timber.d("리뷰 많은 장소를 불러오는 데 성공했습니다 : ${mostReviewPlace}")
                 submitList(mostReviewPlace)
