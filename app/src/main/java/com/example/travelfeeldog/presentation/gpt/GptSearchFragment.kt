@@ -38,6 +38,7 @@ class GptSearchFragment : BaseFragment<FragmentGptSearchBinding>(R.layout.fragme
                 UserInfo.addGptHistory(ItemGptSearch(UserInfo.getGptHistoryList().size, binding.etUserInput.text.toString(), ""))
                 submitList(UserInfo.getGptHistoryList())
                 binding.etUserInput.setText("")
+                WindowUtil.hideKeyboard(requireActivity())
             })
         }
 
@@ -63,7 +64,6 @@ class GptSearchFragment : BaseFragment<FragmentGptSearchBinding>(R.layout.fragme
 
     override fun onDetach() {
         super.onDetach()
-
         WindowUtil.setWindow(requireActivity(), R.color.white, R.color.white)
     }
 
