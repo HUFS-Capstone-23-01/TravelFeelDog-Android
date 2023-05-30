@@ -28,7 +28,7 @@ class GptSearchFragment : BaseFragment<FragmentGptSearchBinding>(R.layout.fragme
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        WindowUtil.setWindow(requireActivity(), R.color.test_color, R.color.white)
+        WindowUtil.setWindow(requireActivity(), R.color.light_blue, R.color.white)
         handleRequestSearchResult()
 
         binding.rvTextArea.adapter = GptResponseAdapter().apply {

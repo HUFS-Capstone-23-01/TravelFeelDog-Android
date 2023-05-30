@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/test_color"
+        android:background="@color/light_blue"
         android:padding="20dp">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -53,6 +53,7 @@
             app:layout_constraintTop_toTopOf="@id/tv_response"
             app:layout_constraintBottom_toBottomOf="@id/tv_response"
             app:lottie_autoPlay="true"
+            android:layout_marginStart="10dp"
             app:lottie_colorFilter="@color/blue_purple"
             app:lottie_fileName="gpt_loading.json"
             app:lottie_loop="true" />

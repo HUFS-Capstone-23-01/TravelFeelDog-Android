@@ -16,7 +16,7 @@
             android:id="@+id/rv_text_area"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/test_color"
+            android:background="@color/light_blue"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/cl_input_area"
