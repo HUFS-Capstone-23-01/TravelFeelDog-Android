@@ -1,12 +1,9 @@
 package com.example.travelfeeldog.presentation.search
 
 import android.os.Bundle
-import android.text.InputType
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.RadioGroup
-import android.widget.RadioGroup.OnCheckedChangeListener
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import com.example.travelfeeldog.R
@@ -33,7 +30,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         handleSelectedLocationOption()
         handleUserInput()

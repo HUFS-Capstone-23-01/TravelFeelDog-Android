@@ -1,14 +1,17 @@
 package com.example.travelfeeldog.presentation
 
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.travelfeeldog.R
 import com.example.travelfeeldog.databinding.ActivityMainBinding
 import com.example.travelfeeldog.presentation.common.BaseActivity
+import com.example.travelfeeldog.presentation.common.WindowUtil
 import com.example.travelfeeldog.presentation.common.navigation.OnRequestNavigateNotBottomViewListener
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main),
@@ -43,4 +46,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main),
     override fun onRequestNavigate(itemId: Int) {
         binding.bnvMain.selectedItemId = itemId
     }
+
 }

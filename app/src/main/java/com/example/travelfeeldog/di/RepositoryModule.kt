@@ -1,5 +1,7 @@
 package com.example.travelfeeldog.di
 
+import com.example.travelfeeldog.data.repository.gpt.GptSearchRepository
+import com.example.travelfeeldog.data.repository.gpt.GptSearchRepositoryImpl
 import com.example.travelfeeldog.data.repository.mypage.MyPageRepository
 import com.example.travelfeeldog.data.repository.mypage.MyPageRepositoryImpl
 import com.example.travelfeeldog.data.repository.place.PlaceRepository
@@ -18,4 +20,5 @@ val repositoryModule = module {
     single<UserRepository> { UserRepositoryImpl(get()) }
     single<PlaceRepository> { PlaceRepositoryImpl(get()) }
     single<PostReviewRepository> { PostReviewRepositoryImpl(get()) }
+    single<GptSearchRepository> { GptSearchRepositoryImpl(get()) }
 }

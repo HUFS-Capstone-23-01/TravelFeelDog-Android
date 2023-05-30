@@ -11,6 +11,6 @@ object LoadingUtil {
     }
     fun cancelTaskProgressAnimation(loadingView: LottieAnimationView) {
         loadingView.cancelAnimation()
-        loadingView.visibility = View.INVISIBLE
+        loadingView.visibility = View.GONE
     }
 }

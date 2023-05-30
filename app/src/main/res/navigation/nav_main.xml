@@ -25,6 +25,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_nav_home_to_gptSearchFragment"
+            app:destination="@id/gptSearchFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -157,5 +164,10 @@
         android:name="com.example.travelfeeldog.presentation.place.PlaceMapFragment"
         android:label="fragment_place_map"
         tools:layout="@layout/fragment_place_map" />
+    <fragment
+        android:id="@+id/gptSearchFragment"
+        android:name="com.example.travelfeeldog.presentation.gpt.GptSearchFragment"
+        android:label="fragment_gpt_search"
+        tools:layout="@layout/fragment_gpt_search" />
 
 </navigation>
