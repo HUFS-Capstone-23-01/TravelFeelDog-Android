@@ -89,6 +89,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             navigateListener?.onRequestNavigate(R.id.nav_search)
         }
 
+        binding.clSearchBotBanner.setOnClickListener {
+            navigate(R.id.action_nav_home_to_gptSearchFragment)
+        }
+
         // -------------------- 카테고리 선택 관리 --------------------
 
         binding.ibHomeCategoryLodging.setOnClickListener {

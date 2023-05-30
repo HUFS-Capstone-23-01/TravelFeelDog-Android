@@ -26,6 +26,8 @@
     <color name="emo_purple">#AA6BDC</color>
     <color name="primary_color_weak">#3394E0AC</color>
 
+    <color name="test_color">#F4F6FC</color>
+
     <color name="black_transparent">#B3545454</color>
     <color name="black_gray_transparent">#80545454</color>
     <color name="black_gray_weak_transparent">#33545454</color>

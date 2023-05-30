@@ -1,5 +1,7 @@
 package com.example.travelfeeldog.di
 
+import com.example.travelfeeldog.data.repository.gpt.datasource.GptSearchDataSource
+import com.example.travelfeeldog.data.repository.gpt.datasource.GptSearchDataSourceImpl
 import com.example.travelfeeldog.data.repository.mypage.datasource.MyPageDataSource
 import com.example.travelfeeldog.data.repository.mypage.datasource.MyPageDataSourceImpl
 import com.example.travelfeeldog.data.repository.place.datasource.PlaceDataSource
@@ -18,4 +20,5 @@ val dataSourceModule = module {
     single<UserDataSource> { UserDataSourceImpl(get()) }
     single<PlaceDataSource> { PlaceDataSourceImpl(get()) }
     single<PostReviewDataSource> { PostReviewDataSourceImpl(get()) }
+    single<GptSearchDataSource> { GptSearchDataSourceImpl(get()) }
 }

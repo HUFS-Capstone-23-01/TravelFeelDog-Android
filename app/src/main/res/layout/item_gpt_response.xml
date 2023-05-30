@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/test_color"
+        android:padding="20dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_person"
+            app:layout_constraintBottom_toBottomOf="@id/tv_request"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_request" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_request"
+            style="@style/Text_14_Regular.Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:lineSpacingExtra="4dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_response"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_user"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="서울에 갈만한 여행지 추천해줘" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_response"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_box_white"
+            android:lineSpacingExtra="4dp"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_request"
+            tools:text="@string/dummy_text_multi_line" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lav_response_loading"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="@id/tv_response"
+            app:layout_constraintTop_toTopOf="@id/tv_response"
+            app:layout_constraintBottom_toBottomOf="@id/tv_response"
+            app:lottie_autoPlay="true"
+            app:lottie_colorFilter="@color/blue_purple"
+            app:lottie_fileName="gpt_loading.json"
+            app:lottie_loop="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

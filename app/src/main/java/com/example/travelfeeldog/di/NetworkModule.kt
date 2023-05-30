@@ -10,10 +10,14 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 val networkModule = module {
     single {
         OkHttpClient.Builder()
+            .connectTimeout(100, TimeUnit.SECONDS)
+            .readTimeout(100, TimeUnit.SECONDS)
+            .writeTimeout(100, TimeUnit.SECONDS)
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS))
             .addNetworkInterceptor(NetworkInterceptor())
             .addInterceptor(Interceptor { chain ->
@@ -50,5 +54,9 @@ val networkModule = module {
 
     single<ReviewApi> {
         get<Retrofit>().create(ReviewApi::class.java)
+    }
+
+    single<GptApi> {
+        get<Retrofit>().create(GptApi::class.java)
     }
 }
